@@ -1,10 +1,20 @@
 /* fonts */
 @import url("https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700,900&display=swap");
+@import url("https://api.fontshare.com/v2/css?f[]=integral-cf@400,500,700&display=swap");
+
 @import "tailwindcss";
 
 @theme {
   --font-Satoshi: "Satoshi", sans-serif;
+  --font-IntegralCF: "Integral CF", sans-serif;
 
   --color-black: #000000;
   --color-white: #ffffff;
+  --color-bg-muted: #f0f0f0;
+}
+
+@layer components {
+  .navigation-links {
+    @apply cursor-pointer text-base font-normal capitalize;
+  }
 }

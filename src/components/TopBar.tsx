@@ -1,4 +1,4 @@
-//I
+//Icons;
 import { X } from "lucide-react";
 
 export default function TopBar() {
