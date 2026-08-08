@@ -2,72 +2,93 @@
 import Container from "./Container";
 
 // Images;
-import hero from "@/assets/hero.png";
-import smallVector from "@/assets/smallVector.png";
-import bigVectore from "@/assets/bigVector.png";
+import laptapHeroImage from "@/assets/laptap-hero-imagee.png";
+import mobileHeroImage from "@/assets/mobile-hero-image.png";
+import smallStar from "@/assets/small-star.png";
+import bigStar from "@/assets/big-star.png";
 
 export default function Hero() {
   return (
     <section className="bg-bg-muted">
       <Container>
-        <div className="relative h-full">
+        <div className="relative mt-10 grid h-full grid-cols-1 md:grid-cols-2">
           {/* Content */}
-          <div className="absolute top-20 z-50 w-1/2">
+          <div>
             <div>
-              <h1 className="font-Inter text-[60px] leading-14 tracking-wide">
-                FIND CLOTHES <br /> THAT MATCHES <br /> YOUR STYLE
+              <h1 className="lg:font-Inter font-IntegralCF text-[36px] leading-8 font-extrabold lg:text-[60px] lg:leading-14 lg:tracking-wide">
+                FIND CLOTHES THAT MATCHES YOUR STYLE
               </h1>
-              <p className="font-Satoshi mt-8 text-base leading-5 tracking-wide text-black/60">
+              <p className="font-Satoshi mt-5 text-base leading-5 tracking-wide text-black/60 lg:mt-8">
                 Browse through our diverse range of meticulously crafted
                 garments, designed <br /> to bring out your individuality and
                 cater to your sense of style.
               </p>
-              <button className="font-Satoshi mt-8 w-52 cursor-pointer rounded-full bg-black py-3.5 text-base text-white hover:bg-black/90 focus:ring-2 focus:ring-white">
+              <button className="font-Satoshi mt-8 w-full cursor-pointer rounded-full bg-black py-3.5 text-base text-white hover:bg-black/90 focus:ring-2 focus:ring-white lg:w-52">
                 shop now
               </button>
             </div>
 
             {/* Stats */}
-            <div className="font-Satoshi mt-12 flex items-center divide-x divide-black/10">
-              <article className="pr-8 leading-9">
-                <p className="text-[40px] font-bold text-black">200+</p>
-                <span className="text-base text-black/60">
+            <div className="font-Satoshi mt-12 flex flex-wrap items-center justify-center space-y-2 divide-black/10 md:flex xl:divide-x">
+              <article className="xs:pl-18 w-1/2 border-r border-r-black/10 pl-3 leading-8 md:pl-0 lg:pl-8 xl:w-1/3">
+                <p className="text-4xl font-bold text-black sm:text-2xl lg:text-4xl">
+                  200+
+                </p>
+                <span className="text-sm text-nowrap text-black/60 md:text-base">
                   International Brands
                 </span>
               </article>
 
-              <article className="px-8 leading-9">
-                <p className="text-[40px] font-bold text-black">2,000+</p>
-                <span className="text-base text-black/60">
+              <article className="xs:pl-18 w-1/2 pl-6 leading-8 md:pl-8 lg:pl-8 xl:w-1/3">
+                <p className="text-4xl font-bold text-black sm:text-2xl lg:text-4xl">
+                  2,000+
+                </p>
+                <span className="text-sm text-nowrap text-black/60 md:text-base">
                   High-Quality Products
                 </span>
               </article>
 
-              <article className="pl-8 leading-9">
-                <p className="text-[40px] font-bold text-black">30,000+</p>
-                <span className="text-base text-black/60">Happy Customers</span>
+              <article className="xs:pl-18 w-1/2 pl-3 leading-8 md:pl-0 lg:pl-8 xl:w-1/3">
+                <p className="text-4xl font-bold text-black sm:text-2xl lg:text-4xl">
+                  30,000+
+                </p>
+                <span className="text-sm text-nowrap text-black/60 md:text-base">
+                  Happy Customers
+                </span>
               </article>
             </div>
           </div>
 
-          {/* Hero */}
-          <div className="relative">
+          {/* Hero Images */}
+          <div className="relative h-112 md:h-120">
+            {/* Laptap Hero Image */}
             <img
-              src={hero}
+              src={laptapHeroImage}
               alt="Fashion models wearing modern clothes"
-              className="h-full w-full object-contain"
+              className="hidden h-full w-full object-bottom-right md:block"
               loading="lazy"
             />
+
+            {/* Mobile Hero Image*/}
             <img
-              src={smallVector}
+              src={mobileHeroImage}
+              alt=""
+              className="h-full w-full object-contain md:hidden"
+            />
+
+            {/* Small Star */}
+            <img
+              src={smallStar}
               alt="small vector around hero image"
-              className="absolute top-1/2 right-[42%] -translate-y-1/2"
+              className="absolute top-38 left-4"
               loading="lazy"
             />
+
+            {/* Big Star */}
             <img
-              src={bigVectore}
+              src={bigStar}
               alt="big vector around hero image"
-              className="absolute top-20 right-0"
+              className="absolute top-8 right-0"
               loading="lazy"
             />
           </div>

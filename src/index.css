@@ -13,6 +13,8 @@
   --color-black: #000000;
   --color-white: #ffffff;
   --color-bg-muted: #f0f0f0;
+
+  --breakpoint-xs: 31rem;
 }
 
 @layer components {
