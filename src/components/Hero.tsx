@@ -11,11 +11,11 @@ export default function Hero() {
   return (
     <section className="bg-bg-muted">
       <Container>
-        <div className="relative mt-10 grid h-full grid-cols-1 md:grid-cols-2">
+        <div className="relative grid h-full grid-cols-1 py-8 md:grid-cols-2">
           {/* Content */}
           <div>
             <div>
-              <h1 className="lg:font-Inter font-IntegralCF text-[36px] leading-8 font-extrabold lg:text-[60px] lg:leading-14 lg:tracking-wide">
+              <h1 className="lg:font-Inter font-IntegralCF text-[36px] leading-8 font-extrabold md:font-medium lg:text-[60px] lg:leading-14 lg:tracking-wide">
                 FIND CLOTHES THAT MATCHES YOUR STYLE
               </h1>
               <p className="font-Satoshi mt-5 text-base leading-5 tracking-wide text-black/60 lg:mt-8">
