@@ -22,3 +22,13 @@
     @apply cursor-pointer text-base font-normal capitalize;
   }
 }
+
+@layer utilities {
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
