@@ -1,51 +1,51 @@
 // Components;
-import ProductCard from "./ProductCard";
+import { Container } from "@/shared/components";
+import ProductCard from "@/shared/components/ProductCard";
 
 // Static Images;
-import pic5 from "@/assets/pic5.png";
-import pic6 from "@/assets/pic6.png";
-import pic7 from "@/assets/pic7.png";
-import pic8 from "@/assets/pic8.png";
-import Container from "./Container";
+import pic1 from "@images/home/pic1.png";
+import pic2 from "@images/home/pic2.png";
+import pic3 from "@images/home/pic3.png";
+import pic4 from "@images/home/pic4.png";
 
 // Static Data;
 const products = [
   {
     id: 1,
-    image: pic5,
-    name: "Vertical Striped Shirt",
+    image: pic1,
+    name: "T-shirt with Tape Details",
     rating: 4.5,
     price: 29,
   },
   {
     id: 2,
-    image: pic6,
-    name: "Courage Graphic T-shirt",
+    image: pic2,
+    name: "Skinny Fit Jeans",
     rating: 4.2,
     price: 45,
   },
   {
     id: 3,
-    image: pic7,
-    name: "Loose Fit Bermuda Shorts",
+    image: pic3,
+    name: "Checkerd Shirt",
     rating: 4.8,
     price: 79,
   },
   {
     id: 4,
-    image: pic8,
-    name: "Faded Skiny Jneas",
+    image: pic4,
+    name: "Sleeve Striped T-shirt",
     rating: 4.6,
     price: 65,
   },
 ];
 
-export default function TopSellingList() {
+export default function NewArrivalsList() {
   return (
     <Container>
       <section className="py-10 sm:py-16">
         <h1 className="font-IntegralCF mb-2 text-center text-[28px] font-extrabold sm:text-[40px]">
-          TOP SELLING
+          NEW ARRIVALS
         </h1>
 
         <div className="hide-scrollbar flex items-center justify-between gap-3 overflow-x-auto py-4">
@@ -57,6 +57,7 @@ export default function TopSellingList() {
           Veiw All
         </button>
       </section>
+      <hr className="border border-black/5" />
     </Container>
   );
 }

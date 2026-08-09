@@ -10,7 +10,7 @@ type ProductCardProps = {
   item: product;
 };
 
-import ratingStart from "@/assets/rating-start.png";
+import ratingStart from "@images/home/rating-start.png";
 
 export default function ProductCard({ item }: ProductCardProps) {
   return (

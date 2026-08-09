@@ -1,10 +1,12 @@
+// Components;
+import { Container } from "@/shared/components";
+
 // Logos
-import calvinKlein from "@/assets/images/brand-logos/calvin-klein-logo.svg";
-import gucci from "@/assets/images/brand-logos/gucci-logo.svg";
-import prada from "@/assets/images/brand-logos/prada-logo.svg";
-import versace from "@/assets/images/brand-logos/versace-logo.svg";
-import zara from "@/assets/images/brand-logos/zara-logo.svg";
-import Container from "./Container";
+import calvinKlein from "@images/home/brand-logos/calvin-klein-logo.svg";
+import gucci from "@images/home/brand-logos/gucci-logo.svg";
+import prada from "@images/home/brand-logos/prada-logo.svg";
+import versace from "@images/home/brand-logos/versace-logo.svg";
+import zara from "@images/home/brand-logos/zara-logo.svg";
 
 export default function BrandLogos() {
   return (

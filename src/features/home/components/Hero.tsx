@@ -1,11 +1,11 @@
 // Components;
-import Container from "./Container";
+import { Container } from "@/shared/components";
 
 // Images;
-import laptapHeroImage from "@/assets/laptap-hero-imagee.png";
-import mobileHeroImage from "@/assets/mobile-hero-image.png";
-import smallStar from "@/assets/small-star.png";
-import bigStar from "@/assets/big-star.png";
+import laptapHeroImage from "@images/home/laptap-hero-imagee.png";
+import mobileHeroImage from "@images/home/mobile-hero-image.png";
+import smallStar from "@images/home/small-star.png";
+import bigStar from "@images/home/big-star.png";
 
 export default function Hero() {
   return (

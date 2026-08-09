@@ -1,11 +1,11 @@
 // Components;
-import Container from "./Container";
+import { Container } from "@/shared/components";
 
 // Icons;
 import { ArrowRight } from "lucide-react";
 
 // Static Images;
-import ratingStar from "@/assets/rating-start.png";
+import ratingStar from "@images/home/rating-start.png";
 
 export default function HappyCustomers() {
   return (

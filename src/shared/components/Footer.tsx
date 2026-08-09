@@ -1,15 +1,20 @@
-import shopCo from "@/assets/SHOP.CO.png";
+// Components;
 import Container from "./Container";
-import twitter from "@/assets/images/social-logos/xTwitter.svg";
-import facebook from "@/assets/images/social-logos/facebook.svg";
-import instagram from "@/assets/images/social-logos/instagram.svg";
-import github from "@/assets/images/social-logos/github.svg";
 
-import applePay from "@/assets/images/badges/applePay.svg";
-import googlePay from "@/assets/images/badges/googlePay.svg";
-import masterCard from "@/assets/images/badges/mastercard.svg";
-import paypal from "@/assets/images/badges/paypal.svg";
-import visa from "@/assets/images/badges/Visa.svg";
+// Images;
+import shopCo from "@images/home/SHOP.CO.png";
+import twitter from "@images/home/social-logos/xTwitter.svg";
+import facebook from "@images/home/social-logos/facebook.svg";
+import instagram from "@images/home/social-logos/instagram.svg";
+import github from "@images/home/social-logos/github.svg";
+
+import applePay from "@images/home/badges/applePay.svg";
+import googlePay from "@images/home/badges/googlePay.svg";
+import masterCard from "@images/home/badges/mastercard.svg";
+import paypal from "@images/home/badges/paypal.svg";
+import visa from "@images/home/badges/Visa.svg";
+
+// Icons;
 import { Mail } from "lucide-react";
 
 export default function Footer() {

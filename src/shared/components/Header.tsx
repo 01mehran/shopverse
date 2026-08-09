@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 // Images;
-import shopLogo from "@/assets/SHOP.CO.png";
+import shopLogo from "@images/home/SHOP.CO.png";
 
 export default function Header() {
   return (
