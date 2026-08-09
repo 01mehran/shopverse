@@ -10,12 +10,35 @@ import googlePay from "@/assets/images/badges/googlePay.svg";
 import masterCard from "@/assets/images/badges/mastercard.svg";
 import paypal from "@/assets/images/badges/paypal.svg";
 import visa from "@/assets/images/badges/Visa.svg";
+import { Mail } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-bg-muted mt-14 py-18">
+    <footer className="bg-bg-muted relative mt-40 pt-10 pb-6">
       <Container>
-        <main>
+        <section className="flex w-full -translate-y-32 flex-col items-center justify-between space-y-10 rounded-3xl bg-black p-8 text-white md:flex-row md:space-y-0 lg:p-12">
+          <div>
+            <p className="font-IntegralCF max-w-150 pr-8 text-[32px] leading-9 font-extrabold md:text-[40px] md:leading-11">
+              STAY UPTO DATE ABOUT OUR LATEST OFFERS
+            </p>
+          </div>
+          <form className="relative flex w-full max-w-77 flex-col items-center gap-2">
+            <input
+              type="text"
+              placeholder="Enter your email address"
+              className="rounded-0 w-full rounded-full bg-white px-12 py-2 text-black outline-0 placeholder:text-black/60"
+            />
+            <span className="absolute top-2.5 left-3 text-gray-500">
+              <Mail size={20} />
+            </span>
+            <button className="font-Satoshi w-full rounded-full bg-white py-2 font-medium text-black">
+              Subscribe to Newsletter
+            </button>
+          </form>
+        </section>
+      </Container>
+      <Container>
+        <main className="">
           <article className="mb-8 flex flex-col items-start justify-center gap-6 lg:hidden">
             <img src={shopCo} alt="" />
             <p className="font-Satoshi text-sm text-black/60">
