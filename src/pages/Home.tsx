@@ -6,6 +6,7 @@ import BrandLogos from "@/components/BrandLogos";
 import NewArrivalsList from "@/components/NewArrivalsList";
 import TopSellingList from "@/components/TopSellingList";
 import BrowseByDressStyle from "@/components/BrowseByDressStyle";
+import HappyCustomers from "@/components/HappyCustomers";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <NewArrivalsList />
       <TopSellingList />
       <BrowseByDressStyle />
+      <HappyCustomers />
     </section>
   );
 }
