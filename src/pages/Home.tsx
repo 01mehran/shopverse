@@ -7,10 +7,11 @@ import NewArrivalsList from "@/components/NewArrivalsList";
 import TopSellingList from "@/components/TopSellingList";
 import BrowseByDressStyle from "@/components/BrowseByDressStyle";
 import HappyCustomers from "@/components/HappyCustomers";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <section className="pb-10">
+    <section className="">
       <TopBar />
       <Header />
       <Hero />
@@ -19,6 +20,7 @@ export default function Home() {
       <TopSellingList />
       <BrowseByDressStyle />
       <HappyCustomers />
+      <Footer />
     </section>
   );
 }
