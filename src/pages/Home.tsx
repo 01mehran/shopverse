@@ -12,7 +12,7 @@ import { Footer, Header, TopBar } from "@/shared/components";
 
 export default function Home() {
   return (
-    <section className="">
+    <section>
       <TopBar />
       <Header />
       <Hero />
