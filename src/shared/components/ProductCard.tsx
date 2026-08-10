@@ -25,7 +25,7 @@ export default function ProductCard({ item }: ProductCardProps) {
         </div>
         <p className="font-Satoshi text-sm font-bold md:text-lg">{item.name}</p>
 
-        <img src={ratingStart} alt="" className="w-22 sm:w-32" />
+        <img src={ratingStart} alt="rating-satar" className="w-22 sm:w-32" />
 
         <p className="font-Satoshi text-lg font-bold sm:text-2xl">
           ${item.price}

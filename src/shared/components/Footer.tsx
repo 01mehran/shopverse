@@ -1,19 +1,15 @@
 // Components;
 import Container from "./Container";
-import FooterColumn from "./FooterColumn";
+import FooterColumn from "../../features/home/components/FooterColumn";
 import FooterLogosBox from "./FooterlogosBox";
 
 // Data;
 import { footerLinks } from "../data/footerLinks";
 import { footerImages } from "../data/footerPaymentLogos";
+import { footerSocialLogos } from "../data/footerSocialLogos";
 
 // Images;
 import shopCo from "@images/home/SHOP.CO.png";
-
-import twitter from "@images/home/social-logos/xTwitter.svg";
-import facebook from "@images/home/social-logos/facebook.svg";
-import instagram from "@images/home/social-logos/instagram.svg";
-import github from "@images/home/social-logos/github.svg";
 
 // Icons;
 import { Mail } from "lucide-react";
@@ -43,66 +39,45 @@ export default function Footer() {
           </form>
         </section>
       </Container>
+
       <Container>
-        <main className="">
+        <main>
           <article className="mb-8 flex flex-col items-start justify-center gap-6 lg:hidden">
-            <img src={shopCo} alt="" />
+            <img src={shopCo} alt="project logo | SHOP.CO" />
             <p className="font-Satoshi text-sm text-black/60">
               We have clothes that suits your style and <br /> which you’re
               proud to wear. <br /> From women to men.
             </p>
             <div className="flex items-center gap-4">
-              <img
-                src={twitter}
-                alt="twitter logo"
-                className="aspect-square w-4.5"
-              />
-              <img
-                src={facebook}
-                alt="facebook logo"
-                className="aspect-square w-4.5"
-              />
-              <img
-                src={instagram}
-                alt="instagram logo"
-                className="aspect-square w-4.5"
-              />
-              <img
-                src={github}
-                alt="github logo"
-                className="aspect-square w-4.5"
-              />
+              {footerSocialLogos.map((logos) => (
+                <FooterLogosBox
+                  alt={logos.alt}
+                  imageUrl={logos.imageUrl}
+                  key={logos.alt}
+                  className="aspect-square max-w-8"
+                  border="50%"
+                />
+              ))}
             </div>
           </article>
+
           <section className="grid grid-cols-2 justify-between space-y-5 pb-8 sm:grid-cols-4 lg:flex">
-            {/* 1 */}
             <article className="mb-8 hidden flex-col items-start justify-center gap-6 lg:flex">
-              <img src={shopCo} alt="" />
+              <img src={shopCo} alt="logo site | SHOP.CO " />
               <p className="font-Satoshi text-sm text-black/60">
                 We have clothes that suits your style and <br /> which you’re
                 proud to wear. <br /> From women to men.
               </p>
               <div className="flex items-center gap-4">
-                <img
-                  src={twitter}
-                  alt="twitter logo"
-                  className="aspect-square w-4.5"
-                />
-                <img
-                  src={facebook}
-                  alt="facebook logo"
-                  className="aspect-square w-4.5"
-                />
-                <img
-                  src={instagram}
-                  alt="instagram logo"
-                  className="aspect-square w-4.5"
-                />
-                <img
-                  src={github}
-                  alt="github logo"
-                  className="aspect-square w-4.5"
-                />
+                {footerSocialLogos.map((logos) => (
+                  <FooterLogosBox
+                    alt={logos.alt}
+                    imageUrl={logos.imageUrl}
+                    key={logos.alt}
+                    className="aspect-square border border-black/15"
+                    border="50%"
+                  />
+                ))}
               </div>
             </article>
 
@@ -128,6 +103,7 @@ export default function Footer() {
                   imageUrl={images.imageUrl}
                   key={images.alt}
                   alt={images.alt}
+                  className="shadow-sm"
                 />
               ))}
             </div>
