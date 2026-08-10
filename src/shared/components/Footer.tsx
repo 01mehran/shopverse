@@ -1,5 +1,6 @@
 // Components;
 import Container from "./Container";
+import FooterColumn from "@/shared/components/FooterColumn";
 
 // Images;
 import shopCo from "@images/home/SHOP.CO.png";
@@ -16,6 +17,35 @@ import visa from "@images/home/badges/Visa.svg";
 
 // Icons;
 import { Mail } from "lucide-react";
+
+const footerLinks = [
+  {
+    title: "Company",
+    links: ["About", "Features", "Works", "Career"],
+  },
+  {
+    title: "Help",
+    links: [
+      "Customer Support",
+      "Delivery Details",
+      "Terms & Conditions",
+      "Privacy Policy",
+    ],
+  },
+  {
+    title: "FAQ",
+    links: ["Account", "Manage Deliveries", "Orders", "Payments"],
+  },
+  {
+    title: "Resources",
+    links: [
+      "Free eBooks",
+      "Development Tutorial",
+      "How to - Blog",
+      "Youtube Playlist",
+    ],
+  },
+];
 
 export default function Footer() {
   return (
@@ -104,82 +134,16 @@ export default function Footer() {
                 />
               </div>
             </article>
-            {/* 2 */}
-            <article className="flex flex-col items-start justify-center gap-3">
-              <p className="font-Satoshi text-lg font-medium text-black uppercase">
-                {" "}
-                company
-              </p>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                about
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                features
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                works
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                career
-              </span>
-            </article>
-            {/* 3 */}
-            <article className="flex flex-col items-start justify-center gap-3">
-              <p className="font-Satoshi text-lg font-medium text-black uppercase">
-                {" "}
-                help
-              </p>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                customer support{" "}
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                delivery
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                terms & conditions
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                privacy policy
-              </span>
-            </article>
-            {/* 4 */}
-            <article className="flex flex-col items-start justify-center gap-3">
-              <p className="font-Satoshi text-lg font-medium text-black uppercase">
-                {" "}
-                faq
-              </p>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                account
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                mangage deliceries
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                orders
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                payments
-              </span>
-            </article>
-            {/* 5 */}
-            <article className="flex flex-col items-start justify-center gap-3">
-              <p className="font-Satoshi text-lg font-medium text-black uppercase">
-                resources
-              </p>
-              <span className="font-Satoshi text-base text-black/60">
-                Free eBooks
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                development tutorial{" "}
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                How to - Blog
-              </span>
-              <span className="font-Satoshi text-base text-black/60 capitalize">
-                youtube playlist
-              </span>
-            </article>
+
+            {footerLinks.map((column) => (
+              <FooterColumn
+                title={column.title}
+                key={column.title}
+                links={column.links}
+              />
+            ))}
           </section>
+
           <hr className="border border-black/5" />
 
           {/* Under Footer */}
