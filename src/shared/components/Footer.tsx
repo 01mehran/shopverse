@@ -1,51 +1,22 @@
 // Components;
 import Container from "./Container";
-import FooterColumn from "@/shared/components/FooterColumn";
+import FooterColumn from "./FooterColumn";
+import FooterLogosBox from "./FooterlogosBox";
+
+// Data;
+import { footerLinks } from "../data/footerLinks";
+import { footerImages } from "../data/footerPaymentLogos";
 
 // Images;
 import shopCo from "@images/home/SHOP.CO.png";
+
 import twitter from "@images/home/social-logos/xTwitter.svg";
 import facebook from "@images/home/social-logos/facebook.svg";
 import instagram from "@images/home/social-logos/instagram.svg";
 import github from "@images/home/social-logos/github.svg";
 
-import applePay from "@images/home/badges/applePay.svg";
-import googlePay from "@images/home/badges/googlePay.svg";
-import masterCard from "@images/home/badges/mastercard.svg";
-import paypal from "@images/home/badges/paypal.svg";
-import visa from "@images/home/badges/Visa.svg";
-
 // Icons;
 import { Mail } from "lucide-react";
-
-const footerLinks = [
-  {
-    title: "Company",
-    links: ["About", "Features", "Works", "Career"],
-  },
-  {
-    title: "Help",
-    links: [
-      "Customer Support",
-      "Delivery Details",
-      "Terms & Conditions",
-      "Privacy Policy",
-    ],
-  },
-  {
-    title: "FAQ",
-    links: ["Account", "Manage Deliveries", "Orders", "Payments"],
-  },
-  {
-    title: "Resources",
-    links: [
-      "Free eBooks",
-      "Development Tutorial",
-      "How to - Blog",
-      "Youtube Playlist",
-    ],
-  },
-];
 
 export default function Footer() {
   return (
@@ -152,21 +123,13 @@ export default function Footer() {
               Shop.co © 2000-2023, All Rights Reserved
             </p>
             <div className="flex items-center gap-3">
-              <article className="rounded-md bg-white p-2">
-                <img src={visa} alt="" className="object-cover" />
-              </article>
-              <article className="rounded-md bg-white p-2">
-                <img src={masterCard} alt="" className="w-6 object-cover" />
-              </article>
-              <article className="rounded-md bg-white p-2">
-                <img src={paypal} alt="" className="object-cover" />
-              </article>
-              <article className="rounded-md bg-white p-2">
-                <img src={applePay} alt="" className="object-cover" />
-              </article>
-              <article className="rounded-md bg-white p-2">
-                <img src={googlePay} alt="" className="object-cover" />
-              </article>
+              {footerImages.map((images) => (
+                <FooterLogosBox
+                  imageUrl={images.imageUrl}
+                  key={images.alt}
+                  alt={images.alt}
+                />
+              ))}
             </div>
           </section>
         </main>
