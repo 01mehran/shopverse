@@ -1,5 +1,6 @@
 // Components;
 import { BreadCrumb, Header, TopBar } from "@/shared/components";
+import ProductInfo from "@/features/products/components/ProductInfo";
 
 export default function ProductDetails() {
   return (
@@ -7,6 +8,7 @@ export default function ProductDetails() {
       <TopBar />
       <Header />
       <BreadCrumb />
+      <ProductInfo />
     </section>
   );
 }
