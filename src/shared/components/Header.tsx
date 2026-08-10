@@ -17,7 +17,7 @@ export default function Header() {
   return (
     <header>
       <Container>
-        <section className="flex w-full items-center justify-between py-3">
+        <section className="flex w-full items-center justify-between py-5">
           <div className="flex items-center gap-4">
             {/* Mobile Menu Button */}
             <button className="blcok xl:hidden">
