@@ -1,6 +1,6 @@
 // Components;
 import Container from "./Container";
-import FooterColumn from "../../features/home/components/FooterColumn";
+import FooterColumn from "./FooterColumn";
 import FooterLogosBox from "./FooterlogosBox";
 
 // Data;
