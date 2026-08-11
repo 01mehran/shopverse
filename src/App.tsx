@@ -7,11 +7,11 @@ import ProductDetails from "./pages/ProductDetails";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/home",
     element: <Home />,
   },
   {
-    path: "/productDetails",
+    path: "/",
     element: <ProductDetails />,
   },
 ]);

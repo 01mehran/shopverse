@@ -5,14 +5,18 @@ import { Container } from "@/shared/components";
 import pic1 from "@/features/products/assets/pic9.png";
 import pic2 from "@/features/products/assets/pic10.png";
 import pic3 from "@/features/products/assets/pic11.png";
+import ratingStar from "@/assets/images/home/rating-start.png";
+
+// Icons;
+import { Check, Minus, Plus } from "lucide-react";
 
 export default function ProductInfo() {
   return (
     <section>
       <Container>
-        <section className="grid-cols-1 gap-8 lg:grid lg:grid-cols-2">
+        <main className="grid-cols-1 gap-8 space-y-4 lg:grid lg:grid-cols-2 lg:space-y-0">
           {/* Product Images */}
-          <div className="mx-auto grid max-w-125 grid-cols-1 gap-3 lg:mx-0 lg:h-100 lg:max-w-none lg:grid-cols-[90px_1fr]">
+          <section className="mx-auto grid max-w-125 grid-cols-1 gap-3 lg:mx-0 lg:h-100 lg:max-w-none lg:grid-cols-[90px_1fr]">
             {/* Main Image */}
             <div className="order-1 h-100 overflow-hidden rounded-2xl lg:order-2 lg:h-full">
               <img
@@ -27,26 +31,104 @@ export default function ProductInfo() {
               <img
                 src={pic1}
                 alt="clothes"
-                className="h-30 w-full rounded-xl object-cover lg:h-full"
+                className="h-30 w-full cursor-pointer rounded-xl object-cover ring-1 ring-black lg:h-full"
               />
 
               <img
                 src={pic2}
                 alt="clothes"
-                className="h-30 w-full rounded-xl object-cover lg:h-full"
+                className="h-30 w-full cursor-pointer rounded-xl object-cover lg:h-full"
               />
 
               <img
                 src={pic3}
                 alt="clothes"
-                className="h-30 w-full rounded-xl object-cover lg:h-full"
+                className="h-30 w-full cursor-pointer rounded-xl object-cover lg:h-full"
               />
             </div>
-          </div>
+          </section>
 
           {/* Product Info */}
-          <div></div>
-        </section>
+          <section className="flex flex-col justify-between gap-2">
+            {/* Name */}
+            <div>
+              <h1 className="font-IntegralCF gap-2 pb-2 text-[24px] font-extrabold tracking-tight uppercase lg:text-[30px]">
+                One Life Graphic T-shirt
+              </h1>
+              <img
+                src={ratingStar}
+                alt="rating star image"
+                className="w-40 object-cover"
+              />
+              <div className="font-Satoshi flex items-center gap-4 text-[32px] font-bold">
+                <span>$260</span>
+                <span className="text-black/30 line-through">$360</span>
+                <span className="text-red bg-red/10 rounded-2xl px-2 py-1 text-sm">
+                  -40%
+                </span>
+              </div>
+              <span className="font-Satoshi text-base font-normal text-black/60">
+                This graphic t-shirt which is perfect for any occasion. Crafted
+                from a soft and breathable fabric, it offers superior comfort
+                and style.
+              </span>
+            </div>
+            <hr className="border border-black/5" />
+
+            {/* Colors */}
+            <div className="itms-center flex flex-col gap-2 py-1">
+              <p className="font-Satoshi text-sm font-normal text-black/60">
+                Select Colors
+              </p>
+              <div className="flex items-center gap-3">
+                <span className="flex size-7 cursor-pointer items-center justify-center rounded-full bg-[#4F4631] text-white">
+                  <Check size={16} />
+                </span>
+                <span className="size-7 cursor-pointer rounded-full bg-[#314F4A]"></span>
+                <span className="size-7 cursor-pointer rounded-full bg-[#31344F]"></span>
+              </div>
+            </div>
+            <hr className="border border-black/5" />
+
+            {/* Sizes */}
+            <div className="font-Satoshi itms-center flex flex-col gap-2 py-1 text-sm font-normal text-black/60 md:text-base">
+              <p className="text-sm">Choose Size</p>
+              <div className="font-Satoshi flex flex-wrap items-center gap-2 text-sm lg:text-base">
+                <button className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm">
+                  Small
+                </button>
+                <button className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm">
+                  Medium
+                </button>
+                <button className="w-full max-w-25 cursor-pointer rounded-[62px] bg-black px-4 py-2 text-sm text-white">
+                  Large
+                </button>
+                <button className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm text-nowrap">
+                  X-Large
+                </button>
+              </div>
+            </div>
+            <hr className="border border-black/5" />
+
+            {/* Add To Cart */}
+            <div className="grid grid-cols-9 items-center gap-2 pt-2">
+              {/* Amount Product */}
+              <div className="bg-bg-muted col-span-3 flex items-center justify-between rounded-[62px] px-2 py-2 sm:px-6">
+                <button className="cursor-pointer text-black/80">
+                  <Plus />
+                </button>
+                <span>1</span>
+                <button className="cursor-pointer text-black/80">
+                  <Minus />
+                </button>
+              </div>
+
+              <button className="font-Satoshi col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white">
+                Add to Cart
+              </button>
+            </div>
+          </section>
+        </main>
       </Container>
     </section>
   );
