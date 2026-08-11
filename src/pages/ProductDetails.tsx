@@ -1,7 +1,9 @@
 // Components;
-import { BreadCrumb, Header, TopBar } from "@/shared/components";
 import ProductInfo from "@/features/products/components/ProductInfo";
-import Tabs from "@/features/products/components/Tabs";
+import Comments from "@/features/products/components/Comments";
+
+// Components;
+import { BreadCrumb, Header, TopBar } from "@/shared/components";
 
 export default function ProductDetails() {
   return (
@@ -10,7 +12,7 @@ export default function ProductDetails() {
       <Header />
       <BreadCrumb />
       <ProductInfo />
-      <Tabs />
+      <Comments />
     </section>
   );
 }
