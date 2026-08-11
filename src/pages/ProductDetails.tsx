@@ -1,9 +1,8 @@
 // Components;
+import { BreadCrumb, Header, TopBar } from "@/shared/components";
 import ProductInfo from "@/features/products/components/ProductInfo";
 import Comments from "@/features/products/components/Comments";
-
-// Components;
-import { BreadCrumb, Header, TopBar } from "@/shared/components";
+import MightLikeProducts from "@/features/products/components/MightLikeProducts";
 
 export default function ProductDetails() {
   return (
@@ -13,6 +12,7 @@ export default function ProductDetails() {
       <BreadCrumb />
       <ProductInfo />
       <Comments />
+      <MightLikeProducts />
     </section>
   );
 }
