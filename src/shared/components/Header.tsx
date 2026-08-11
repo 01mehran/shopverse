@@ -1,3 +1,6 @@
+// React Router Dom;
+import { Link } from "react-router-dom";
+
 // Components;
 import Container from "./Container";
 
@@ -67,9 +70,11 @@ export default function Header() {
 
           {/* Cart & User Icons  */}
           <div className="flex items-center gap-2.5">
-            <button className="cursor-pointer focus-within:border-0 focus-within:border-b-2 focus-within:outline-0 hover:text-black/80">
-              <ShoppingCart strokeWidth={2.5} />
-            </button>
+            <Link to={`/cart`}>
+              <button className="cursor-pointer focus-within:border-0 focus-within:border-b-2 focus-within:outline-0 hover:text-black/80">
+                <ShoppingCart strokeWidth={2.5} />
+              </button>
+            </Link>
             <button className="cursor-pointer focus-within:border-0 focus-within:border-b-2 focus-within:outline-0 hover:text-black/80">
               <CircleUserRound strokeWidth={2.5} />
             </button>
