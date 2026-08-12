@@ -1,4 +1,5 @@
 // Components;
+import CartItem from "@/features/cart/components/CartItem";
 import { BreadCrumb, Header, TopBar } from "@/shared/components";
 
 export default function Cart() {
@@ -7,6 +8,7 @@ export default function Cart() {
       <TopBar />
       <Header />
       <BreadCrumb />
+      <CartItem />
     </section>
   );
 }
