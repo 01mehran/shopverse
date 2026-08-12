@@ -1,5 +1,5 @@
 // Components;
-import { Container } from "@/shared/components";
+import { Container, Footer } from "@/shared/components";
 
 // icons;
 import { Minus, Plus, Trash2 } from "lucide-react";
@@ -67,6 +67,8 @@ export default function CartItem() {
           <OrderSummary />
         </div>
       </Container>
+
+      <Footer />
     </section>
   );
 }
