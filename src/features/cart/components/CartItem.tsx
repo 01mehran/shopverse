@@ -6,6 +6,7 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 
 // Static Images;
 import pic1 from "@/features/cart/assets/pic13.png";
+import OrderSummary from "./OrderSummary";
 
 export default function CartItem() {
   return (
@@ -16,8 +17,8 @@ export default function CartItem() {
           your cart
         </h1>
 
-        <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-12">
-          <article className="border-bg-muted col-span-8 flex flex-col gap-8 divide-y divide-black/10 rounded-2xl border p-2.5 md:p-5">
+        <div className="mt-4 grid grid-cols-1 items-start gap-4 pb-4 md:grid-cols-12">
+          <article className="border-bg-muted col-span-7 flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-2xl border p-2.5 md:p-5">
             {/* Product Cart */}
             <div className="relative flex w-full gap-2 md:gap-4">
               {/* Product Image */}
@@ -56,14 +57,14 @@ export default function CartItem() {
               </div>
 
               {/* Trash Icon */}
-              <button className="text-red absolute top-0 right-0 cursor-pointer rounded-full">
+              <button className="text-red absolute top-0 right-0 cursor-pointer rounded-full bg-white">
                 <Trash2 size={20} strokeWidth={3} />
               </button>
             </div>
           </article>
 
           {/* Order Summary */}
-          <article className="col-span-4"></article>
+          <OrderSummary />
         </div>
       </Container>
     </section>
