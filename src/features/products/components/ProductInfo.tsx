@@ -60,14 +60,14 @@ export default function ProductInfo() {
                 alt="rating star image"
                 className="w-40 object-cover"
               />
-              <div className="font-Satoshi flex items-center gap-4 text-[32px] font-bold">
+              <div className="flex items-center gap-4 text-[32px] font-bold">
                 <span>$260</span>
                 <span className="text-black/30 line-through">$360</span>
                 <span className="text-red bg-red/10 rounded-2xl px-2 py-1 text-sm">
                   -40%
                 </span>
               </div>
-              <span className="font-Satoshi text-base font-normal text-black/60">
+              <span className="text-base font-normal text-black/60">
                 This graphic t-shirt which is perfect for any occasion. Crafted
                 from a soft and breathable fabric, it offers superior comfort
                 and style.
@@ -77,9 +77,7 @@ export default function ProductInfo() {
 
             {/* Colors */}
             <div className="itms-center flex flex-col gap-2 py-1">
-              <p className="font-Satoshi text-sm font-normal text-black/60">
-                Select Colors
-              </p>
+              <p className="text-sm font-normal text-black/60">Select Colors</p>
               <div className="flex items-center gap-3">
                 <span className="flex size-7 cursor-pointer items-center justify-center rounded-full bg-[#4F4631] text-white">
                   <Check size={16} />
@@ -91,9 +89,9 @@ export default function ProductInfo() {
             <hr className="border border-black/5" />
 
             {/* Sizes */}
-            <div className="font-Satoshi itms-center flex flex-col gap-2 py-1 text-sm font-normal text-black/60 md:text-base">
+            <div className="itms-center flex flex-col gap-2 py-1 text-sm font-normal text-black/60 md:text-base">
               <p className="text-sm">Choose Size</p>
-              <div className="font-Satoshi flex flex-wrap items-center gap-2 text-sm lg:text-base">
+              <div className="flex flex-wrap items-center gap-2 text-sm lg:text-base">
                 <button className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm">
                   Small
                 </button>
@@ -123,7 +121,7 @@ export default function ProductInfo() {
                 </button>
               </div>
 
-              <button className="font-Satoshi col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white">
+              <button className="col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white">
                 Add to Cart
               </button>
             </div>

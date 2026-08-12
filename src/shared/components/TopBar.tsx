@@ -4,7 +4,7 @@ import { X } from "lucide-react";
 export default function TopBar() {
   return (
     <section className="relative flex items-center justify-center bg-black py-2 text-xs sm:text-sm">
-      <p className="font-Satoshi text-white">
+      <p className="text-xs font-normal text-white md:text-sm">
         Sign up and get 20% off to your first order.
         {/* Sign up */}
         <a href="#" className="ml-1 capitalize underline hover:text-white/90">

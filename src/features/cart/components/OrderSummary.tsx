@@ -5,48 +5,38 @@ export default function OrderSummary() {
   return (
     <article className="border-bg-muted col-span-5 rounded-2xl border p-2.5 md:p-5">
       <div className="flex flex-col justify-between gap-2">
-        <h2 className="font-Satoshi text-[20px] font-bold md:text-xl">
-          Order Summary
-        </h2>
+        <h2 className="text-[20px] font-bold md:text-xl">Order Summary</h2>
         <div className="flex items-center justify-between">
-          <span className="font-Satoshi text-base font-normal text-black/60 md:text-lg">
+          <span className="text-base font-normal text-black/60 md:text-lg">
             Subtotal
           </span>
-          <span className="font-Satoshi text-base font-bold md:text-lg">
-            $565
-          </span>
+          <span className="text-base font-bold md:text-lg">$565</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="font-Satoshi text-base font-normal text-black/60 md:text-lg">
+          <span className="text-base font-normal text-black/60 md:text-lg">
             Discount (-20%)
           </span>
-          <span className="font-Satoshi text-red text-base font-bold md:text-lg">
-            $-113
-          </span>
+          <span className="text-red text-base font-bold md:text-lg">$-113</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="font-Satoshi text-base font-normal text-black/60 md:text-lg">
+          <span className="text-base font-normal text-black/60 md:text-lg">
             Delivery Fee{" "}
           </span>
-          <span className="font-Satoshi text-base font-bold md:text-lg">
-            $15
-          </span>
+          <span className="text-base font-bold md:text-lg">$15</span>
         </div>
         <hr className="border border-black/5" />
         <div className="flex items-center justify-between">
-          <span className="font-Satoshi text-base font-normal text-black/80 md:text-lg">
+          <span className="text-base font-normal text-black/80 md:text-lg">
             Total{" "}
           </span>
-          <span className="font-Satoshi text-base font-bold md:text-xl">
-            $515
-          </span>
+          <span className="text-base font-bold md:text-xl">$515</span>
         </div>
         <form className="grid grid-cols-9 gap-3">
           <input
             placeholder="Add promo code"
-            className="bg-bg-muted font-Satoshi col-span-6 rounded-[62px] px-5 py-1.5 placeholder:text-sm"
+            className="bg-bg-muted col-span-6 rounded-[62px] px-5 py-1.5 placeholder:text-sm"
           />
-          <button className="font-Satoshi col-span-3 cursor-pointer rounded-[62px] bg-black text-sm text-white lg:text-base">
+          <button className="col-span-3 cursor-pointer rounded-[62px] bg-black text-sm text-white lg:text-base">
             Apply
           </button>
         </form>

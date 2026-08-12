@@ -10,9 +10,10 @@ import dressStyle4 from "@images/home/dress-style-4.png";
 export default function BrowseByDressStyle() {
   return (
     <Container>
-      <section className="bg-bg-muted rounded-2xl px-5 py-8 sm:px-10 sm:py-12 md:px-14">
-        <header className="font-IntegralCF pb-6 text-center text-[30px] leading-8 font-extrabold tracking-tighter sm:pb-10 md:font-medium md:tracking-wide lg:text-[42px]">
-          BROWSE BY <span className="md:lowercase">DRESS</span> STYLE
+      <section className="bg-bg-muted rounded-2xl px-5 py-8 sm:py-12 lg:px-10">
+        <header className="font-IntegralCF md:font-Inter pb-6 text-center text-[32px] leading-8 font-bold tracking-tighter sm:pb-10 md:text-[48px] md:font-normal md:tracking-wide">
+          BROWSE BY <br className="md:hidden" />{" "}
+          <span className="md:lowercase">DRESS</span> STYLE
         </header>
 
         <main className="xs:grid-cols-2 grid grid-cols-1 gap-4 sm:grid-cols-9">
@@ -23,7 +24,7 @@ export default function BrowseByDressStyle() {
               loading="lazy"
               className="fit h-47 w-full rounded-2xl md:h-52"
             />
-            <span className="font-Satoshi absolute top-4 left-4 text-xl font-bold sm:left-6">
+            <span className="absolute top-4 left-4 text-xl font-bold sm:left-6">
               Casual
             </span>
           </article>
@@ -35,7 +36,7 @@ export default function BrowseByDressStyle() {
               loading="lazy"
               className="fit h-47 w-full rounded-2xl md:h-52"
             />
-            <span className="font-Satoshi absolute top-4 left-4 text-xl font-bold sm:left-6">
+            <span className="absolute top-4 left-4 text-xl font-bold sm:left-6">
               Formal
             </span>
           </article>
@@ -47,7 +48,7 @@ export default function BrowseByDressStyle() {
               loading="lazy"
               className="fit h-47 w-full rounded-2xl md:h-52"
             />
-            <span className="font-Satoshi absolute top-4 left-4 text-xl font-bold sm:left-6">
+            <span className="absolute top-4 left-4 text-xl font-bold sm:left-6">
               Party
             </span>
           </article>
@@ -59,7 +60,7 @@ export default function BrowseByDressStyle() {
               loading="lazy"
               className="fit h-47 w-full rounded-2xl md:h-52"
             />
-            <span className="font-Satoshi absolute top-4 left-4 text-xl font-bold sm:left-6">
+            <span className="absolute top-4 left-4 text-xl font-bold sm:left-6">
               Gym
             </span>
           </article>

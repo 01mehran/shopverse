@@ -44,7 +44,7 @@ export default function NewArrivalsList() {
   return (
     <Container>
       <section className="py-10 sm:py-16">
-        <h1 className="font-IntegralCF mb-2 text-center text-[28px] font-extrabold sm:text-[40px]">
+        <h1 className="font-IntegralCF mb-2 text-center text-[32px] font-bold sm:text-[48px]">
           NEW ARRIVALS
         </h1>
 

@@ -13,7 +13,7 @@ export default function HappyCustomers() {
       <Container>
         <header className="flex items-end justify-between md:items-center">
           <article>
-            <h1 className="font-IntegralCF pr-8 text-[28px] leading-8 font-extrabold tracking-[-2px] sm:text-[38px]">
+            <h1 className="font-IntegralCF pr-8 text-[32px] leading-10 font-bold md:text-[48px]">
               OUR HAPPY CUSTOMERS
             </h1>
           </article>
@@ -34,8 +34,8 @@ export default function HappyCustomers() {
             className="xs:min-w-100 flex h-55 min-w-full flex-col items-start justify-around rounded-2xl border border-black/10 p-4 md:justify-between md:p-7"
           >
             <img src={ratingStar} alt="rating start image" />
-            <h1 className="font-Satoshi text-xl font-bold">Sarah M.</h1>
-            <p className="font-Satoshi text-base leading-6 font-normal text-black/60">
+            <h1 className="text-xl font-bold">Sarah M.</h1>
+            <p className="text-base leading-6 font-normal text-black/60">
               "I'm blown away by the quality and style of the clothes I received
               from Shop.co. From casual wear to elegant dresses, every piece
               I've bought has exceeded my expectations.”

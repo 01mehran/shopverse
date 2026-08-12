@@ -15,7 +15,7 @@ export default function Comments() {
         <Tabs />
 
         <header className="flex items-center justify-between">
-          <h1 className="font-Satoshi text-base font-bold md:text-2xl">
+          <h1 className="text-base font-bold md:text-2xl">
             All Reviews{" "}
             <span className="text-sm font-normal text-black/60 md:text-base">
               (451)
@@ -50,13 +50,13 @@ export default function Comments() {
                     alt="rating start image"
                     className="w-32"
                   />
-                  <h1 className="font-Satoshi text-xl font-bold">Sarah M.</h1>
-                  <p className="font-Satoshi text-base leading-6 font-normal text-black/60">
+                  <h1 className="text-xl font-bold">Sarah M.</h1>
+                  <p className="text-base leading-6 font-normal text-black/60">
                     "I'm blown away by the quality and style of the clothes I
                     received from Shop.co. From casual wear to elegant dresses,
                     every piece I've bought has exceeded my expectations.”
                   </p>
-                  <span className="font-Satoshi mt-6 text-sm font-medium text-black/60">
+                  <span className="mt-6 text-sm font-medium text-black/60">
                     Posted on August 19, 2023
                   </span>
                   <button className="absolute top-6 right-6 hidden cursor-pointer text-black/40 md:block">
@@ -67,7 +67,7 @@ export default function Comments() {
             </div>
 
             {/* Load More Comments Button */}
-            <button className="font-Satoshi mx-auto mt-5 block w-50 cursor-pointer rounded-[62px] border border-black/10 py-2 text-sm font-medium sm:mt-10 sm:text-base">
+            <button className="mx-auto mt-5 block w-50 cursor-pointer rounded-[62px] border border-black/10 py-2 text-sm font-medium sm:mt-10 sm:text-base">
               Load More Reviews
             </button>
           </section>

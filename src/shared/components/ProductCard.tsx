@@ -34,15 +34,9 @@ export default function ProductCard({ item }: ProductCardProps) {
               className="h-54 w-60 rounded-xl object-cover sm:h-70"
             />
           </div>
-          <p className="font-Satoshi text-sm font-bold md:text-lg">
-            {item.name}
-          </p>
-
+          <p className="text-base font-bold md:text-xl">{item.name}</p>
           <img src={ratingStart} alt="rating-satar" className="w-22 sm:w-32" />
-
-          <p className="font-Satoshi text-lg font-bold sm:text-2xl">
-            ${item.price}
-          </p>
+          <p className="text-xl font-bold sm:text-2xl">${item.price}</p>
         </article>
       </Link>
     </section>

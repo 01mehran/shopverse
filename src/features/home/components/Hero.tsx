@@ -15,44 +15,44 @@ export default function Hero() {
           {/* Content */}
           <div>
             <div>
-              <h1 className="lg:font-Inter font-IntegralCF text-[36px] leading-8 font-extrabold md:font-medium lg:text-[60px] lg:leading-14 lg:tracking-wide">
+              <h1 className="md:font-Inter font-IntegralCF text-[36px] leading-8 md:font-normal lg:text-[60px] lg:leading-14 lg:tracking-wide">
                 FIND CLOTHES THAT MATCHES YOUR STYLE
               </h1>
-              <p className="font-Satoshi mt-5 text-base leading-5 tracking-wide text-black/60 lg:mt-8">
+              <p className="mt-5 text-base leading-5 font-normal tracking-wide text-black/60 lg:mt-8">
                 Browse through our diverse range of meticulously crafted
                 garments, designed <br /> to bring out your individuality and
                 cater to your sense of style.
               </p>
-              <button className="font-Satoshi mt-8 w-full cursor-pointer rounded-full bg-black py-3.5 text-base text-white hover:bg-black/90 focus:ring-2 focus:ring-white lg:w-52">
-                shop now
+              <button className="mt-8 w-full cursor-pointer rounded-full bg-black py-3.5 text-base font-medium text-white hover:bg-black/90 focus:ring-2 focus:ring-white lg:w-52">
+                Shop now
               </button>
             </div>
 
             {/* Stats */}
-            <div className="font-Satoshi mt-12 flex flex-wrap items-center justify-center space-y-2 divide-black/10 md:flex xl:divide-x">
+            <div className="mt-12 flex flex-wrap items-center justify-center space-y-2 divide-black/10 md:flex xl:divide-x">
               <article className="xs:pl-18 w-1/2 border-r border-r-black/10 pl-3 leading-8 md:pl-0 lg:pl-8 xl:w-1/3">
-                <p className="text-4xl font-bold text-black sm:text-2xl lg:text-4xl">
+                <p className="text-[24px] font-bold text-black lg:text-[40px]">
                   200+
                 </p>
-                <span className="text-sm text-nowrap text-black/60 md:text-base">
+                <span className="text-sm font-normal text-nowrap text-black/60 md:text-base">
                   International Brands
                 </span>
               </article>
 
               <article className="xs:pl-18 w-1/2 pl-6 leading-8 md:pl-8 lg:pl-8 xl:w-1/3">
-                <p className="text-4xl font-bold text-black sm:text-2xl lg:text-4xl">
+                <p className="text-[24px] font-bold text-black lg:text-[40px]">
                   2,000+
                 </p>
-                <span className="text-sm text-nowrap text-black/60 md:text-base">
+                <span className="text-sm font-normal text-nowrap text-black/60 md:text-base">
                   High-Quality Products
                 </span>
               </article>
 
               <article className="xs:pl-18 w-1/2 pl-3 leading-8 md:pl-0 lg:pl-8 xl:w-1/3">
-                <p className="text-4xl font-bold text-black sm:text-2xl lg:text-4xl">
+                <p className="text-[24px] font-bold text-black lg:text-[40px]">
                   30,000+
                 </p>
-                <span className="text-sm text-nowrap text-black/60 md:text-base">
+                <span className="text-sm font-normal text-nowrap text-black/60 md:text-base">
                   Happy Customers
                 </span>
               </article>
@@ -72,8 +72,9 @@ export default function Hero() {
             {/* Mobile Hero Image*/}
             <img
               src={mobileHeroImage}
-              alt=""
+              alt="Fashion models wearing modern clothes"
               className="h-full w-full object-contain md:hidden"
+              loading="lazy"
             />
 
             {/* Small Star */}

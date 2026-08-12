@@ -30,20 +30,20 @@ export default function CartItem() {
               {/* Product Info */}
               <div className="flex w-full flex-col justify-between">
                 <div className="flex flex-col gap-px">
-                  <p className="font-Satoshi text-base font-bold sm:text-xl">
+                  <p className="text-base font-bold sm:text-xl">
                     Gradient Graphic T-shirt
                   </p>
-                  <p className="font-Satoshi text-sm font-normal">
+                  <p className="text-sm font-normal">
                     Size: <span className="text-black/60">Large</span>
                   </p>
-                  <p className="font-Satoshi text-sm font-normal">
+                  <p className="text-sm font-normal">
                     Color: <span className="text-black/60">White</span>
                   </p>
                 </div>
 
                 {/* Product Cart Actions */}
                 <div className="flex w-full justify-between">
-                  <p className="font-Satoshi text-[24px] font-bold">$145</p>
+                  <p className="text-[24px] font-bold">$145</p>
                   <div className="bg-bg-muted flex w-25 items-center justify-between rounded-[62px] p-1.5 py-2 sm:px-3 md:w-31.5">
                     <button className="cursor-pointer text-black/80">
                       <Minus size={20} />

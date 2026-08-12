@@ -13,9 +13,6 @@ import {
   ShoppingCart,
 } from "lucide-react";
 
-// Images;
-import shopLogo from "@images/home/SHOP.CO.png";
-
 export default function Header() {
   return (
     <header>
@@ -27,17 +24,15 @@ export default function Header() {
               <Menu strokeWidth={2.5} size={24} />
             </button>
 
-            {/* Logo */}
-            <img
-              src={shopLogo}
-              alt="shop logo | SHOP.CO"
-              className="w-30 object-cover sm:w-auto"
-            />
+            {/* Title */}
+            <h1 className="font-IntegralCF text-[25px] font-bold md:text-[32px]">
+              SHOP.CO
+            </h1>
           </div>
 
           {/* Navigation Buttons */}
           <nav className="hidden xl:block">
-            <ul className="font-Satoshi flex items-center gap-4">
+            <ul className="flex items-center gap-4">
               <li className="navigation-links">
                 <a className="flex items-center gap-px">
                   shop{" "}
@@ -59,7 +54,7 @@ export default function Header() {
           </nav>
 
           {/* Search Box  */}
-          <form className="bg-bg-muted font-Satoshi hidden h-12 w-100 items-center gap-3 rounded-full px-4 transition duration-200 focus-within:ring-2 focus-within:ring-black md:flex lg:w-140">
+          <form className="bg-bg-muted hidden h-12 w-100 items-center gap-3 rounded-full px-4 transition duration-200 focus-within:ring-2 focus-within:ring-black md:flex lg:w-140">
             <Search size={20} className="text-black/40" />
             <input
               type="text"

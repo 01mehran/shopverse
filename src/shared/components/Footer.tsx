@@ -8,9 +8,6 @@ import { footerLinks } from "../data/footerLinks";
 import { footerImages } from "../data/footerPaymentLogos";
 import { footerSocialLogos } from "../data/footerSocialLogos";
 
-// Images;
-import shopCo from "@images/home/SHOP.CO.png";
-
 // Icons;
 import { Mail } from "lucide-react";
 
@@ -20,7 +17,7 @@ export default function Footer() {
       <Container>
         <section className="flex w-full -translate-y-32 flex-col items-center justify-between space-y-10 rounded-3xl bg-black p-8 text-white md:flex-row md:space-y-0 lg:p-12">
           <div>
-            <p className="font-IntegralCF max-w-150 pr-8 text-[32px] leading-9 font-extrabold md:text-[40px] md:leading-11">
+            <p className="font-IntegralCF max-w-150 pr-8 text-[32px] leading-9 font-bold md:text-[40px] md:leading-11">
               STAY UPTO DATE ABOUT OUR LATEST OFFERS
             </p>
           </div>
@@ -33,7 +30,7 @@ export default function Footer() {
             <span className="absolute top-2.5 left-3 text-gray-500">
               <Mail size={20} />
             </span>
-            <button className="font-Satoshi w-full rounded-full bg-white py-2 font-medium text-black">
+            <button className="w-full rounded-full bg-white py-2 font-medium text-black">
               Subscribe to Newsletter
             </button>
           </form>
@@ -43,8 +40,10 @@ export default function Footer() {
       <Container>
         <main>
           <article className="mb-8 flex flex-col items-start justify-center gap-6 lg:hidden">
-            <img src={shopCo} alt="project logo | SHOP.CO" />
-            <p className="font-Satoshi text-sm text-black/60">
+            <h1 className="font-IntegralCF text-[25px] font-bold md:text-[32px]">
+              SHOP.CO
+            </h1>
+            <p className="text-sm text-black/60">
               We have clothes that suits your style and <br /> which you’re
               proud to wear. <br /> From women to men.
             </p>
@@ -63,8 +62,10 @@ export default function Footer() {
 
           <section className="grid grid-cols-2 justify-between space-y-5 pb-8 sm:grid-cols-4 lg:flex">
             <article className="mb-8 hidden flex-col items-start justify-center gap-6 lg:flex">
-              <img src={shopCo} alt="logo site | SHOP.CO " />
-              <p className="font-Satoshi text-sm text-black/60">
+              <h1 className="font-IntegralCF text-[25px] font-bold md:text-[32px]">
+                SHOP.CO
+              </h1>
+              <p className="text-sm text-black/60">
                 We have clothes that suits your style and <br /> which you’re
                 proud to wear. <br /> From women to men.
               </p>
@@ -94,7 +95,7 @@ export default function Footer() {
 
           {/* Under Footer */}
           <section className="flex flex-col items-center justify-between space-y-4 pt-8 md:flex-row">
-            <p className="font-satoshi text-base text-black/60">
+            <p className="text-base text-black/60">
               Shop.co © 2000-2023, All Rights Reserved
             </p>
             <div className="flex items-center gap-3">
