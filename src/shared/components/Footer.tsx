@@ -53,8 +53,8 @@ export default function Footer() {
                   alt={logos.alt}
                   imageUrl={logos.imageUrl}
                   key={logos.alt}
-                  className="aspect-square max-w-8"
-                  border="50%"
+                  className="flex aspect-square w-8 items-center justify-center border border-black/15"
+                  borderRadius="50%"
                 />
               ))}
             </div>
@@ -75,8 +75,8 @@ export default function Footer() {
                     alt={logos.alt}
                     imageUrl={logos.imageUrl}
                     key={logos.alt}
-                    className="aspect-square border border-black/15"
-                    border="50%"
+                    className="flex aspect-square w-8 items-center justify-center border border-black/15"
+                    borderRadius="50%"
                   />
                 ))}
               </div>

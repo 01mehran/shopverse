@@ -1,24 +1,24 @@
 type FooterImages = {
   imageUrl: string;
   alt: string;
-  bg?: string;
-  border?: string;
+  borderRadius?: string;
   className?: string;
 };
 
 export default function FooterLogosBox({
   imageUrl,
   alt,
-  bg = "white",
-  border = "6px",
-  className,
+  borderRadius = "",
+  className = "",
 }: FooterImages) {
   return (
     <article
-      className={`rounded-md p-2 ${className} `}
-      style={{ backgroundColor: bg, borderRadius: border }}
+      className={`rounded-md bg-white p-2 ${className}`}
+      style={{
+        borderRadius: borderRadius,
+      }}
     >
-      <img src={imageUrl} alt={alt} className={`w-full object-cover`} />
+      <img src={imageUrl} alt={alt} className={`object-cover`} />
     </article>
   );
 }

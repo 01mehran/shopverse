@@ -24,25 +24,25 @@ export default function HappyCustomers() {
             <ArrowRight size={28} className="cursor-pointer" />
           </article>
         </header>
-      </Container>
 
-      {/* Comments */}
-      <main className="hide-scrollbar mt-8 flex items-center gap-4 overflow-x-auto px-4">
-        {Array.from({ length: 5 }, (_, i) => (
-          <article
-            key={i}
-            className="xs:min-w-100 flex h-55 min-w-full flex-col items-start justify-around rounded-2xl border border-black/10 p-4 md:justify-between md:p-7"
-          >
-            <img src={ratingStar} alt="rating start image" />
-            <h1 className="text-xl font-bold">Sarah M.</h1>
-            <p className="text-base leading-6 font-normal text-black/60">
-              "I'm blown away by the quality and style of the clothes I received
-              from Shop.co. From casual wear to elegant dresses, every piece
-              I've bought has exceeded my expectations.”
-            </p>
-          </article>
-        ))}
-      </main>
+        {/* Comments */}
+        <main className="hide-scrollbar bg mt-8 flex items-center gap-4 overflow-x-auto px-4">
+          {Array.from({ length: 5 }, (_, i) => (
+            <article
+              key={i}
+              className="xs:min-w-100 flex h-55 min-w-full flex-col items-start justify-around rounded-2xl border border-black/10 p-4 md:justify-between md:p-7"
+            >
+              <img src={ratingStar} alt="rating start image" />
+              <h1 className="text-xl font-bold">Sarah M.</h1>
+              <p className="text-base leading-6 font-normal text-black/60">
+                "I'm blown away by the quality and style of the clothes I
+                received from Shop.co. From casual wear to elegant dresses,
+                every piece I've bought has exceeded my expectations.”
+              </p>
+            </article>
+          ))}
+        </main>
+      </Container>
     </section>
   );
 }
