@@ -64,7 +64,7 @@ export default function Header() {
           </form>
 
           {/* Cart & User Icons  */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-baseline gap-2.5">
             <Link to={`/cart`}>
               <button className="cursor-pointer focus-within:border-0 focus-within:border-b-2 focus-within:outline-0 hover:text-black/80">
                 <ShoppingCart strokeWidth={2.5} />

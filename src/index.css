@@ -56,6 +56,14 @@
   .navigation-links {
     @apply cursor-pointer text-base font-normal capitalize;
   }
+
+  .stats-numbers {
+    @apply text-[24px] font-bold text-black xl:text-[40px];
+  }
+
+  .stats-text {
+    @apply text-sm font-normal text-nowrap text-black/60 md:text-base
+  }
 }
 
 @layer utilities {

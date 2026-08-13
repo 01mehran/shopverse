@@ -52,7 +52,7 @@ export default function ProductInfo() {
           <section className="flex flex-col justify-between gap-2">
             {/* Name */}
             <div>
-              <h1 className="font-IntegralCF gap-2 pb-2 text-[24px] font-extrabold tracking-tight uppercase lg:text-[30px]">
+              <h1 className="font-IntegralCF gap-2 pb-2 text-[24px] lg:pb-4 leading-7 font-bold uppercase lg:text-[35px]">
                 One Life Graphic T-shirt
               </h1>
               <img

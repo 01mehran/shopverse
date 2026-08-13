@@ -13,7 +13,7 @@ export default function CartItem() {
     <section>
       <Container>
         {/* Title */}
-        <h1 className="font-IntegralCF text-[28px] font-extrabold tracking-tighter uppercase sm:text-[40px]">
+        <h1 className="font-IntegralCF text-[32px] font-bold uppercase sm:text-[40px]">
           your cart
         </h1>
 

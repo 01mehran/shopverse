@@ -9,7 +9,7 @@ export default function MightLikeProducts() {
     <section>
       <Container>
         <section className="py-10 sm:py-16">
-          <h1 className="font-IntegralCF mb-2 text-center text-[28px] leading-8 font-extrabold sm:text-[40px]">
+          <h1 className="font-IntegralCF mb-4 text-center text-[32px] leading-7 font-bold sm:text-[48px] md:leading-none">
             YOU MIGHT <br className="xs:hidden" /> ALSO LIKE
           </h1>
 

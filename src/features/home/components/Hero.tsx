@@ -29,32 +29,20 @@ export default function Hero() {
             </div>
 
             {/* Stats */}
-            <div className="mt-12 flex flex-wrap items-center justify-center space-y-2 divide-black/10 md:flex xl:divide-x">
-              <article className="xs:pl-18 w-1/2 border-r border-r-black/10 pl-3 leading-8 md:pl-0 lg:pl-8 xl:w-1/3">
-                <p className="text-[24px] font-bold text-black lg:text-[40px]">
-                  200+
-                </p>
-                <span className="text-sm font-normal text-nowrap text-black/60 md:text-base">
-                  International Brands
-                </span>
+            <div className="xs:justify-around mx-auto mt-8 flex w-full max-w-100 flex-wrap items-baseline justify-center space-y-2 divide-black/20 md:mt-12 md:flex lg:max-w-full lg:divide-x">
+              <article className="xs:pr-12 border-r border-r-black/15 pr-4 lg:pr-6">
+                <p className="stats-numbers">200+</p>
+                <span className="stats-text">International Brands</span>
               </article>
 
-              <article className="xs:pl-18 w-1/2 pl-6 leading-8 md:pl-8 lg:pl-8 xl:w-1/3">
-                <p className="text-[24px] font-bold text-black lg:text-[40px]">
-                  2,000+
-                </p>
-                <span className="text-sm font-normal text-nowrap text-black/60 md:text-base">
-                  High-Quality Products
-                </span>
+              <article className="pl-4 lg:pr-5">
+                <p className="stats-numbers">2,000+</p>
+                <span className="stats-text">High-Quality Products</span>
               </article>
 
-              <article className="xs:pl-18 w-1/2 pl-3 leading-8 md:pl-0 lg:pl-8 xl:w-1/3">
-                <p className="text-[24px] font-bold text-black lg:text-[40px]">
-                  30,000+
-                </p>
-                <span className="text-sm font-normal text-nowrap text-black/60 md:text-base">
-                  Happy Customers
-                </span>
+              <article className="lg:pl-5">
+                <p className="stats-numbers">30,000+</p>
+                <span className="stats-text">Happy Customers</span>
               </article>
             </div>
           </div>
