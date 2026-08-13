@@ -1,3 +1,4 @@
+// Social Icons;
 import twitter from "@images/home/social-logos/xTwitter.svg";
 import facebook from "@images/home/social-logos/facebook.svg";
 import instagram from "@images/home/social-logos/instagram.svg";

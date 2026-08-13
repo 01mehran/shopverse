@@ -1,12 +1,12 @@
 // Components;
-import Container from "./Container";
+import Container from "../Container";
 import FooterColumn from "./FooterColumn";
+import FooterLogo from "./FooterLogo";
 import FooterLogosBox from "./FooterlogosBox";
 
 // Data;
-import { footerLinks } from "../data/footerLinks";
-import { footerImages } from "../data/footerPaymentLogos";
-import { footerSocialLogos } from "../data/footerSocialLogos";
+import { footerLinks } from "./data/footerLinks";
+import { footerImages } from "./data/footerPaymentLogos";
 
 // Icons;
 import { Mail } from "lucide-react";
@@ -39,48 +39,10 @@ export default function Footer() {
 
       <Container>
         <main>
-          <article className="mb-8 flex flex-col items-start justify-center gap-6 lg:hidden">
-            <h1 className="font-IntegralCF text-[25px] font-bold md:text-[32px]">
-              SHOP.CO
-            </h1>
-            <p className="text-sm text-black/60">
-              We have clothes that suits your style and <br /> which you’re
-              proud to wear. <br /> From women to men.
-            </p>
-            <div className="flex items-center gap-4">
-              {footerSocialLogos.map((logos) => (
-                <FooterLogosBox
-                  alt={logos.alt}
-                  imageUrl={logos.imageUrl}
-                  key={logos.alt}
-                  className="flex aspect-square w-8 items-center justify-center border border-black/15"
-                  borderRadius="50%"
-                />
-              ))}
-            </div>
-          </article>
+          <FooterLogo className="lg:hidden" />
 
           <section className="grid grid-cols-2 justify-between space-y-5 pb-8 sm:grid-cols-4 lg:flex">
-            <article className="mb-8 hidden flex-col items-start justify-center gap-6 lg:flex">
-              <h1 className="font-IntegralCF text-[25px] font-bold md:text-[32px]">
-                SHOP.CO
-              </h1>
-              <p className="text-sm text-black/60">
-                We have clothes that suits your style and <br /> which you’re
-                proud to wear. <br /> From women to men.
-              </p>
-              <div className="flex items-center gap-4">
-                {footerSocialLogos.map((logos) => (
-                  <FooterLogosBox
-                    alt={logos.alt}
-                    imageUrl={logos.imageUrl}
-                    key={logos.alt}
-                    className="flex aspect-square w-8 items-center justify-center border border-black/15"
-                    borderRadius="50%"
-                  />
-                ))}
-              </div>
-            </article>
+            <FooterLogo className="hidden lg:flex" />
 
             {footerLinks.map((column) => (
               <FooterColumn
