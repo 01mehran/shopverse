@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 // Components;
 import Container from "./Container";
 
+// Motion;
+import { motion } from "motion/react";
+
 // Icons;
 import {
   ChevronDown,
@@ -15,7 +18,12 @@ import {
 
 export default function Header() {
   return (
-    <header>
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+    >
       <Container>
         <section className="flex w-full items-center justify-between py-5">
           <div className="flex items-center gap-4">
@@ -79,6 +87,6 @@ export default function Header() {
           </div>
         </section>
       </Container>
-    </header>
+    </motion.header>
   );
 }

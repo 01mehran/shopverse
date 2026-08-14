@@ -7,6 +7,9 @@ import mobileHeroImage from "@images/home/mobile-hero-image.png";
 import smallStar from "@images/home/small-star.png";
 import bigStar from "@images/home/big-star.png";
 
+// Motion;
+import { motion } from "motion/react";
+
 export default function Hero() {
   return (
     <section className="bg-bg-muted">
@@ -15,22 +18,46 @@ export default function Hero() {
           {/* Content */}
           <div>
             <div>
-              <h1 className="md:font-Inter font-IntegralCF text-[36px] leading-8 md:font-normal lg:text-[60px] lg:leading-14 lg:tracking-wide">
+              <motion.h1
+                initial={{ y: 60, opacity: 0, rotate: 3 }}
+                whileInView={{ y: 0, opacity: 1, rotate: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="md:font-Inter font-IntegralCF text-[36px] leading-8 md:font-normal lg:text-[60px] lg:leading-14 lg:tracking-wide"
+              >
                 FIND CLOTHES THAT MATCHES YOUR STYLE
-              </h1>
-              <p className="mt-5 text-base leading-5 font-normal tracking-wide text-black/60 lg:mt-8">
+              </motion.h1>
+              <motion.p
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.15, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mt-5 text-base leading-5 font-normal tracking-wide text-black/60 lg:mt-8"
+              >
                 Browse through our diverse range of meticulously crafted
                 garments, designed <br /> to bring out your individuality and
                 cater to your sense of style.
-              </p>
-              <button className="mt-8 w-full cursor-pointer rounded-full bg-black py-3.5 text-base font-medium text-white hover:bg-black/90 focus:ring-2 focus:ring-white lg:w-52">
+              </motion.p>
+              <motion.button
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="mt-8 w-full cursor-pointer rounded-full bg-black py-3.5 text-base font-medium text-white hover:bg-black/90 focus:ring-2 focus:ring-white lg:w-52"
+              >
                 Shop now
-              </button>
+              </motion.button>
             </div>
 
             {/* Stats */}
-            <div className="xs:justify-around mx-auto mt-8 flex w-full max-w-100 flex-wrap items-baseline justify-center space-y-2 divide-black/20 md:mt-12 md:flex lg:max-w-full lg:divide-x">
-              <article className="xs:pr-12 border-r border-r-black/15 pr-4 lg:pr-6">
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.45, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="xs:justify-around mx-auto mt-8 flex w-full max-w-100 flex-wrap items-baseline justify-center space-y-2 divide-black/10 md:mt-12 md:flex lg:max-w-full lg:divide-x"
+            >
+              <article className="xs:pr-12 border-r border-r-black/10 pr-4 lg:pr-6">
                 <p className="stats-numbers">200+</p>
                 <span className="stats-text">International Brands</span>
               </article>
@@ -44,11 +71,17 @@ export default function Hero() {
                 <p className="stats-numbers">30,000+</p>
                 <span className="stats-text">Happy Customers</span>
               </article>
-            </div>
+            </motion.div>
           </div>
 
           {/* Hero Images */}
-          <div className="relative h-112 md:h-120">
+          <motion.div
+            initial={{ y: 60, opacity: 0, rotate: 5 }}
+            whileInView={{ y: 0, opacity: 1, rotate: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative h-112 md:h-120"
+          >
             {/* Laptap Hero Image */}
             <img
               src={laptapHeroImage}
@@ -80,7 +113,7 @@ export default function Hero() {
               className="absolute top-8 right-0"
               loading="lazy"
             />
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>
