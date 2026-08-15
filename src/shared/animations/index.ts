@@ -4,3 +4,8 @@ export {
 } from "./producCardVariants";
 
 export { fadeUpVariant, fadeLeftVariant } from "./variants";
+
+export {
+  dressStyleContainerVariant,
+  dressStyleItemVariant,
+} from "./dressStyleVariant";
