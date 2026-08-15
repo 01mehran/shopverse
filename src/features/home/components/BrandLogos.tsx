@@ -1,6 +1,8 @@
 // Components;
 import { Container } from "@/shared/components";
 
+import { motion } from "motion/react";
+
 // Logos
 import calvinKlein from "@images/home/brand-logos/calvin-klein-logo.svg";
 import gucci from "@images/home/brand-logos/gucci-logo.svg";
@@ -10,7 +12,13 @@ import zara from "@images/home/brand-logos/zara-logo.svg";
 
 export default function BrandLogos() {
   return (
-    <section className="bg-black">
+    <motion.section
+      initial={{ y: 30, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className="bg-black"
+    >
       <Container>
         <div className="flex flex-wrap items-center justify-evenly gap-6 py-6 sm:py-8 md:justify-between">
           <img src={versace} alt="versace logo" className="w-20 md:w-32" />
@@ -24,6 +32,6 @@ export default function BrandLogos() {
           />
         </div>
       </Container>
-    </section>
+    </motion.section>
   );
 }
