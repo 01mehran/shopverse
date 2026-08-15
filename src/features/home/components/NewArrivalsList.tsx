@@ -70,7 +70,7 @@ export default function NewArrivalsList() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="hide-scrollbar flex items-center justify-between gap-3 overflow-x-auto py-4"
+          className="hide-scrollbar flex items-baseline justify-between gap-3 overflow-x-auto py-4"
         >
           {products.map((item) => (
             <motion.div key={item.id} variants={productCardVariants}>
