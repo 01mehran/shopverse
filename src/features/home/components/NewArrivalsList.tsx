@@ -13,10 +13,11 @@ import pic4 from "@images/home/pic4.png";
 
 // Animations;
 import {
+  fadeUpVariant,
   productCardContainerVariants,
   productCardVariants,
-} from "@/shared/animations/producCardVariants";
-import { fadeLeftVariant, fadeUpVariant } from "@/shared/animations/variants";
+  fadeLeftVariant,
+} from "@/shared/animations";
 
 // Static Data;
 const products = [

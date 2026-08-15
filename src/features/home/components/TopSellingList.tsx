@@ -1,11 +1,22 @@
 // Components;
 import { Container, ProductCard } from "@/shared/components";
 
+// Motion;
+import { motion } from "motion/react";
+
 // Static Images;
 import pic5 from "@images/home/pic5.png";
 import pic6 from "@images/home/pic6.png";
 import pic7 from "@images/home/pic7.png";
 import pic8 from "@images/home/pic8.png";
+
+// Animations;
+import {
+  fadeUpVariant,
+  productCardContainerVariants,
+  productCardVariants,
+  fadeLeftVariant,
+} from "@/shared/animations";
 
 // Static Data;
 const products = [
@@ -43,18 +54,40 @@ export default function TopSellingList() {
   return (
     <Container>
       <section className="py-10 sm:py-16">
-        <h1 className="font-IntegralCF mb-2 text-center text-[32px] font-bold sm:text-[48px]">
+        <motion.h1
+          variants={fadeUpVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="font-IntegralCF mb-2 text-center text-[32px] font-bold sm:text-[48px]"
+        >
           TOP SELLING
-        </h1>
+        </motion.h1>
 
-        <div className="hide-scrollbar flex items-center justify-between gap-3 overflow-x-auto py-4">
+        <motion.div
+          variants={productCardContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="hide-scrollbar flex items-center justify-between gap-3 overflow-x-auto py-4"
+        >
           {products.map((item) => (
-            <ProductCard key={item.id} item={item} />
+            <motion.div key={item.id} variants={productCardVariants}>
+              <ProductCard key={item.id} item={item} />
+            </motion.div>
           ))}
-        </div>
-        <button className="xs:w-50 mx-auto mt-1 block w-full cursor-pointer rounded-full border border-black/10 py-2 text-base">
+        </motion.div>
+
+        <motion.button
+          variants={fadeLeftVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="xs:w-50 mx-auto mt-1 block w-full cursor-pointer rounded-full border border-black/10 py-2 text-base"
+        >
           Veiw All
-        </button>
+        </motion.button>
       </section>
     </Container>
   );
