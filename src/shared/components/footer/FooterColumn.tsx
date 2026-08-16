@@ -1,3 +1,9 @@
+// Animations;
+import { productCardVariants } from "@/shared/animations";
+
+// Motion;
+import { motion } from "motion/react";
+
 type FooterColumn = {
   title: string;
   links: string[];
@@ -5,7 +11,7 @@ type FooterColumn = {
 
 export default function FooterColumn({ title, links }: FooterColumn) {
   return (
-    <section>
+    <motion.section variants={productCardVariants}>
       <article className="flex flex-col items-start justify-center gap-3">
         <p className="text-lg font-medium uppercase">{title}</p>
 
@@ -15,6 +21,6 @@ export default function FooterColumn({ title, links }: FooterColumn) {
           </span>
         ))}
       </article>
-    </section>
+    </motion.section>
   );
 }

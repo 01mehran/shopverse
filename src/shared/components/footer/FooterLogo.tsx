@@ -1,12 +1,19 @@
 // Components;
 import FooterLogosBox from "./FooterlogosBox";
 
+// Motion;
+import { motion } from "motion/react";
+
 // Static Data;
 import { footerSocialLogos } from "./data/footerSocialLogos";
 
 export default function FooterLogo({ className = "" }) {
   return (
-    <article
+    <motion.article
+      initial={{ y: 60, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.2, duration: 0.8 }}
+      viewport={{ once: true }}
       className={`mb-8 flex flex-col items-start justify-center gap-6 ${className}`}
     >
       <h1 className="font-IntegralCF text-[25px] font-bold md:text-[32px]">
@@ -27,6 +34,6 @@ export default function FooterLogo({ className = "" }) {
           />
         ))}
       </div>
-    </article>
+    </motion.article>
   );
 }

@@ -4,8 +4,12 @@ import { Container } from "@/shared/components";
 // Icons;
 import { ArrowRight } from "lucide-react";
 
+// Motion
+import { motion } from "motion/react";
+
 // Static Images;
 import ratingStar from "@images/home/rating-start.png";
+import { fadeUpVariant } from "@/shared/animations";
 
 export default function HappyCustomers() {
   return (
@@ -13,9 +17,15 @@ export default function HappyCustomers() {
       <Container>
         <header className="flex items-end justify-between md:items-center">
           <article>
-            <h1 className="font-IntegralCF pr-8 text-[32px] leading-10 font-bold md:text-[48px]">
+            <motion.h1
+              variants={fadeUpVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="font-IntegralCF pr-8 text-[32px] leading-10 font-bold md:text-[48px]"
+            >
               OUR HAPPY CUSTOMERS
-            </h1>
+            </motion.h1>
           </article>
 
           {/* Arrows */}
@@ -26,7 +36,13 @@ export default function HappyCustomers() {
         </header>
 
         {/* Comments */}
-        <main className="hide-scrollbar bg mt-8 flex items-center gap-4 overflow-x-auto px-4">
+        <motion.main
+          initial={{ y: 60, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          viewport={{ once: true }}
+          className="hide-scrollbar bg mt-8 flex items-center gap-4 overflow-x-auto px-4"
+        >
           {Array.from({ length: 5 }, (_, i) => (
             <article
               key={i}
@@ -41,7 +57,7 @@ export default function HappyCustomers() {
               </p>
             </article>
           ))}
-        </main>
+        </motion.main>
       </Container>
     </section>
   );
