@@ -1,6 +1,16 @@
 // Componentsl
 import { Container, ProductCard } from "@/shared/components";
 
+// Motion;
+import { motion } from "motion/react";
+
+// Animations;
+import {
+  fadeUpVariant,
+  productCardContainerVariants,
+  productCardVariants,
+} from "@/shared/animations";
+
 // Static Data;
 import { products } from "../data";
 
@@ -9,15 +19,29 @@ export default function MightLikeProducts() {
     <section>
       <Container>
         <section className="py-10 sm:py-16">
-          <h1 className="font-IntegralCF mb-4 text-center text-[32px] leading-7 font-bold sm:text-[48px] md:leading-none">
+          <motion.h1
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="font-IntegralCF mb-4 text-center text-[32px] leading-7 font-bold sm:text-[48px] md:leading-none"
+          >
             YOU MIGHT <br className="xs:hidden" /> ALSO LIKE
-          </h1>
+          </motion.h1>
 
-          <div className="hide-scrollbar flex items-baseline justify-between gap-3 overflow-x-auto py-4">
+          <motion.div
+            variants={productCardContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="hide-scrollbar flex items-baseline justify-between gap-3 overflow-x-auto py-4"
+          >
             {products.map((item) => (
-              <ProductCard key={item.id} item={item} />
+              <motion.div key={item.id} variants={productCardVariants}>
+                <ProductCard key={item.id} item={item} />
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
       </Container>
     </section>
