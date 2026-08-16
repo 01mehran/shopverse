@@ -1,10 +1,19 @@
 // Icons;
 import { ArrowRight } from "lucide-react";
 
+// Motion;
+import { motion } from "motion/react";
+
 export default function OrderSummary() {
   return (
     <article className="border-bg-muted col-span-5 rounded-2xl border p-2.5 md:p-5">
-      <div className="flex flex-col justify-between gap-2">
+      <motion.div
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="flex flex-col justify-between gap-2"
+      >
         <h2 className="text-[20px] font-bold md:text-xl">Order Summary</h2>
         <div className="flex items-center justify-between">
           <span className="text-base font-normal text-black/60 md:text-lg">
@@ -46,7 +55,7 @@ export default function OrderSummary() {
             <ArrowRight size={20} />
           </span>
         </button>
-      </div>
+      </motion.div>
     </article>
   );
 }

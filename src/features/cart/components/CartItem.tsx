@@ -1,24 +1,49 @@
 // Components;
 import { Container, Footer } from "@/shared/components";
+import OrderSummary from "./OrderSummary";
+
+// Motion;
+import { motion } from "motion/react";
+
+// Animations;
+import {
+  productCardContainerVariants,
+  productCardVariants,
+} from "@/shared/animations";
 
 // icons;
 import { Minus, Plus, Trash2 } from "lucide-react";
 
 // Static Images;
 import pic1 from "@/features/cart/assets/pic13.png";
-import OrderSummary from "./OrderSummary";
 
 export default function CartItem() {
   return (
     <section>
       <Container>
         {/* Title */}
-        <h1 className="font-IntegralCF text-[32px] font-bold uppercase sm:text-[40px]">
+        <motion.h1
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="font-IntegralCF text-[32px] font-bold uppercase sm:text-[40px]"
+        >
           your cart
-        </h1>
+        </motion.h1>
 
-        <div className="mt-4 grid grid-cols-1 items-start gap-4 pb-4 md:grid-cols-12">
-          <article className="border-bg-muted col-span-7 flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-2xl border p-2.5 md:p-5">
+        <motion.div
+          variants={productCardContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+
+          className="mt-4 grid grid-cols-1 items-start gap-4 pb-4 md:grid-cols-12"
+        >
+          <motion.article
+            variants={productCardVariants}
+            className="border-bg-muted col-span-7 flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-2xl border p-2.5 md:p-5"
+          >
             {/* Product Cart */}
             <div className="relative flex w-full gap-2 md:gap-4">
               {/* Product Image */}
@@ -61,11 +86,11 @@ export default function CartItem() {
                 <Trash2 size={20} strokeWidth={3} />
               </button>
             </div>
-          </article>
+          </motion.article>
 
           {/* Order Summary */}
           <OrderSummary />
-        </div>
+        </motion.div>
       </Container>
 
       <Footer />
