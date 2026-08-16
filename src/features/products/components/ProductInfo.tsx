@@ -1,6 +1,9 @@
 // Components;
 import { Container } from "@/shared/components";
 
+// Motion;
+import { motion } from "motion/react";
+
 // Static Images;
 import pic1 from "@/features/products/assets/pic9.png";
 import pic2 from "@/features/products/assets/pic10.png";
@@ -9,6 +12,10 @@ import ratingStar from "@/assets/images/home/rating-start.png";
 
 // Icons;
 import { Check, Minus, Plus } from "lucide-react";
+import {
+  dressStyleContainerVariant,
+  dressStyleItemVariant,
+} from "@/shared/animations";
 
 export default function ProductInfo() {
   return (
@@ -18,41 +25,57 @@ export default function ProductInfo() {
           {/* Product Images */}
           <section className="mx-auto grid max-w-125 grid-cols-1 gap-3 lg:mx-0 lg:h-100 lg:max-w-none lg:grid-cols-[90px_1fr]">
             {/* Main Image */}
-            <div className="order-1 h-100 overflow-hidden rounded-2xl lg:order-2 lg:h-full">
-              <img
+            <motion.div
+              variants={dressStyleContainerVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="order-1 h-100 overflow-hidden rounded-2xl lg:order-2 lg:h-full"
+            >
+              <motion.img
+                variants={dressStyleItemVariant}
                 src={pic1}
                 alt="clothes"
                 className="h-full w-full object-cover"
               />
-            </div>
+            </motion.div>
 
             {/* Thumbnails */}
-            <div className="order-2 grid grid-cols-3 gap-3 lg:order-1 lg:grid-cols-1 lg:grid-rows-3">
-              <img
+            <motion.div
+              variants={dressStyleContainerVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="order-2 grid grid-cols-3 gap-3 lg:order-1 lg:grid-cols-1 lg:grid-rows-3"
+            >
+              <motion.img
+                variants={dressStyleItemVariant}
                 src={pic1}
                 alt="clothes"
                 className="h-30 w-full cursor-pointer rounded-xl object-cover ring-1 ring-black lg:h-full"
               />
 
-              <img
+              <motion.img
+                variants={dressStyleItemVariant}
                 src={pic2}
                 alt="clothes"
                 className="h-30 w-full cursor-pointer rounded-xl object-cover lg:h-full"
               />
 
-              <img
+              <motion.img
+                variants={dressStyleItemVariant}
                 src={pic3}
                 alt="clothes"
                 className="h-30 w-full cursor-pointer rounded-xl object-cover lg:h-full"
               />
-            </div>
+            </motion.div>
           </section>
 
           {/* Product Info */}
           <section className="flex flex-col justify-between gap-2">
             {/* Name */}
             <div>
-              <h1 className="font-IntegralCF gap-2 pb-2 text-[24px] lg:pb-4 leading-7 font-bold uppercase lg:text-[35px]">
+              <h1 className="font-IntegralCF gap-2 pb-2 text-[24px] leading-7 font-bold uppercase lg:pb-4 lg:text-[35px]">
                 One Life Graphic T-shirt
               </h1>
               <img
