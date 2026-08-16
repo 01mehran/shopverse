@@ -1,6 +1,15 @@
 // Components;
 import Container from "./Container";
 
+// Motion;
+import { motion } from "motion/react";
+
+// Animations;
+import {
+  breadCrumbContainerVariant,
+  breadCrumbRouteVarinat,
+} from "../animations";
+
 // Icons;
 import { ChevronRight } from "lucide-react";
 
@@ -10,15 +19,26 @@ export default function BreadCrumb() {
       <Container>
         <hr className="border border-black/5" />
         <nav aria-label="Breadcrumb">
-          <ol className="flex items-center gap-2 py-4 text-sm text-black/60 md:py-5">
-            <li>Home</li>
+          <motion.ol
+            variants={breadCrumbContainerVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex items-center gap-2 py-4 text-sm text-black/60 md:py-5"
+          >
+            <motion.li variants={breadCrumbRouteVarinat}>Home</motion.li>
             <ChevronRight size={20} />
-            <li>Shop</li>
+            <motion.li variants={breadCrumbRouteVarinat}>Shop</motion.li>
             <ChevronRight size={20} />
-            <li>Men</li>
+            <motion.li variants={breadCrumbRouteVarinat}>Men</motion.li>
             <ChevronRight size={20} />
-            <li className="text-black/90">T-Shirts</li>
-          </ol>
+            <motion.li
+              variants={breadCrumbRouteVarinat}
+              className="text-black/90"
+            >
+              T-Shirts
+            </motion.li>
+          </motion.ol>
         </nav>
       </Container>
     </section>

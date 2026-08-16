@@ -9,3 +9,8 @@ export {
   dressStyleContainerVariant,
   dressStyleItemVariant,
 } from "./dressStyleVariant";
+
+export {
+  breadCrumbContainerVariant,
+  breadCrumbRouteVarinat,
+} from "./BreadCrumbVariant";
