@@ -13,7 +13,7 @@ export default function MightLikeProducts() {
             YOU MIGHT <br className="xs:hidden" /> ALSO LIKE
           </h1>
 
-          <div className="hide-scrollbar flex items-center justify-between gap-3 overflow-x-auto py-4">
+          <div className="hide-scrollbar flex items-baseline justify-between gap-3 overflow-x-auto py-4">
             {products.map((item) => (
               <ProductCard key={item.id} item={item} />
             ))}
