@@ -4,6 +4,12 @@ import { Container } from "@/shared/components";
 // Motion;
 import { motion } from "motion/react";
 
+// Animations;
+import {
+  dressStyleContainerVariant,
+  dressStyleItemVariant,
+} from "@/shared/animations";
+
 // Static Images;
 import pic1 from "@/features/products/assets/pic9.png";
 import pic2 from "@/features/products/assets/pic10.png";
@@ -12,10 +18,6 @@ import ratingStar from "@/assets/images/home/rating-start.png";
 
 // Icons;
 import { Check, Minus, Plus } from "lucide-react";
-import {
-  dressStyleContainerVariant,
-  dressStyleItemVariant,
-} from "@/shared/animations";
 
 export default function ProductInfo() {
   return (
@@ -74,10 +76,21 @@ export default function ProductInfo() {
           {/* Product Info */}
           <section className="flex flex-col justify-between gap-2">
             {/* Name */}
-            <div>
-              <h1 className="font-IntegralCF gap-2 pb-2 text-[24px] leading-7 font-bold uppercase lg:pb-4 lg:text-[35px]">
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.15, duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <motion.h1
+                initial={{ y: 40, opacity: 0, rotate: 10 }}
+                whileInView={{ y: 0, opacity: 1, rotate: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="font-IntegralCF gap-2 pb-2 text-[24px] leading-7 font-bold uppercase lg:pb-4 lg:text-[35px]"
+              >
                 One Life Graphic T-shirt
-              </h1>
+              </motion.h1>
               <img
                 src={ratingStar}
                 alt="rating star image"
@@ -95,11 +108,17 @@ export default function ProductInfo() {
                 from a soft and breathable fabric, it offers superior comfort
                 and style.
               </span>
-            </div>
+            </motion.div>
             <hr className="border border-black/5" />
 
             {/* Colors */}
-            <div className="itms-center flex flex-col gap-2 py-1">
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="itms-center flex flex-col gap-2 py-1"
+            >
               <p className="text-sm font-normal text-black/60">Select Colors</p>
               <div className="flex items-center gap-3">
                 <span className="flex size-7 cursor-pointer items-center justify-center rounded-full bg-[#4F4631] text-white">
@@ -108,11 +127,17 @@ export default function ProductInfo() {
                 <span className="size-7 cursor-pointer rounded-full bg-[#314F4A]"></span>
                 <span className="size-7 cursor-pointer rounded-full bg-[#31344F]"></span>
               </div>
-            </div>
+            </motion.div>
             <hr className="border border-black/5" />
 
             {/* Sizes */}
-            <div className="itms-center flex flex-col gap-2 py-1 text-sm font-normal text-black/60 md:text-base">
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.45, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="itms-center flex flex-col gap-2 py-1 text-sm font-normal text-black/60 md:text-base"
+            >
               <p className="text-sm">Choose Size</p>
               <div className="flex flex-wrap items-center gap-2 text-sm lg:text-base">
                 <button className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm">
@@ -128,11 +153,17 @@ export default function ProductInfo() {
                   X-Large
                 </button>
               </div>
-            </div>
+            </motion.div>
             <hr className="border border-black/5" />
 
             {/* Add To Cart */}
-            <div className="grid grid-cols-9 items-center gap-2 pt-2">
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-9 items-center gap-2 pt-2"
+            >
               {/* Amount Product */}
               <div className="bg-bg-muted col-span-3 flex items-center justify-between rounded-[62px] px-2 py-2 sm:px-6">
                 <button className="cursor-pointer text-black/80">
@@ -147,7 +178,7 @@ export default function ProductInfo() {
               <button className="col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white">
                 Add to Cart
               </button>
-            </div>
+            </motion.div>
           </section>
         </main>
       </Container>
