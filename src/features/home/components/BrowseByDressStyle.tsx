@@ -4,11 +4,8 @@ import { Container } from "@/shared/components";
 // Motion Component;
 import { motion } from "motion/react";
 
-// Static Images;
-import dressStyle1 from "@images/home/dress-style-1.png";
-import dressStyle2 from "@images/home/dress-style-2.png";
-import dressStyle3 from "@images/home/dress-style-3.png";
-import dressStyle4 from "@images/home/dress-style-4.png";
+// Data;
+import { BrowseByDressStyles } from "../data/dressByStyles";
 
 // Animations
 import {
@@ -39,65 +36,23 @@ export default function BrowseByDressStyle() {
           viewport={{ once: true }}
           className="xs:grid-cols-2 grid grid-cols-1 gap-4 sm:grid-cols-9"
         >
-          <motion.article
-            variants={dressStyleItemVariant}
-            className="relative sm:col-span-3"
-          >
-            <img
-              src={dressStyle1}
-              alt="a man wore causal clothes"
-              loading="lazy"
-              className="fit h-47 w-full rounded-2xl md:h-52"
-            />
-            <span className="absolute top-4 left-4 text-xl font-bold sm:left-6">
-              Casual
-            </span>
-          </motion.article>
-
-          <motion.article
-            variants={dressStyleItemVariant}
-            className="relative sm:col-span-6"
-          >
-            <img
-              src={dressStyle2}
-              alt="a man wore formal clothes"
-              loading="lazy"
-              className="fit h-47 w-full rounded-2xl md:h-52"
-            />
-            <span className="absolute top-4 left-4 text-xl font-bold sm:left-6">
-              Formal
-            </span>
-          </motion.article>
-
-          <motion.article
-            variants={dressStyleItemVariant}
-            className="relative sm:col-span-6"
-          >
-            <img
-              src={dressStyle3}
-              alt="a women wore party clothes"
-              loading="lazy"
-              className="fit h-47 w-full rounded-2xl md:h-52"
-            />
-            <span className="absolute top-4 left-4 text-xl font-bold sm:left-6">
-              Party
-            </span>
-          </motion.article>
-
-          <motion.article
-            variants={dressStyleItemVariant}
-            className="relative sm:col-span-3"
-          >
-            <img
-              src={dressStyle4}
-              alt="a man wore sports clothes"
-              loading="lazy"
-              className="fit h-47 w-full rounded-2xl md:h-52"
-            />
-            <span className="absolute top-4 left-4 text-xl font-bold sm:left-6">
-              Gym
-            </span>
-          </motion.article>
+          {BrowseByDressStyles.map((item) => (
+            <motion.article
+              variants={dressStyleItemVariant}
+              className={`relative ${item.id === 1 || item.id === 4 ? "sm:col-span-3" : "sm:col-span-6"}`}
+              key={item.id}
+            >
+              <img
+                src={item.image}
+                alt={`a person wearing ${item.name} clothes`}
+                loading="lazy"
+                className="fit h-47 w-full rounded-2xl md:h-52"
+              />
+              <span className="absolute top-4 left-4 text-xl font-bold sm:left-6">
+                {item.name}
+              </span>
+            </motion.article>
+          ))}
         </motion.main>
       </section>
     </Container>
