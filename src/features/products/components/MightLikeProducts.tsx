@@ -1,7 +1,7 @@
 // Componentsl
 import { Container, ProductCard } from "@/shared/components";
 
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 // Animations;

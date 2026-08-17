@@ -1,7 +1,7 @@
 // Animations;
 import { productCardVariants } from "@/shared/animations";
 
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 type FooterColumn = {

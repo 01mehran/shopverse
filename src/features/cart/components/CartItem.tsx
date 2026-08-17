@@ -2,7 +2,7 @@
 import { Container, Footer } from "@/shared/components";
 import OrderSummary from "./OrderSummary";
 
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 // Animations;

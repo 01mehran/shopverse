@@ -1,4 +1,4 @@
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 //Icons;

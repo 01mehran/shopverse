@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // Components;
 import Container from "./Container";
 
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 // Icons;
@@ -25,7 +25,7 @@ export default function Header() {
       transition={{ duration: 0.5, delay: 0.2 }}
     >
       <Container>
-        <section className="flex w-full items-center justify-between py-5">
+        <header className="flex w-full items-center justify-between py-5">
           <div className="flex items-center gap-4">
             {/* Mobile Menu Button */}
             <button className="blcok xl:hidden">
@@ -85,7 +85,7 @@ export default function Header() {
               <Search strokeWidth={2.5} />
             </button>
           </div>
-        </section>
+        </header>
       </Container>
     </motion.header>
   );

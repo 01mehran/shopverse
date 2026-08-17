@@ -1,7 +1,7 @@
 // Components;
 import { Container } from "@/shared/components";
 
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 // Logos

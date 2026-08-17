@@ -1,7 +1,7 @@
 // Icons;
 import { ArrowRight } from "lucide-react";
 
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 export default function OrderSummary() {

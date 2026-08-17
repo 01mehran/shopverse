@@ -2,7 +2,7 @@
 import { Container } from "@/shared/components";
 import ProductCard from "@/shared/components/ProductCard";
 
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 // Static Images;

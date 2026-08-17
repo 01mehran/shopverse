@@ -4,7 +4,7 @@ import { Container } from "@/shared/components";
 // Icons;
 import { ArrowRight } from "lucide-react";
 
-// Motion
+// Motion Component;
 import { motion } from "motion/react";
 
 // Static Images;

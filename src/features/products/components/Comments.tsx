@@ -5,7 +5,7 @@ import Tabs from "./Tabs";
 // Static Images;
 import ratingStar from "@/assets/images/home/rating-start.png";
 
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 // Animations;

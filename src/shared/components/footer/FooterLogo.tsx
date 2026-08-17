@@ -1,7 +1,7 @@
 // Components;
 import FooterLogosBox from "./FooterlogosBox";
 
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 // Static Data;

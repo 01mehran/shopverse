@@ -4,7 +4,7 @@ import FooterColumn from "./FooterColumn";
 import FooterLogo from "./FooterLogo";
 import FooterLogosBox from "./FooterlogosBox";
 
-// Motion;
+// Motion Component;
 import { motion } from "motion/react";
 
 // Animations;
