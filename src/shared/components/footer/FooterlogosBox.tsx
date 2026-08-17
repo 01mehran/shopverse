@@ -11,9 +11,11 @@ export default function FooterLogosBox({
   borderRadius = "",
   className = "",
 }: FooterImages) {
+  const instagram = alt === "instagram icon";
+
   return (
     <article
-      className={`rounded-md bg-white p-2 ${className}`}
+      className={`cursor-pointer rounded-md p-2 ${instagram ? "bg-black" : "bg-white"} ${className}`}
       style={{
         borderRadius: borderRadius,
       }}
