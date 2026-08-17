@@ -30,7 +30,7 @@ export default function ProductCard({ item }: ProductCardProps) {
           <div className="bg-bg-muted mb-2 flex items-center justify-center rounded-xl">
             <img
               src={item.image}
-              alt="arrivals clothes"
+              alt={item.name}
               className="h-54 w-60 rounded-xl object-cover sm:h-70"
             />
           </div>

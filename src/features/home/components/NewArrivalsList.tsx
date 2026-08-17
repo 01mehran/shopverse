@@ -5,11 +5,8 @@ import ProductCard from "@/shared/components/ProductCard";
 // Motion Component;
 import { motion } from "motion/react";
 
-// Static Images;
-import pic1 from "@images/home/pic1.png";
-import pic2 from "@images/home/pic2.png";
-import pic3 from "@images/home/pic3.png";
-import pic4 from "@images/home/pic4.png";
+// Data;
+import { newArrivalsProducts } from "../data/newArrivals";
 
 // Animations;
 import {
@@ -18,38 +15,6 @@ import {
   productCardVariants,
   fadeLeftVariant,
 } from "@/shared/animations";
-
-// Static Data;
-const products = [
-  {
-    id: 1,
-    image: pic1,
-    name: "T-shirt with Tape Details",
-    rating: 4.5,
-    price: 29,
-  },
-  {
-    id: 2,
-    image: pic2,
-    name: "Skinny Fit Jeans",
-    rating: 4.2,
-    price: 45,
-  },
-  {
-    id: 3,
-    image: pic3,
-    name: "Checkerd Shirt",
-    rating: 4.8,
-    price: 79,
-  },
-  {
-    id: 4,
-    image: pic4,
-    name: "Sleeve Striped T-shirt",
-    rating: 4.6,
-    price: 65,
-  },
-];
 
 export default function NewArrivalsList() {
   return (
@@ -72,7 +37,7 @@ export default function NewArrivalsList() {
           viewport={{ once: true }}
           className="hide-scrollbar flex items-baseline justify-between gap-3 overflow-x-auto py-4"
         >
-          {products.map((item) => (
+          {newArrivalsProducts.map((item) => (
             <motion.div key={item.id} variants={productCardVariants}>
               <ProductCard item={item} />
             </motion.div>
