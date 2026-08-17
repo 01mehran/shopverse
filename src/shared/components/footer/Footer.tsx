@@ -3,6 +3,7 @@ import Container from "../Container";
 import FooterColumn from "./FooterColumn";
 import FooterLogo from "./FooterLogo";
 import FooterLogosBox from "./FooterlogosBox";
+import NewsletterSignup from "./NewsletterSignup";
 
 // Motion Component;
 import { motion } from "motion/react";
@@ -14,46 +15,16 @@ import { productCardContainerVariants } from "@/shared/animations";
 import { footerLinks } from "./data/footerLinks";
 import { footerImages } from "./data/footerPaymentLogos";
 
-// Icons;
-import { Mail } from "lucide-react";
-
 export default function Footer() {
   return (
-    <footer className="bg-bg-muted relative mt-40 pt-10 pb-6">
-      <Container>
-        <motion.section
-          initial={{ y: 60, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          viewport={{ once: true }}
-          className="flex w-full -translate-y-32 flex-col items-center justify-between space-y-10 rounded-3xl bg-black p-8 text-white md:flex-row md:space-y-0 lg:p-12"
-        >
-          <div>
-            <p className="font-IntegralCF max-w-150 pr-8 text-[32px] leading-9 font-bold md:text-[40px] md:leading-11">
-              STAY UPTO DATE ABOUT OUR LATEST OFFERS
-            </p>
-          </div>
-          <form className="relative flex w-full max-w-77 flex-col items-center gap-2">
-            <input
-              type="text"
-              placeholder="Enter your email address"
-              className="rounded-0 w-full rounded-full bg-white px-12 py-2 text-black outline-0 placeholder:text-black/60"
-            />
-            <span className="absolute top-2.5 left-3 text-gray-500">
-              <Mail size={20} />
-            </span>
-            <button className="w-full rounded-full bg-white py-2 font-medium text-black">
-              Subscribe to Newsletter
-            </button>
-          </form>
-        </motion.section>
-      </Container>
+    <footer className="bg-bg-muted relative mt-40 pt-78 pb-6 md:pt-42">
+      <NewsletterSignup />
 
-      <Container>
-        <main>
+      <main>
+        <Container>
           <FooterLogo className="lg:hidden" />
 
-          <section className="">
+          <section className="flex items-center justify-between gap-18">
             <FooterLogo className="hidden lg:flex" />
 
             <motion.div
@@ -61,7 +32,7 @@ export default function Footer() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="grid grid-cols-2 justify-between space-y-5 pb-8 sm:grid-cols-4 lg:flex"
+              className="grid w-full grid-cols-2 justify-between space-y-5 pb-8 sm:grid-cols-4 lg:flex"
             >
               {footerLinks.map((column) => (
                 <FooterColumn
@@ -97,8 +68,8 @@ export default function Footer() {
               ))}
             </div>
           </motion.section>
-        </main>
-      </Container>
+        </Container>
+      </main>
     </footer>
   );
 }

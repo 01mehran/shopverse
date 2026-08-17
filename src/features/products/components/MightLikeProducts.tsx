@@ -18,7 +18,7 @@ export default function MightLikeProducts() {
   return (
     <section>
       <Container>
-        <section className="py-10 sm:py-16">
+        <section className="pt-10 sm:pt-16">
           <motion.h1
             variants={fadeUpVariant}
             initial="hidden"
