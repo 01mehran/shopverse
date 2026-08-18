@@ -1,15 +1,18 @@
 // React Router Dom;
 import { Link } from "react-router-dom";
 
-// React Hooks;
-import { useState } from "react";
-
 // Components;
 import Container from "../Container";
 import Sidebar from "./Sidebar";
 
 // Motion Component;
 import { motion } from "motion/react";
+
+// Stores;
+import { useUiStore } from "@/stores/useUiStore";
+
+// Zustand;
+import { useShallow } from "zustand/shallow";
 
 // Icons;
 import {
@@ -21,11 +24,12 @@ import {
 } from "lucide-react";
 
 export default function Header() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
-
-  const handleToggleSidebar = () => {
-    setIsSidebarOpen((prev) => !prev);
-  };
+  const { isSidebarOpen, handleToggleSidebar } = useUiStore(
+    useShallow((state) => ({
+      isSidebarOpen: state.isSidebarOpen,
+      handleToggleSidebar: state.handleToggleSidebar,
+    })),
+  );
 
   return (
     <motion.header
@@ -34,10 +38,7 @@ export default function Header() {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
-      <Sidebar
-        isSidebarOpen={isSidebarOpen}
-        handleToggleSidebar={handleToggleSidebar}
-      />
+      <Sidebar />
 
       <Container>
         <header className="flex w-full items-center justify-between py-5">

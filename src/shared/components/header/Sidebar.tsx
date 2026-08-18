@@ -4,15 +4,20 @@ import { AnimatePresence, motion } from "motion/react";
 // Icons;
 import { ChevronDown, X } from "lucide-react";
 
-type SidbarProps = {
-  isSidebarOpen: boolean;
-  handleToggleSidebar: () => void;
-};
+// Stores;
+import { useUiStore } from "@/stores/useUiStore";
 
-export default function Sidebar({
-  isSidebarOpen,
-  handleToggleSidebar,
-}: SidbarProps) {
+// Zustand;
+import { useShallow } from "zustand/shallow";
+
+export default function Sidebar() {
+  const { isSidebarOpen, handleToggleSidebar } = useUiStore(
+    useShallow((state) => ({
+      isSidebarOpen: state.isSidebarOpen,
+      handleToggleSidebar: state.handleToggleSidebar,
+    })),
+  );
+
   return (
     <AnimatePresence>
       {isSidebarOpen && (
@@ -36,7 +41,7 @@ export default function Sidebar({
               duration: 0.35,
               ease: "easeOut",
             }}
-            className="bg-bg-muted/70 fixed top-0 left-0 z-50 h-screen w-[80vw] max-w-100 rounded-r-2xl xl:hidden"
+            className="bg-bg-muted/85 fixed top-0 left-0 z-50 h-screen w-[80vw] max-w-100 rounded-r-2xl xl:hidden"
           >
             <button
               onClick={handleToggleSidebar}
