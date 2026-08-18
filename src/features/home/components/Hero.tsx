@@ -1,6 +1,6 @@
 // Components;
 import { Container } from "@/shared/components";
-import Stats from "./stats";
+import Stats from "./Stats";
 import HeroImages from "./HeroImages";
 
 // Motion Component;
