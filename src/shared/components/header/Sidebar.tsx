@@ -9,14 +9,30 @@ import { useUiStore } from "@/stores/useUiStore";
 
 // Zustand;
 import { useShallow } from "zustand/shallow";
+import { useEffect } from "react";
 
 export default function Sidebar() {
-  const { isSidebarOpen, handleToggleSidebar } = useUiStore(
+  const { isSidebarOpen, handleCloseSidebar } = useUiStore(
     useShallow((state) => ({
       isSidebarOpen: state.isSidebarOpen,
-      handleToggleSidebar: state.handleToggleSidebar,
+      handleCloseSidebar: state.handleCloseSidebar,
     })),
   );
+
+  // Close sidebar with "Escape" button on keyboard;
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        handleCloseSidebar();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleCloseSidebar]);
 
   return (
     <AnimatePresence>
@@ -28,7 +44,7 @@ export default function Sidebar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            onClick={handleToggleSidebar}
+            onClick={handleCloseSidebar}
             className="fixed inset-0 z-40 bg-black/70 backdrop-blur-md xl:hidden"
           />
 
@@ -44,7 +60,7 @@ export default function Sidebar() {
             className="bg-bg-muted/85 fixed top-0 left-0 z-50 h-screen w-[80vw] max-w-100 rounded-r-2xl xl:hidden"
           >
             <button
-              onClick={handleToggleSidebar}
+              onClick={handleCloseSidebar}
               className="absolute top-6 right-6 cursor-pointer"
             >
               <X />

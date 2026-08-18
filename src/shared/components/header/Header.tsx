@@ -11,9 +11,6 @@ import { motion } from "motion/react";
 // Stores;
 import { useUiStore } from "@/stores/useUiStore";
 
-// Zustand;
-import { useShallow } from "zustand/shallow";
-
 // Icons;
 import {
   ChevronDown,
@@ -24,12 +21,7 @@ import {
 } from "lucide-react";
 
 export default function Header() {
-  const { isSidebarOpen, handleToggleSidebar } = useUiStore(
-    useShallow((state) => ({
-      isSidebarOpen: state.isSidebarOpen,
-      handleToggleSidebar: state.handleToggleSidebar,
-    })),
-  );
+  const handleOpenSidebar = useUiStore((state) => state.handleOpenSidebar);
 
   return (
     <motion.header
@@ -45,8 +37,8 @@ export default function Header() {
           <div className="flex items-center gap-4">
             {/* Mobile Menu Button */}
             <button
-              onClick={handleToggleSidebar}
-              className={`blcok cursor-pointer xl:hidden ${isSidebarOpen}`}
+              onClick={handleOpenSidebar}
+              className={`blcok cursor-pointer xl:hidden`}
             >
               <Menu strokeWidth={2.5} size={24} />
             </button>

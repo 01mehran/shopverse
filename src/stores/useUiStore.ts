@@ -2,12 +2,13 @@ import { create } from "zustand";
 
 type UiStore = {
   isSidebarOpen: boolean;
-  handleToggleSidebar: () => void;
+  handleOpenSidebar: () => void;
+  handleCloseSidebar: () => void;
 };
 
 export const useUiStore = create<UiStore>((set) => ({
   isSidebarOpen: false,
 
-  handleToggleSidebar: () =>
-    set((state) => ({ isSidebarOpen: !state.isSidebarOpen })),
+  handleOpenSidebar: () => set({ isSidebarOpen: true }),
+  handleCloseSidebar: () => set({ isSidebarOpen: false }),
 }));
