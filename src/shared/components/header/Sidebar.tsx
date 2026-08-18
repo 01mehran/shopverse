@@ -1,15 +1,20 @@
+// React Hooks;
+import { useEffect } from "react";
+
+// Components;
+import { HeaderNavigation } from "./HeaderNavigation";
+
 // Motion Component;
 import { AnimatePresence, motion } from "motion/react";
 
 // Icons;
-import { ChevronDown, X } from "lucide-react";
+import { X } from "lucide-react";
 
 // Stores;
 import { useUiStore } from "@/stores/useUiStore";
 
 // Zustand;
 import { useShallow } from "zustand/shallow";
-import { useEffect } from "react";
 
 export default function Sidebar() {
   const { isSidebarOpen, handleCloseSidebar } = useUiStore(
@@ -66,30 +71,7 @@ export default function Sidebar() {
               <X />
             </button>
 
-            <nav className="mt-16">
-              <ul className="flex flex-col items-start gap-5 px-10">
-                <li className="navigation-links text-xl">
-                  <a className="flex items-center gap-px">
-                    Shop
-                    <span>
-                      <ChevronDown size={18} />
-                    </span>
-                  </a>
-                </li>
-
-                <li className="navigation-links text-xl">
-                  <a>On Sale</a>
-                </li>
-
-                <li className="navigation-links text-xl">
-                  <a>New Arrivals</a>
-                </li>
-
-                <li className="navigation-links text-xl">
-                  <a>Brands</a>
-                </li>
-              </ul>
-            </nav>
+            <HeaderNavigation variant="mobile" />
           </motion.aside>
         </>
       )}

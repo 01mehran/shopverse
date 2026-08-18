@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 // Components;
 import Container from "../Container";
 import Sidebar from "./Sidebar";
+import { HeaderNavigation } from "./HeaderNavigation";
 
 // Motion Component;
 import { motion } from "motion/react";
@@ -12,13 +13,7 @@ import { motion } from "motion/react";
 import { useUiStore } from "@/stores/useUiStore";
 
 // Icons;
-import {
-  ChevronDown,
-  CircleUserRound,
-  Menu,
-  Search,
-  ShoppingCart,
-} from "lucide-react";
+import { CircleUserRound, Menu, Search, ShoppingCart } from "lucide-react";
 
 export default function Header() {
   const handleOpenSidebar = useUiStore((state) => state.handleOpenSidebar);
@@ -38,7 +33,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={handleOpenSidebar}
-              className={`blcok cursor-pointer xl:hidden`}
+              className={`blcok cursor-pointer border-0 outline-0 xl:hidden`}
             >
               <Menu strokeWidth={2.5} size={24} />
             </button>
@@ -50,27 +45,7 @@ export default function Header() {
           </div>
 
           {/* Navigation Buttons */}
-          <nav className="hidden xl:block">
-            <ul className="flex items-center gap-4">
-              <li className="navigation-links">
-                <a className="flex items-center gap-px">
-                  shop{" "}
-                  <span>
-                    <ChevronDown size={18} />
-                  </span>
-                </a>
-              </li>
-              <li className="navigation-links">
-                <a>on sale</a>
-              </li>
-              <li className="navigation-links">
-                <a>new arrivals</a>
-              </li>
-              <li className="navigation-links">
-                <a>brands</a>
-              </li>
-            </ul>
-          </nav>
+          <HeaderNavigation variant="desktop" />
 
           {/* Search Box  */}
           <form className="bg-bg-muted hidden h-12 w-100 items-center gap-3 rounded-full px-4 transition duration-200 focus-within:ring-2 focus-within:ring-black md:flex lg:w-140">
