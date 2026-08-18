@@ -1,8 +1,12 @@
 // React Router Dom;
 import { Link } from "react-router-dom";
 
+// React Hooks;
+import { useState } from "react";
+
 // Components;
-import Container from "./Container";
+import Container from "../Container";
+import Sidebar from "./Sidebar";
 
 // Motion Component;
 import { motion } from "motion/react";
@@ -17,6 +21,12 @@ import {
 } from "lucide-react";
 
 export default function Header() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState<boolean>(false);
+
+  const handleToggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev);
+  };
+
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
@@ -24,11 +34,19 @@ export default function Header() {
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.2 }}
     >
+      <Sidebar
+        isSidebarOpen={isSidebarOpen}
+        handleToggleSidebar={handleToggleSidebar}
+      />
+
       <Container>
         <header className="flex w-full items-center justify-between py-5">
           <div className="flex items-center gap-4">
             {/* Mobile Menu Button */}
-            <button className="blcok xl:hidden">
+            <button
+              onClick={handleToggleSidebar}
+              className={`blcok cursor-pointer xl:hidden ${isSidebarOpen}`}
+            >
               <Menu strokeWidth={2.5} size={24} />
             </button>
 

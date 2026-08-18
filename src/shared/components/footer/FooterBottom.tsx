@@ -1,7 +1,10 @@
 // Compoennts;
 import FooterLogosBox from "./FooterlogosBox";
+
 // Motion Component;
 import { motion } from "motion/react";
+
+// Data;
 import { footerImages } from "./data/footerPaymentLogos";
 
 export default function FooterBottom() {
