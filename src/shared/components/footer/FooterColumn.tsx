@@ -1,13 +1,11 @@
 // Animations;
 import { productCardVariants } from "@/shared/animations";
 
+// Types;
+import type { FooterColumn } from "@/shared/types/types";
+
 // Motion Component;
 import { motion } from "motion/react";
-
-type FooterColumn = {
-  title: string;
-  links: string[];
-};
 
 export default function FooterColumn({ title, links }: FooterColumn) {
   return (

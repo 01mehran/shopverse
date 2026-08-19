@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 
 // Components;
-import { HeaderNavigation } from "./HeaderNavigation";
+import HeaderNavigation from "./HeaderNavigation";
 
 // Motion Component;
 import { AnimatePresence, motion } from "motion/react";

@@ -1,9 +1,5 @@
-type FooterImages = {
-  imageUrl: string;
-  alt: string;
-  borderRadius?: string;
-  className?: string;
-};
+// Types;
+import type { FooterImages } from "@/shared/types/types";
 
 export default function FooterLogosBox({
   imageUrl,

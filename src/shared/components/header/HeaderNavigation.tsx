@@ -1,13 +1,12 @@
+// Types;
+import type { VariantProps } from "@/shared/types/types";
+
 // Icons;
 import { ChevronDown } from "lucide-react";
 
-type HeaderNavigationProps = {
-  variant: "mobile" | "desktop";
-};
-
-export const HeaderNavigation = ({
+export default function HeaderNavigation({
   variant = "desktop",
-}: HeaderNavigationProps) => {
+}: VariantProps) {
   const isMobile = variant === "mobile";
 
   return (
@@ -50,4 +49,4 @@ export const HeaderNavigation = ({
       </ul>
     </nav>
   );
-};
+}

@@ -2,17 +2,7 @@
 import { Link } from "react-router-dom";
 
 // Types;
-type product = {
-  id: number;
-  image: string;
-  name: string;
-  rating: number;
-  price: number;
-};
-
-type ProductCardProps = {
-  item: product;
-};
+import type { ProductCardProps } from "../types/types";
 
 // Static Images;
 import ratingStart from "@images/home/rating-start.png";

@@ -1,0 +1,28 @@
+// Types;
+export type product = {
+  id: number;
+  image: string;
+  name: string;
+  rating: number;
+  price: number;
+};
+
+export type ProductCardProps = {
+  item: product;
+};
+
+export type VariantProps = {
+  variant: "mobile" | "desktop";
+};
+
+export type FooterImages = {
+  imageUrl: string;
+  alt: string;
+  borderRadius?: string;
+  className?: string;
+};
+
+export type FooterColumn = {
+  title: string;
+  links: string[];
+};
