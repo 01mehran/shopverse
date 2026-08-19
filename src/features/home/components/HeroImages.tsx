@@ -33,7 +33,13 @@ export default function HeroImages() {
       />
 
       {/* Small Star */}
-      <img
+      <motion.img
+        animate={{ rotate: [0, 360] }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          repeatDelay: 6,
+        }}
         src={smallStar}
         alt="small vector around hero image"
         className="absolute top-38 left-4"
@@ -41,7 +47,14 @@ export default function HeroImages() {
       />
 
       {/* Big Star */}
-      <img
+      <motion.img
+        animate={{ rotate: [0, 360] }}
+        transition={{
+          duration: 1,
+          repeat: Infinity,
+          repeatDelay: 6,
+          delay: 1.5,
+        }}
         src={bigStar}
         alt="big vector around hero image"
         className="absolute top-8 right-0"
