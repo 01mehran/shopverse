@@ -35,7 +35,7 @@ export default function NewArrivalsList() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
+          className="hide-scrollbar flex snap-x snap-mandatory md:snap-none items-baseline justify-between gap-3 overflow-x-auto py-4"
         >
           {newArrivalsProducts.map((item) => (
             <motion.div
