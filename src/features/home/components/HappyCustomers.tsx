@@ -1,3 +1,6 @@
+// React Hooks;
+import { useRef } from "react";
+
 // Components;
 import { Container } from "@/shared/components";
 
@@ -7,11 +10,30 @@ import { ArrowRight } from "lucide-react";
 // Motion Component;
 import { motion } from "motion/react";
 
-// Static Images;
-import ratingStar from "@images/home/rating-start.png";
+// Animations;
 import { fadeUpVariant } from "@/shared/animations";
 
+// Static Images;
+import ratingStar from "@images/home/rating-start.png";
+
 export default function HappyCustomers() {
+  const reviewRef = useRef<HTMLDivElement | null>(null);
+
+  const handleNext = () => {
+    reviewRef.current?.scrollBy({
+      // reviewRef.current.clientWidth
+      left: 400,
+      behavior: "smooth",
+    });
+  };
+
+  const handlePrev = () => {
+    reviewRef.current?.scrollBy({
+      left: -400,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section className="mt-18">
       <Container>
@@ -30,8 +52,12 @@ export default function HappyCustomers() {
 
           {/* Arrows */}
           <article className="flex items-center gap-4">
-            <ArrowRight size={28} className="rotate-180 cursor-pointer" />
-            <ArrowRight size={28} className="cursor-pointer" />
+            <button onClick={handlePrev} className={`cursor-pointer`}>
+              <ArrowRight size={28} className="rotate-180" />
+            </button>
+            <button onClick={handleNext} className={`cursor-pointer`}>
+              <ArrowRight size={28} />
+            </button>
           </article>
         </header>
 
@@ -41,12 +67,13 @@ export default function HappyCustomers() {
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
           viewport={{ once: true }}
-          className="hide-scrollbar bg mt-8 flex items-center gap-4 overflow-x-auto px-4"
+          ref={reviewRef}
+          className="hide-scrollbar bg mt-8 flex snap-x snap-mandatory items-center gap-4 overflow-x-auto px-4"
         >
           {Array.from({ length: 5 }, (_, i) => (
             <article
               key={i}
-              className="xs:min-w-100 flex h-55 min-w-full flex-col items-start justify-around rounded-2xl border border-black/10 p-4 md:justify-between md:p-7"
+              className="xs:min-w-100 flex h-55 min-w-full snap-start flex-col items-start justify-around rounded-2xl border border-black/10 p-4 shadow-lg md:justify-between md:p-7"
             >
               <img src={ratingStar} alt="rating start image" />
               <h1 className="text-xl font-bold">Sarah M.</h1>
