@@ -2,8 +2,9 @@
 import type { FooterImages } from "@/shared/types/types";
 
 export default function FooterLogosBox({
-  imageUrl,
   alt,
+  imageUrl,
+  href,
   borderRadius = "",
   className = "",
 }: FooterImages) {
@@ -16,7 +17,14 @@ export default function FooterLogosBox({
         borderRadius: borderRadius,
       }}
     >
-      <img src={imageUrl} alt={alt} className={`object-cover`} />
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer bg-black"
+        className="flex h-full w-full items-center justify-center"
+      >
+        <img src={imageUrl} alt={alt} className={`object-cover`} />
+      </a>
     </article>
   );
 }

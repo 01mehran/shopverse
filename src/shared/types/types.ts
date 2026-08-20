@@ -20,6 +20,7 @@ export type FooterImages = {
   alt: string;
   borderRadius?: string;
   className?: string;
+  href?: string
 };
 
 export type FooterColumn = {

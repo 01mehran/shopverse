@@ -28,6 +28,7 @@ export default function FooterLogo({ className = "" }) {
           <FooterLogosBox
             alt={logos.alt}
             imageUrl={logos.imageUrl}
+            href={logos.href}
             key={logos.alt}
             className="flex aspect-square w-8 items-center justify-center border border-black/15"
             borderRadius="50%"

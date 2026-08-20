@@ -7,6 +7,14 @@ import github from "@images/home/social-logos/github.svg";
 export const footerSocialLogos = [
   { alt: "twitter icon", imageUrl: twitter },
   { alt: "facebook icon", imageUrl: facebook },
-  { alt: "instagram icon", imageUrl: instagram },
-  { alt: "github icon", imageUrl: github },
+  {
+    alt: "instagram icon",
+    imageUrl: instagram,
+    href: "https://instagram.com/mehran_7_10",
+  },
+  {
+    alt: "github icon",
+    imageUrl: github,
+    href: "https://github.com/01mehran",
+  },
 ];
