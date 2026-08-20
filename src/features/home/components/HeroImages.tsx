@@ -57,7 +57,7 @@ export default function HeroImages() {
         }}
         src={bigStar}
         alt="big vector around hero image"
-        className="absolute top-8 right-0"
+        className="absolute top-8 right-4 w-16 md:right-4 lg:w-20"
         loading="lazy"
       />
     </motion.section>
