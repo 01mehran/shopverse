@@ -16,7 +16,7 @@ export default function ProductCard({ item }: ProductCardProps) {
           scrollTo({ top: 0, behavior: "smooth" });
         }}
       >
-        <article className="xs:min-w-54 min-w-44 space-y-1 rounded-xl md:min-w-72">
+        <article className="xs:min-w-54 min-w-45 space-y-1 rounded-xl md:min-w-72">
           <div className="bg-bg-muted mb-2 flex items-center justify-center rounded-xl">
             <img
               src={item.image}

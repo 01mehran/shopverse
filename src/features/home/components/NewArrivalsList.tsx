@@ -35,10 +35,14 @@ export default function NewArrivalsList() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="hide-scrollbar flex items-baseline justify-between gap-3 overflow-x-auto py-4"
+          className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
         >
           {newArrivalsProducts.map((item) => (
-            <motion.div key={item.id} variants={productCardVariants}>
+            <motion.div
+              key={item.id}
+              variants={productCardVariants}
+              className="snap-start"
+            >
               <ProductCard item={item} />
             </motion.div>
           ))}
