@@ -52,10 +52,16 @@ export default function HappyCustomers() {
 
           {/* Arrows */}
           <article className="flex items-center gap-4">
-            <button onClick={handlePrev} className={`cursor-pointer`}>
+            <button
+              onClick={handlePrev}
+              className={`cursor-pointer transition-all duration-200 hover:-translate-x-px`}
+            >
               <ArrowRight size={28} className="rotate-180" />
             </button>
-            <button onClick={handleNext} className={`cursor-pointer`}>
+            <button
+              onClick={handleNext}
+              className={`cursor-pointer transition-all duration-200 hover:translate-x-px`}
+            >
               <ArrowRight size={28} />
             </button>
           </article>
@@ -73,7 +79,7 @@ export default function HappyCustomers() {
           {Array.from({ length: 5 }, (_, i) => (
             <article
               key={i}
-              className="xs:min-w-100 flex h-55 min-w-full snap-start flex-col items-start justify-around rounded-2xl border border-black/10 p-4 shadow-lg md:justify-between md:p-7"
+              className="xs:min-w-100 flex h-55 min-w-full snap-start flex-col items-start justify-around rounded-2xl border border-black/10 p-4 shadow-lg md:justify-between md:p-7 lg:min-w-1/3"
             >
               <img src={ratingStar} alt="rating start image" />
               <h1 className="text-xl font-bold">Sarah M.</h1>
