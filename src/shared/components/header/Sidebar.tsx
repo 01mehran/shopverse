@@ -39,6 +39,19 @@ export default function Sidebar() {
     };
   }, [handleCloseSidebar]);
 
+  // Hidden body overflow when sidebar is open;
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isSidebarOpen]);
+
   return (
     <AnimatePresence>
       {isSidebarOpen && (
