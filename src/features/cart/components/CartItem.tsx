@@ -1,5 +1,5 @@
 // Components;
-import { Container, Footer } from "@/shared/components";
+import { Container } from "@/shared/components";
 import OrderSummary from "./OrderSummary";
 
 // Motion Component;
@@ -92,8 +92,6 @@ export default function CartItem() {
           <OrderSummary />
         </motion.div>
       </Container>
-
-      <Footer />
     </section>
   );
 }

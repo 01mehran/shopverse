@@ -1,23 +1,31 @@
 // React Router Dom;
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+// Layout;
+import MainLayout from "./layout/MainLayout";
+
 // Pages;
-import Home from "./pages/Home";
-import ProductDetails from "./pages/ProductDetails";
-import Cart from "./pages/Cart";
+import { Home, ProductDetails, Cart } from "./pages";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/product-details",
-    element: <ProductDetails />,
-  },
-  {
-    path: "/cart",
-    element: <Cart />,
+    element: <MainLayout />,
+
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "/product-details",
+        element: <ProductDetails />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
+      },
+    ],
   },
 ]);
 
