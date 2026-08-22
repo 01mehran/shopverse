@@ -1,3 +1,6 @@
+// React Hooks;
+import { useEffect } from "react";
+
 // Zustand;
 import { useShallow } from "zustand/shallow";
 
@@ -20,6 +23,21 @@ export default function SearchBox({ variant }: VariantProps) {
       closeSearch: state.closeSearch,
     })),
   );
+
+  // Close search box with Escape button;
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeSearch();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
 
   if (variant === "desktop") {
     return (
@@ -64,6 +82,7 @@ export default function SearchBox({ variant }: VariantProps) {
               type="text"
               placeholder="Search for products..."
               className="w-full border-0 font-medium tracking-wide outline-0 placeholder:text-base placeholder:font-normal placeholder:text-black/40"
+              autoFocus
             />
 
             <button
