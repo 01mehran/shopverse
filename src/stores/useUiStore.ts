@@ -7,6 +7,7 @@ type UiStore = {
 
   isSearchOpen: boolean;
   openSearch: () => void;
+  closeSearch: () => void;
 
   showBackToTop: boolean;
   setShowBackToTop: (value: boolean) => void;
@@ -24,8 +25,5 @@ export const useUiStore = create<UiStore>((set) => ({
   openSearch: () => set({ isSearchOpen: true }),
   closeSearch: () => set({ isSearchOpen: false }),
 
-  setShowBackToTop: (value) => set({showBackToTop: value})
-
-
-
+  setShowBackToTop: (value) => set({ showBackToTop: value }),
 }));
