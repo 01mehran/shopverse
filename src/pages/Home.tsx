@@ -8,7 +8,7 @@ import {
   HappyCustomers,
 } from "@/features/home/components";
 
-import { Footer, Header, TopBar } from "@/shared/components";
+import { BackToTopButton, Footer, Header, TopBar } from "@/shared/components";
 
 export default function Home() {
   return (
@@ -21,6 +21,7 @@ export default function Home() {
       <TopSellingList />
       <BrowseByDressStyle />
       <HappyCustomers />
+      <BackToTopButton />
       <Footer />
     </section>
   );
