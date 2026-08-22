@@ -33,7 +33,7 @@ export default function Header() {
       animate={{ y: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.2 }}
-      className="relative overflow-hidden"
+      className="shadow-[2px_2px_2px_rgba(0, 0, 0, 0.7)] sticky top-0 z-50 overflow-hidden rounded-b-xl bg-white shadow"
     >
       <Sidebar />
 
@@ -41,7 +41,7 @@ export default function Header() {
 
       <Container>
         <section className="relative flex w-full items-center justify-between py-5">
-          <div className="flex items-center gap-4">
+          <div className="flex items-baseline-last gap-2">
             {/* Mobile Menu Button */}
             <button
               onClick={handleOpenSidebar}
@@ -64,16 +64,16 @@ export default function Header() {
           {/* Cart & User Icons  */}
           <div className="flex items-baseline gap-2.5">
             <Link to={`/cart`}>
-              <button className="cursor-pointer focus-within:border-0 focus-within:border-b-2 focus-within:outline-0 hover:text-black/80">
+              <button className="cursor-pointer focus-within:border-0 hover:text-black/80">
                 <ShoppingCart strokeWidth={2.5} />
               </button>
             </Link>
-            <button className="cursor-pointer focus-within:border-0 focus-within:border-b-2 focus-within:outline-0 hover:text-black/80">
+            <button className="cursor-pointer focus-within:border-0 hover:text-black/80">
               <CircleUserRound strokeWidth={2.5} />
             </button>
             <button
               onClick={openSearch}
-              className="cursor-pointer focus-within:border-0 hover:text-black/80 focus:border-b-2 focus:outline-0 md:hidden"
+              className="cursor-pointer focus-within:border-0 hover:text-black/80 focus:outline-0 md:hidden"
             >
               <Search strokeWidth={2.5} />
             </button>
