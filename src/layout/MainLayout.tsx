@@ -17,10 +17,11 @@ export default function MainLayout() {
 
       <TopBar />
       <Header />
-      
+
       <main>
         <Outlet />
       </main>
+      
       <BackToTopButton />
       <Footer />
     </>
