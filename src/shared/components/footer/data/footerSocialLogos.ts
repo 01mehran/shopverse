@@ -1,12 +1,16 @@
 // Social Icons;
-import twitter from "@images/home/social-logos/xTwitter.svg";
-import facebook from "@images/home/social-logos/facebook.svg";
+import email from "@images/home/social-logos/email.svg";
+import telegram from "@images/home/social-logos/telegram.svg";
 import instagram from "@images/home/social-logos/instagram.svg";
 import github from "@images/home/social-logos/github.svg";
 
 export const footerSocialLogos = [
-  { alt: "twitter icon", imageUrl: twitter },
-  { alt: "facebook icon", imageUrl: facebook },
+  { alt: "email icon", imageUrl: email, href: "mailto:mehranmohamadi1311.com" },
+  {
+    alt: "telegram icon",
+    imageUrl: telegram,
+    href: "https://t.me/I_am_Mehraan",
+  },
   {
     alt: "instagram icon",
     imageUrl: instagram,
