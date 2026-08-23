@@ -50,6 +50,14 @@
   body {
     @apply font-Satoshi;
   }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  section {
+    scroll-margin-top: 50px;
+  }
 }
 
 @layer components {
@@ -62,7 +70,7 @@
   }
 
   .stats-text {
-    @apply text-sm font-normal text-nowrap text-black/60 md:text-base
+    @apply text-sm font-normal text-nowrap text-black/60 md:text-base;
   }
 }
 

@@ -19,7 +19,7 @@ import {
 export default function NewArrivalsList() {
   return (
     <Container>
-      <section className="py-10 sm:py-16">
+      <section id="new-arrivals" className="py-10 sm:py-16">
         <motion.h1
           variants={fadeUpVariant}
           initial="hidden"

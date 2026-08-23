@@ -14,6 +14,7 @@ export default function FooterBottom() {
       whileInView={{ scale: 1, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: 0.3 }}
+      id="brands"
       className="flex flex-col items-center justify-between space-y-4 pt-8 md:flex-row"
     >
       <p className="text-base text-black/60">

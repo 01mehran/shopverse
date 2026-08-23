@@ -18,7 +18,7 @@ import {
 export default function TopSellingList() {
   return (
     <Container>
-      <section className="py-10 sm:py-16">
+      <section id="top-selling" className="py-10 sm:py-16">
         <motion.h1
           variants={fadeUpVariant}
           initial="hidden"

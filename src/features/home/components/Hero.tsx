@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 
 export default function Hero() {
   return (
-    <section className="bg-bg-muted">
+    <section id="hero" className="bg-bg-muted">
       <Container>
         <main className="relative grid h-full grid-cols-1 py-8 md:grid-cols-2">
           {/* Content */}

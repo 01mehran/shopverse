@@ -40,7 +40,7 @@ export default function Header() {
       <SearchBox variant="mobile" />
 
       <Container>
-        <section className="relative flex w-full items-center justify-between py-5">
+        <section className="relative flex w-full items-center justify-between py-3">
           <div className="flex items-baseline-last gap-2">
             {/* Mobile Menu Button */}
             <button
