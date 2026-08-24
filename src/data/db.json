@@ -1,0 +1,159 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "T-shirt with Tape Details",
+      "price": 120,
+      "rating": 4.5,
+      "image": "../assets/images/home/pic1.png",
+      "description": "A stylish and comfortable t-shirt designed with subtle tape details for a modern everyday look.",
+      "colors": ["#000000", "#FFFFFF", "#808080"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "new-arrivals"
+    },
+
+    {
+      "id": "2",
+      "name": "Skinny Fit Jeans",
+      "price": 240,
+      "rating": 4.5,
+      "image": "../assets/images/home/pic2.png",
+      "description": "A classic pair of skinny fit jeans with a clean silhouette that works perfectly with everyday outfits.",
+      "colors": ["#1C2A3A", "#27384A"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "top-selling"
+    },
+
+    {
+      "id": "3",
+      "name": "Checkerd Shirt",
+      "price": 180,
+      "rating": 4.5,
+      "image": "../assets/images/home/pic3.png",
+      "description": "A timeless checked shirt made for effortless casual styling and comfortable everyday wear.",
+      "colors": ["#B22222", "#1C1C1C", "#FFFFFF"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "new-arrivals"
+    },
+
+    {
+      "id": "4",
+      "name": "Sleeve Striped T-shirt",
+      "price": 212,
+      "rating": 5,
+      "image": "../assets/images/home/pic4.png",
+      "description": "A lightweight Sleeve striped shirt that adds a clean and refined touch to your casual wardrobe.",
+      "colors": ["#FFFFFF", "#87CEEB"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "top-selling"
+    },
+
+    {
+      "id": "5",
+      "name": "Vertical Striped Shirt",
+      "price": 145,
+      "rating": 4,
+      "image": "../assets/images/home/pic5.png",
+      "description": "A lightweight vertical striped shirt that adds a clean and refined touch to your casual wardrobe.",
+      "colors": ["#000000", "#FFFFFF"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "new-arrivals"
+    },
+
+    {
+      "id": "6",
+      "name": "Courage Graphic T-shirt",
+      "price": 160,
+      "rating": 4.5,
+      "image": "../assets/images/home/pic6.png",
+      "description": "A relaxed graphic t-shirt featuring a bold design that brings personality to any casual outfit.",
+      "colors": ["#D2B48C", "#1C1C1C", "#556B2F"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "top-selling"
+    },
+
+    {
+      "id": "7",
+      "name": "Loose Fit Bermuda Shorts",
+      "price": 210,
+      "rating": 4.5,
+      "image": "../assets/images/home/pic7.png",
+      "description": "Relaxed-fit Bermuda shorts designed for warm days with a comfortable silhouette and versatile style.",
+      "colors": ["#4169E1", "#708090"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "new-arrivals"
+    },
+
+    {
+      "id": "8",
+      "name": "Faded Skinny Jeans",
+      "price": 195,
+      "rating": 4,
+      "image": "../assets/images/home/pic8.png",
+      "description": "Modern skinny jeans with a faded finish that gives your everyday outfits a stylish worn-in look.",
+      "colors": ["#FFFFFF", "#000000", "#1E3A5F"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "top-selling"
+    },
+
+    {
+      "id": "9",
+      "name": "Polo with Contrast Trims",
+      "price": 150,
+      "rating": 4.5,
+      "image": "../features/products/assets/pic12.png",
+      "description": "A smart casual polo shirt featuring contrasting trims and a comfortable regular fit.",
+      "colors": ["#000000", "#4B0082", "#FFFFFF"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "new-arrivals"
+    },
+
+    {
+      "id": "10",
+      "name": "Gradient Graphic T-shirt",
+      "price": 220,
+      "rating": 4.5,
+      "image": "../features/products/assets/pic13.png",
+      "description": "A contemporary graphic t-shirt with a subtle gradient design and relaxed everyday fit.",
+      "colors": ["#FFFFFF", "#1C1C1C"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "top-selling"
+    },
+
+    {
+      "id": "11",
+      "name": "Polo with Tipping Details",
+      "price": 290,
+      "rating": 4.5,
+      "image": "../features/products/assets/pic14.png",
+      "description": "A refined polo featuring classic tipping details for a timeless and polished appearance.",
+      "colors": ["#4169E1", "#1C1C1C"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "new-arrivals"
+    },
+
+    {
+      "id": "12",
+      "name": "Black Striped T-shirt",
+      "price": 190,
+      "rating": 4,
+      "image": "../features/products/assets/pic15.png",
+      "description": "A Black Striped T-shirt crafted for everyday comfort with a clean and versatile appearance.",
+      "colors": ["#FFFFFF", "#ADD8E6", "#D3D3D3"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "top-selling"
+    },
+
+    {
+      "id": "13",
+      "name": "Marked T-shirt",
+      "price": 260,
+      "rating": 4.5,
+      "image": "../features/products/assets/pic9.png",
+      "description": "A stylish and comfortable t-shirt designed with subtle tape details for a modern everyday look.",
+      "colors": ["#1C1C1C", "#808080", "#F5F5F5"],
+      "sizes": ["Small", "Medium", "Large", "X-Large"],
+      "section": "new-arrivals"
+    }
+  ]
+}
