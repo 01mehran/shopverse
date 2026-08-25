@@ -20,10 +20,22 @@ export type FooterImages = {
   alt: string;
   borderRadius?: string;
   className?: string;
-  href?: string
+  href?: string;
 };
 
 export type FooterColumn = {
   title: string;
   links: string[];
+};
+
+export type Product = {
+  id: number;
+  name: string;
+  price: number;
+  rating: number;
+  image: string;
+  description: string;
+  colors: string[];
+  sizes: string[];
+  section: "new-arrivals" | "top-selling";
 };

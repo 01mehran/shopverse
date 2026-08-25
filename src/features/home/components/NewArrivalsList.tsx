@@ -1,5 +1,8 @@
-// React Router Dom;
-import { useEffect } from "react";
+// Libraries;
+import { useQuery } from "@tanstack/react-query";
+
+// Services;
+import { getProducts } from "@/services/products";
 
 // Components;
 import { Container } from "@/shared/components";
@@ -16,28 +19,18 @@ import {
   fadeLeftVariant,
 } from "@/shared/animations";
 
-// Stores;
-import { useNewArrivals } from "@/stores/useNewArrivals";
-
-// Zustand;
-import { useShallow } from "zustand/shallow";
-
 // Icons;
 import { Loader } from "lucide-react";
 
 export default function NewArrivalsList() {
-  const { newArrivals, loading, error, getNewArrivals } = useNewArrivals(
-    useShallow((state) => ({
-      newArrivals: state.newArrivals,
-      loading: state.loading,
-      getNewArrivals: state.getNewArrivals,
-      error: state.error,
-    })),
-  );
-
-  useEffect(() => {
-    getNewArrivals();
-  }, []);
+  const {
+    data: newArrivals = [],
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["products", "new-arrivals"],
+    queryFn: () => getProducts("new-arrivals"),
+  });
 
   return (
     <Container>
@@ -52,7 +45,7 @@ export default function NewArrivalsList() {
           NEW ARRIVALS
         </motion.h1>
 
-        {loading && (
+        {isLoading && (
           <div className="grid h-38 w-full place-content-center">
             <Loader size={34} className="animate-spin" />
           </div>
@@ -60,11 +53,11 @@ export default function NewArrivalsList() {
 
         {error && (
           <div className="text-red grid h-38 w-full place-content-center text-lg font-medium">
-            <p>{error}</p>
+            <p>{error.message}</p>
           </div>
         )}
 
-        {!loading && !error && newArrivals.length > 0 && (
+        {!isLoading && !error && newArrivals.length > 0 && (
           <main>
             <motion.div
               variants={productCardContainerVariants}
