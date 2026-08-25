@@ -1,11 +1,14 @@
+// Libraries;
+import { useQuery } from "@tanstack/react-query";
+
+// Services;
+import { getProducts } from "@/services/products";
+
 // Components;
 import { Container, ProductCard } from "@/shared/components";
 
 // Motion Component;
 import { motion } from "motion/react";
-
-// Data;
-import { topSellingProducts } from "../data/topSelling";
 
 // Animations;
 import {
@@ -15,7 +18,19 @@ import {
   fadeLeftVariant,
 } from "@/shared/animations";
 
+// Icons;
+import { Loader } from "lucide-react";
+
 export default function TopSellingList() {
+  const {
+    data: topSelling = [],
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["products, top-selling"],
+    queryFn: () => getProducts("top-selling"),
+  });
+
   return (
     <Container>
       <section id="top-selling" className="py-10 sm:py-16">
@@ -30,33 +45,49 @@ export default function TopSellingList() {
           TOP SELLING
         </motion.h1>
 
-        <motion.div
-          variants={productCardContainerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
-        >
-          {topSellingProducts.map((item) => (
-            <motion.div
-              key={item.id}
-              variants={productCardVariants}
-              className="snap-start"
-            >
-              <ProductCard key={item.id} item={item} />
-            </motion.div>
-          ))}
-        </motion.div>
+        {isLoading && (
+          <div className="grid h-38 w-full place-content-center">
+            <Loader size={34} className="animate-spin" />
+          </div>
+        )}
 
-        <motion.button
-          variants={fadeLeftVariant}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="xs:w-50 mx-auto mt-1 block w-full cursor-pointer rounded-full border border-black/10 py-2 text-base"
-        >
-          Veiw All
-        </motion.button>
+        {error && (
+          <div className="text-red grid h-38 w-full place-content-center text-lg font-medium">
+            <p>{error.message}</p>
+          </div>
+        )}
+
+        {!isLoading && !error && topSelling.length > 0 && (
+          <main>
+            <motion.div
+              variants={productCardContainerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
+            >
+              {topSelling.slice(0, 4).map((product) => (
+                <motion.div
+                  key={product.id}
+                  variants={productCardVariants}
+                  className="snap-start"
+                >
+                  <ProductCard product={product} />
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.button
+              variants={fadeLeftVariant}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="xs:w-50 mx-auto mt-1 block w-full cursor-pointer rounded-full border border-black/10 py-2 text-base"
+            >
+              Veiw All
+            </motion.button>
+          </main>
+        )}
       </section>
     </Container>
   );

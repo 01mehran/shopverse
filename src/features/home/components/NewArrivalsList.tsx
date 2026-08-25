@@ -66,13 +66,13 @@ export default function NewArrivalsList() {
               viewport={{ once: true }}
               className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
             >
-              {newArrivals.slice(0, 4).map((item) => (
+              {newArrivals.slice(0, 4).map((product) => (
                 <motion.div
-                  key={item.id}
+                  key={product.id}
                   variants={productCardVariants}
                   className="snap-start"
                 >
-                  <ProductCard item={item} />
+                  <ProductCard product={product} />
                 </motion.div>
               ))}
             </motion.div>

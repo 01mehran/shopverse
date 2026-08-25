@@ -8,7 +8,7 @@ export type product = {
 };
 
 export type ProductCardProps = {
-  item: product;
+  product: product;
 };
 
 export type VariantProps = {

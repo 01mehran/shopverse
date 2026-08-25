@@ -36,13 +36,13 @@ export default function MightLikeProducts() {
             viewport={{ once: true }}
             className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
           >
-            {products.map((item) => (
+            {products.map((product) => (
               <motion.div
-                key={item.id}
+                key={product.id}
                 variants={productCardVariants}
                 className="snap-start"
               >
-                <ProductCard key={item.id} item={item} />
+                <ProductCard product={product} />
               </motion.div>
             ))}
           </motion.div>
