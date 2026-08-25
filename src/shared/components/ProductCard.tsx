@@ -22,10 +22,16 @@ export default function ProductCard({ product }: ProductCardProps) {
               src={product.image}
               alt={product.name}
               className="h-54 w-60 rounded-xl object-cover sm:h-70"
+              loading="lazy"
             />
           </div>
           <p className="text-base font-bold md:text-xl">{product.name}</p>
-          <img src={ratingStart} alt="rating-satar" className="w-22 sm:w-32" />
+          <img
+            src={ratingStart}
+            loading="lazy"
+            alt="rating-satar"
+            className="w-22 sm:w-32"
+          />
           <p className="text-xl font-bold sm:text-2xl">${product.price}</p>
         </article>
       </Link>

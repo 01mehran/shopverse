@@ -1,6 +1,6 @@
 // Types;
 import type { Product } from "@/shared/types/types";
-type GetProductsProps = "new-arrivals" | "top-selling";
+type GetProductsProps = "new-arrivals" | "top-selling" | "you-might-like";
 
 // Api;
 import { api } from "./api";

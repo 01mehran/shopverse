@@ -41,7 +41,7 @@
       "name": "Sleeve Striped T-shirt",
       "price": 212,
       "rating": 5,
-      "image": "images/pic4.png",
+      "image": "/images/pic4.png",
       "description": "A lightweight Sleeve striped shirt that adds a clean and refined touch to your casual wardrobe.",
       "colors": ["#FFFFFF", "#87CEEB"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
@@ -65,7 +65,7 @@
       "name": "Courage Graphic T-shirt",
       "price": 160,
       "rating": 4.5,
-      "image": "images/pic6.png",
+      "image": "/images/pic6.png",
       "description": "A relaxed graphic t-shirt featuring a bold design that brings personality to any casual outfit.",
       "colors": ["#D2B48C", "#1C1C1C", "#556B2F"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
@@ -105,7 +105,7 @@
       "description": "A smart casual polo shirt featuring contrasting trims and a comfortable regular fit.",
       "colors": ["#000000", "#4B0082", "#FFFFFF"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
-      "section": "new-arrivals"
+      "section": "you-might-like"
     },
 
     {
@@ -117,7 +117,7 @@
       "description": "A contemporary graphic t-shirt with a subtle gradient design and relaxed everyday fit.",
       "colors": ["#FFFFFF", "#1C1C1C"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
-      "section": "top-selling"
+      "section": "you-might-like"
     },
 
     {
@@ -129,7 +129,7 @@
       "description": "A refined polo featuring classic tipping details for a timeless and polished appearance.",
       "colors": ["#4169E1", "#1C1C1C"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
-      "section": "new-arrivals"
+      "section": "you-might-like"
     },
 
     {
@@ -141,7 +141,7 @@
       "description": "A Black Striped T-shirt crafted for everyday comfort with a clean and versatile appearance.",
       "colors": ["#FFFFFF", "#ADD8E6", "#D3D3D3"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
-      "section": "top-selling"
+      "section": "you-might-like"
     },
 
     {

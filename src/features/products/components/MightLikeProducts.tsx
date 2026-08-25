@@ -1,4 +1,10 @@
-// Componentsl
+// Libraries;
+import { useQuery } from "@tanstack/react-query";
+
+// Services;
+import { getProducts } from "@/services/products";
+
+// Components;
 import { Container, ProductCard } from "@/shared/components";
 
 // Motion Component;
@@ -11,10 +17,19 @@ import {
   productCardVariants,
 } from "@/shared/animations";
 
-// Static Data;
-import { products } from "../data";
+// Icons;
+import { Loader } from "lucide-react";
 
 export default function MightLikeProducts() {
+  const {
+    data: youMightLike = [],
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["products", "you-might-like"],
+    queryFn: () => getProducts("you-might-like"),
+  });
+
   return (
     <section>
       <Container>
@@ -29,6 +44,18 @@ export default function MightLikeProducts() {
             YOU MIGHT <br className="xs:hidden" /> ALSO LIKE
           </motion.h1>
 
+          {isLoading && (
+            <div className="grid h-38 w-full place-content-center">
+              <Loader size={34} className="animate-spin" />
+            </div>
+          )}
+
+          {error && (
+            <div className="text-red grid h-38 w-full place-content-center text-lg font-medium">
+              <p>{error.message}</p>
+            </div>
+          )}
+
           <motion.div
             variants={productCardContainerVariants}
             initial="hidden"
@@ -36,7 +63,7 @@ export default function MightLikeProducts() {
             viewport={{ once: true }}
             className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
           >
-            {products.map((product) => (
+            {youMightLike.map((product) => (
               <motion.div
                 key={product.id}
                 variants={productCardVariants}

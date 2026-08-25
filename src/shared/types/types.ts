@@ -37,5 +37,5 @@ export type Product = {
   description: string;
   colors: string[];
   sizes: string[];
-  section: "new-arrivals" | "top-selling";
+  section: "new-arrivals" | "top-selling" | "you-might-like";
 };
