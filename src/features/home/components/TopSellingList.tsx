@@ -17,6 +17,7 @@ import {
   productCardVariants,
   fadeLeftVariant,
 } from "@/shared/animations";
+import ErrorMessage from "@/shared/components/ErrorMessage";
 
 export default function TopSellingList() {
   const {
@@ -44,11 +45,7 @@ export default function TopSellingList() {
 
         {isLoading && <Loading />}
 
-        {error && (
-          <div className="text-red grid h-38 w-full place-content-center text-lg font-medium">
-            <p>{error.message}</p>
-          </div>
-        )}
+        {error && <ErrorMessage error={error} />}
 
         {!isLoading && !error && topSelling.length > 0 && (
           <main>

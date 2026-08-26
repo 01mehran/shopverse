@@ -16,6 +16,7 @@ import {
   productCardContainerVariants,
   productCardVariants,
 } from "@/shared/animations";
+import ErrorMessage from "@/shared/components/ErrorMessage";
 
 export default function MightLikeProducts() {
   const {
@@ -43,11 +44,7 @@ export default function MightLikeProducts() {
 
           {isLoading && <Loading />}
 
-          {error && (
-            <div className="text-red grid h-38 w-full place-content-center text-lg font-medium">
-              <p>{error.message}</p>
-            </div>
-          )}
+          {error && <ErrorMessage error={error} />}
 
           <motion.div
             variants={productCardContainerVariants}
