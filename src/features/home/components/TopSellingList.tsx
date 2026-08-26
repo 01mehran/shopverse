@@ -5,7 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/services/products";
 
 // Components;
-import { Container, Loading, ProductCard } from "@/shared/components";
+import {
+  Container,
+  ErrorMessage,
+  ProductCard,
+  ProductCardSkelton,
+} from "@/shared/components";
 
 // Motion Component;
 import { motion } from "motion/react";
@@ -17,7 +22,6 @@ import {
   productCardVariants,
   fadeLeftVariant,
 } from "@/shared/animations";
-import ErrorMessage from "@/shared/components/ErrorMessage";
 
 export default function TopSellingList() {
   const {
@@ -43,11 +47,11 @@ export default function TopSellingList() {
           TOP SELLING
         </motion.h1>
 
-        {isLoading && <Loading />}
-
         {error && <ErrorMessage error={error} />}
 
-        {!isLoading && !error && topSelling.length > 0 && (
+        {isLoading ? (
+          <ProductCardSkelton />
+        ) : (
           <main>
             <motion.div
               variants={productCardContainerVariants}

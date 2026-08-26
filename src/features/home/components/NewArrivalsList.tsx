@@ -5,7 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/services/products";
 
 // Components;
-import { Container, ErrorMessage, ProductCard } from "@/shared/components";
+import {
+  Container,
+  ErrorMessage,
+  ProductCard,
+  ProductCardSkelton,
+} from "@/shared/components";
 
 // Motion Component;
 import { motion } from "motion/react";
@@ -17,7 +22,6 @@ import {
   productCardVariants,
   fadeLeftVariant,
 } from "@/shared/animations";
-import ProductCardSkelton from "@/shared/components/ProductCardSkelton";
 
 export default function NewArrivalsList() {
   const {
