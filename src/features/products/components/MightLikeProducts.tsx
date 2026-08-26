@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/services/products";
 
 // Components;
-import { Container, ProductCard } from "@/shared/components";
+import { Container, Loading, ProductCard } from "@/shared/components";
 
 // Motion Component;
 import { motion } from "motion/react";
@@ -16,9 +16,6 @@ import {
   productCardContainerVariants,
   productCardVariants,
 } from "@/shared/animations";
-
-// Icons;
-import { Loader } from "lucide-react";
 
 export default function MightLikeProducts() {
   const {
@@ -44,11 +41,7 @@ export default function MightLikeProducts() {
             YOU MIGHT <br className="xs:hidden" /> ALSO LIKE
           </motion.h1>
 
-          {isLoading && (
-            <div className="grid h-38 w-full place-content-center">
-              <Loader size={34} className="animate-spin" />
-            </div>
-          )}
+          {isLoading && <Loading />}
 
           {error && (
             <div className="text-red grid h-38 w-full place-content-center text-lg font-medium">

@@ -8,3 +8,4 @@ export { default as FooterColumn } from "./footer/FooterColumn";
 export { default as BreadCrumb } from "./BreadCrumb";
 export { default as BackToTopButton } from "./BackToTopButton";
 export { default as ScrollToHash } from "../components/header/ScrollToHash";
+export { default as Loading } from "./Loading";

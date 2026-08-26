@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/services/products";
 
 // Components;
-import { Container } from "@/shared/components";
+import { Container, Loading } from "@/shared/components";
 import ProductCard from "@/shared/components/ProductCard";
 
 // Motion Component;
@@ -18,9 +18,6 @@ import {
   productCardVariants,
   fadeLeftVariant,
 } from "@/shared/animations";
-
-// Icons;
-import { Loader } from "lucide-react";
 
 export default function NewArrivalsList() {
   const {
@@ -45,11 +42,7 @@ export default function NewArrivalsList() {
           NEW ARRIVALS
         </motion.h1>
 
-        {isLoading && (
-          <div className="grid h-38 w-full place-content-center">
-            <Loader size={34} className="animate-spin" />
-          </div>
-        )}
+        {isLoading && <Loading />}
 
         {error && (
           <div className="text-red grid h-38 w-full place-content-center text-lg font-medium">
