@@ -5,8 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/services/products";
 
 // Components;
-import { Container, Loading } from "@/shared/components";
-import ProductCard from "@/shared/components/ProductCard";
+import { Container, ErrorMessage, ProductCard } from "@/shared/components";
 
 // Motion Component;
 import { motion } from "motion/react";
@@ -18,7 +17,7 @@ import {
   productCardVariants,
   fadeLeftVariant,
 } from "@/shared/animations";
-import ErrorMessage from "@/shared/components/ErrorMessage";
+import ProductCardSkelton from "@/shared/components/ProductCardSkelton";
 
 export default function NewArrivalsList() {
   const {
@@ -43,11 +42,11 @@ export default function NewArrivalsList() {
           NEW ARRIVALS
         </motion.h1>
 
-        {isLoading && <Loading />}
-
         {error && <ErrorMessage error={error} />}
 
-        {!isLoading && !error && newArrivals.length > 0 && (
+        {isLoading ? (
+          <ProductCardSkelton />
+        ) : (
           <main>
             <motion.div
               variants={productCardContainerVariants}
