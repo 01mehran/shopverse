@@ -5,7 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/services/products";
 
 // Components;
-import { Container, Loading, ProductCard } from "@/shared/components";
+import {
+  Container,
+  ErrorMessage,
+  ProductCard,
+  ProductCardSkelton,
+} from "@/shared/components";
 
 // Motion Component;
 import { motion } from "motion/react";
@@ -16,7 +21,6 @@ import {
   productCardContainerVariants,
   productCardVariants,
 } from "@/shared/animations";
-import ErrorMessage from "@/shared/components/ErrorMessage";
 
 export default function MightLikeProducts() {
   const {
@@ -42,27 +46,31 @@ export default function MightLikeProducts() {
             YOU MIGHT <br className="xs:hidden" /> ALSO LIKE
           </motion.h1>
 
-          {isLoading && <Loading />}
-
           {error && <ErrorMessage error={error} />}
 
-          <motion.div
-            variants={productCardContainerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
-          >
-            {youMightLike.map((product) => (
+          {isLoading ? (
+            <ProductCardSkelton />
+          ) : (
+            <main>
               <motion.div
-                key={product.id}
-                variants={productCardVariants}
-                className="snap-start"
+                variants={productCardContainerVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
               >
-                <ProductCard product={product} />
+                {youMightLike.map((product) => (
+                  <motion.div
+                    key={product.id}
+                    variants={productCardVariants}
+                    className="snap-start"
+                  >
+                    <ProductCard product={product} />
+                  </motion.div>
+                ))}
               </motion.div>
-            ))}
-          </motion.div>
+            </main>
+          )}
         </section>
       </Container>
     </section>
