@@ -11,7 +11,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <section>
       <Link
-        to={`/product-details`}
+        to={`/product-details/${product.id}`}
         onClick={() => {
           scrollTo({ top: 0, behavior: "smooth" });
         }}

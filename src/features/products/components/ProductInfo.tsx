@@ -10,71 +10,46 @@ import {
   dressStyleItemVariant,
 } from "@/shared/animations";
 
-// Static Images;
-import pic1 from "@/features/products/assets/pic9.png";
-import pic2 from "@/features/products/assets/pic10.png";
-import pic3 from "@/features/products/assets/pic11.png";
+// Static Images
 import ratingStar from "@/assets/images/home/rating-start.png";
 
 // Icons;
 import { Check, Minus, Plus } from "lucide-react";
 
-export default function ProductInfo() {
+// Types;
+import type { Product } from "@/shared/types/types";
+type props = {
+  product: Product;
+};
+
+export default function ProductInfo({ product }: props) {
+  if (!product) return null;
+
   return (
     <section>
       <Container>
-        <main className="grid-cols-1 gap-8 space-y-4 lg:grid lg:grid-cols-2 lg:space-y-0">
+        <main className="grid grid-cols-1 md:gap-8 space-y-4 lg:grid-cols-3 lg:space-y-0">
           {/* Product Images */}
-          <section className="mx-auto grid max-w-125 grid-cols-1 gap-3 lg:mx-0 lg:h-100 lg:max-w-none lg:grid-cols-[90px_1fr]">
+          <section className="col-span-1 mx-auto grid max-w-125 gap-3 lg:mx-0 lg:h-100">
             {/* Main Image */}
             <motion.div
               variants={dressStyleContainerVariant}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="order-1 h-100 overflow-hidden rounded-2xl lg:order-2 lg:h-full"
+              className="h-100 overflow-hidden rounded-2xl lg:order-2 lg:h-full"
             >
               <motion.img
                 variants={dressStyleItemVariant}
-                src={pic1}
+                src={product.image}
                 alt="clothes"
                 className="h-full w-full object-cover"
-              />
-            </motion.div>
-
-            {/* Thumbnails */}
-            <motion.div
-              variants={dressStyleContainerVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="order-2 grid grid-cols-3 gap-3 lg:order-1 lg:grid-cols-1 lg:grid-rows-3"
-            >
-              <motion.img
-                variants={dressStyleItemVariant}
-                src={pic1}
-                alt="clothes"
-                className="h-30 w-full cursor-pointer rounded-xl object-cover ring-1 ring-black lg:h-full"
-              />
-
-              <motion.img
-                variants={dressStyleItemVariant}
-                src={pic2}
-                alt="clothes"
-                className="h-30 w-full cursor-pointer rounded-xl object-cover lg:h-full"
-              />
-
-              <motion.img
-                variants={dressStyleItemVariant}
-                src={pic3}
-                alt="clothes"
-                className="h-30 w-full cursor-pointer rounded-xl object-cover lg:h-full"
               />
             </motion.div>
           </section>
 
           {/* Product Info */}
-          <section className="flex flex-col justify-between gap-2">
+          <section className="col-span-2 flex flex-col justify-between gap-2">
             {/* Name */}
             <motion.div
               initial={{ y: 40, opacity: 0 }}
@@ -89,7 +64,7 @@ export default function ProductInfo() {
                 viewport={{ once: true }}
                 className="font-IntegralCF gap-2 pb-2 text-[24px] leading-7 font-bold uppercase lg:pb-4 lg:text-[35px]"
               >
-                One Life Graphic T-shirt
+                {product.name}
               </motion.h1>
               <img
                 src={ratingStar}
@@ -97,16 +72,14 @@ export default function ProductInfo() {
                 className="w-40 object-cover"
               />
               <div className="flex items-center gap-4 text-[32px] font-bold">
-                <span>$260</span>
+                <span>{product.price}</span>
                 <span className="text-black/30 line-through">$360</span>
                 <span className="text-red bg-red/10 rounded-2xl px-2 py-1 text-sm">
                   -40%
                 </span>
               </div>
               <span className="text-base font-normal text-black/60">
-                This graphic t-shirt which is perfect for any occasion. Crafted
-                from a soft and breathable fabric, it offers superior comfort
-                and style.
+                {product.description}
               </span>
             </motion.div>
             <hr className="border border-black/5" />
@@ -121,11 +94,15 @@ export default function ProductInfo() {
             >
               <p className="text-sm font-normal text-black/60">Select Colors</p>
               <div className="flex items-center gap-3">
-                <span className="flex size-7 cursor-pointer items-center justify-center rounded-full bg-[#4F4631] text-white">
-                  <Check size={16} />
-                </span>
-                <span className="size-7 cursor-pointer rounded-full bg-[#314F4A]"></span>
-                <span className="size-7 cursor-pointer rounded-full bg-[#31344F]"></span>
+                {product.colors.map((color, i) => (
+                  <span
+                  key={color}
+                    style={{ backgroundColor: color }}
+                    className="flex size-7 cursor-pointer items-center justify-center rounded-full text-white"
+                  >
+                    {i === 0 && <Check size={16} />}
+                  </span>
+                ))}
               </div>
             </motion.div>
             <hr className="border border-black/5" />
@@ -140,18 +117,11 @@ export default function ProductInfo() {
             >
               <p className="text-sm">Choose Size</p>
               <div className="flex flex-wrap items-center gap-2 text-sm lg:text-base">
-                <button className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm">
-                  Small
-                </button>
-                <button className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm">
-                  Medium
-                </button>
-                <button className="w-full max-w-25 cursor-pointer rounded-[62px] bg-black px-4 py-2 text-sm text-white">
-                  Large
-                </button>
-                <button className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm text-nowrap">
-                  X-Large
-                </button>
+                {product.sizes.map((size) => (
+                  <button key={size} className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm">
+                    {size}
+                  </button>
+                ))}
               </div>
             </motion.div>
             <hr className="border border-black/5" />
