@@ -2,9 +2,6 @@
 import { Container } from "@/shared/components";
 import Tabs from "./Tabs";
 
-// Static Images;
-import ratingStar from "@/assets/images/home/rating-start.png";
-
 // Motion Component;
 import { motion } from "motion/react";
 
@@ -14,6 +11,9 @@ import {
   productCardContainerVariants,
   productCardVariants,
 } from "@/shared/animations";
+
+// Data;
+import { commentList } from "./data/comments";
 
 // Icons;
 import { Ellipsis, SlidersVertical } from "lucide-react";
@@ -62,25 +62,23 @@ export default function Comments() {
               viewport={{ once: true }}
               className="grid grid-cols-1 gap-4 md:grid-cols-2"
             >
-              {Array.from({ length: 4 }, (_, i) => (
+              {commentList.slice(0, 4)?.map((comment, i) => (
                 <motion.article
                   variants={productCardVariants}
                   key={i}
                   className="relative flex flex-col gap-2 rounded-2xl border border-black/10 p-4 shadow md:justify-between md:p-7"
                 >
                   <img
-                    src={ratingStar}
+                    src={comment.starImage}
                     alt="rating start image"
                     className="w-32"
                   />
-                  <h1 className="text-xl font-bold">Sarah M.</h1>
+                  <h1 className="text-xl font-bold">{comment.name}</h1>
                   <p className="text-base leading-6 font-normal text-black/60">
-                    "I'm blown away by the quality and style of the clothes I
-                    received from Shop.co. From casual wear to elegant dresses,
-                    every piece I've bought has exceeded my expectations.”
+                    {comment.comment}
                   </p>
                   <span className="mt-6 text-sm font-medium text-black/60">
-                    Posted on August 19, 2023
+                    {comment.date}
                   </span>
                   <button className="absolute top-6 right-6 hidden cursor-pointer text-black/40 md:block">
                     <Ellipsis />
@@ -89,7 +87,7 @@ export default function Comments() {
               ))}
             </motion.div>
 
-            {/* Load More Comments Button */}
+            {/* Load More Button */}
             <motion.button
               variants={fadeLeftVariant}
               initial="hidden"
