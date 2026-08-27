@@ -5,7 +5,7 @@ import { BreadCrumb } from "@/shared/components";
 export default function Cart() {
   return (
     <section>
-      <BreadCrumb />
+      <BreadCrumb items={[{ label: "Cart" }]} />
       <CartItem />
     </section>
   );

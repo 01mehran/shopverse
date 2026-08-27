@@ -39,3 +39,12 @@ export type Product = {
   sizes: string[];
   section: "new-arrivals" | "top-selling" | "you-might-like";
 };
+
+export type BreadcrumbItem = {
+  label?: string;
+  href?: string;
+};
+
+export type BreadCrumbProps = {
+  items: BreadcrumbItem[];
+};

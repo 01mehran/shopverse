@@ -26,7 +26,7 @@ export default function ProductDetails() {
 
   return (
     <section>
-      <BreadCrumb />
+      <BreadCrumb items={[{ label: "Men" }, { label: data?.name }]} />
 
       {error && <ErrorMessage error={error} />}
       {isLoading && <Loading />}
