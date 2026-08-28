@@ -17,7 +17,7 @@ import { useUiStore } from "@/stores/useUiStore";
 import { useShallow } from "zustand/shallow";
 
 // Icons;
-import { CircleUserRound, Menu, Search, ShoppingCart } from "lucide-react";
+import { CircleUserRound, Kanban, Search, ShoppingCart } from "lucide-react";
 
 export default function Header() {
   const { handleOpenSidebar, openSearch } = useUiStore(
@@ -41,13 +41,13 @@ export default function Header() {
 
       <Container>
         <section className="relative flex w-full items-center justify-between py-3">
-          <div className="flex items-baseline-last gap-2">
+          <div className="flex items-center gap-2">
             {/* Mobile Menu Button */}
             <button
               onClick={handleOpenSidebar}
-              className={`blcok cursor-pointer border-0 outline-0 xl:hidden`}
+              className={`blcok mt-1 -rotate-90 cursor-pointer border-0 outline-0 xl:hidden`}
             >
-              <Menu strokeWidth={2.5} size={24} />
+              <Kanban strokeWidth={2.5} size={24} />
             </button>
 
             {/* Title */}

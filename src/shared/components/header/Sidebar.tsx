@@ -8,7 +8,7 @@ import HeaderNavigation from "./HeaderNavigation";
 import { AnimatePresence, motion } from "motion/react";
 
 // Icons;
-import { X } from "lucide-react";
+import { ArrowLeftToLine } from "lucide-react";
 
 // Stores;
 import { useUiStore } from "@/stores/useUiStore";
@@ -81,7 +81,7 @@ export default function Sidebar() {
               onClick={handleCloseSidebar}
               className="absolute top-6 right-6 cursor-pointer"
             >
-              <X />
+              <ArrowLeftToLine size={22} />
             </button>
 
             <HeaderNavigation variant="mobile" />
