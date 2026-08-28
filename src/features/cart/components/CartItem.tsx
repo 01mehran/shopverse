@@ -1,5 +1,5 @@
 // Components;
-import { Container } from "@/shared/components";
+import { AddToCart, Container } from "@/shared/components";
 import OrderSummary from "./OrderSummary";
 
 // Motion Component;
@@ -12,7 +12,7 @@ import {
 } from "@/shared/animations";
 
 // icons;
-import { Minus, Plus, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
 // Static Images;
 import pic1 from "@/features/cart/assets/pic13.png";
@@ -66,18 +66,10 @@ export default function CartItem() {
                   </p>
                 </div>
 
-                {/* Product Cart Actions */}
+                {/* AddToCart */}
                 <div className="flex w-full justify-between">
                   <p className="text-[24px] font-bold">$145</p>
-                  <div className="bg-bg-muted flex w-25 items-center justify-between rounded-[62px] p-1.5 py-2 sm:px-3 md:w-31.5">
-                    <button className="cursor-pointer text-black/80">
-                      <Minus size={20} />
-                    </button>
-                    <span>1</span>
-                    <button className="cursor-pointer text-black/80">
-                      <Plus size={20} />
-                    </button>
-                  </div>
+                  <AddToCart variant="cart-item" />
                 </div>
               </div>
 

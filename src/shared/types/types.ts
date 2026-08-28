@@ -48,3 +48,7 @@ export type BreadcrumbItem = {
 export type BreadCrumbProps = {
   items: BreadcrumbItem[];
 };
+
+export type addToCartProps = {
+  variant: "product-info" | "cart-item";
+};

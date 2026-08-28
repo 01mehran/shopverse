@@ -1,5 +1,5 @@
 // Components;
-import { Container } from "@/shared/components";
+import { AddToCart, Container } from "@/shared/components";
 
 // Motion Component;
 import { motion } from "motion/react";
@@ -14,7 +14,7 @@ import {
 import ratingStar from "@/assets/images/home/rating-start.png";
 
 // Icons;
-import { Check, Minus, Plus } from "lucide-react";
+import { Check } from "lucide-react";
 
 // Types;
 import type { Product } from "@/shared/types/types";
@@ -28,7 +28,7 @@ export default function ProductInfo({ product }: props) {
   return (
     <section>
       <Container>
-        <main className="grid grid-cols-1 md:gap-8 space-y-4 lg:grid-cols-3 lg:space-y-0">
+        <main className="grid grid-cols-1 space-y-4 md:gap-8 lg:grid-cols-3 lg:space-y-0">
           {/* Product Images */}
           <section className="col-span-1 mx-auto grid max-w-125 gap-3 lg:mx-0 lg:h-100">
             {/* Main Image */}
@@ -96,7 +96,7 @@ export default function ProductInfo({ product }: props) {
               <div className="flex items-center gap-3">
                 {product.colors.map((color, i) => (
                   <span
-                  key={color}
+                    key={color}
                     style={{ backgroundColor: color }}
                     className="flex size-7 cursor-pointer items-center justify-center rounded-full text-white"
                   >
@@ -118,7 +118,10 @@ export default function ProductInfo({ product }: props) {
               <p className="text-sm">Choose Size</p>
               <div className="flex flex-wrap items-center gap-2 text-sm lg:text-base">
                 {product.sizes.map((size) => (
-                  <button key={size} className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm">
+                  <button
+                    key={size}
+                    className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm"
+                  >
                     {size}
                   </button>
                 ))}
@@ -134,16 +137,7 @@ export default function ProductInfo({ product }: props) {
               viewport={{ once: true }}
               className="grid grid-cols-9 items-center gap-2 pt-2"
             >
-              {/* Amount Product */}
-              <div className="bg-bg-muted col-span-3 flex items-center justify-between rounded-[62px] px-2 py-2 sm:px-6">
-                <button className="cursor-pointer text-black/80">
-                  <Plus />
-                </button>
-                <span>1</span>
-                <button className="cursor-pointer text-black/80">
-                  <Minus />
-                </button>
-              </div>
+              <AddToCart variant="product-info" />
 
               <button className="col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white">
                 Add to Cart
