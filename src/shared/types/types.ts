@@ -1,4 +1,9 @@
-// Types;
+import type React from "react";
+
+export type ReactNode = {
+  children: React.ReactNode;
+};
+
 export type product = {
   id: number;
   image: string;

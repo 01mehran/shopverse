@@ -41,11 +41,7 @@ export default function Sidebar() {
 
   // Hidden body overflow when sidebar is open;
   useEffect(() => {
-    if (isSidebarOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = isSidebarOpen ? "hidden" : "auto";
 
     return () => {
       document.body.style.overflow = "auto";

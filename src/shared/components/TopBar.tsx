@@ -4,14 +4,7 @@ import { motion } from "motion/react";
 //Icons;
 import { X } from "lucide-react";
 
-export default function 
-
-
-
-
-
-
-() {
+export default function () {
   return (
     <motion.section
       initial={{ y: -20, opacity: 0 }}

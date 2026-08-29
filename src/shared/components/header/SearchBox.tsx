@@ -37,7 +37,7 @@ export default function SearchBox({ variant }: VariantProps) {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [closeSearch]);
 
   if (variant === "desktop") {
     return (
