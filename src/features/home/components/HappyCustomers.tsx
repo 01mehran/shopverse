@@ -3,7 +3,7 @@ import { useRef } from "react";
 
 // Components;
 import { Container } from "@/shared/components";
-import { commentList } from "@/features/products/components/data/comments";
+import { commentList } from "@/shared/data/comments";
 
 // Icons;
 import { ArrowRight } from "lucide-react";
@@ -78,7 +78,7 @@ export default function HappyCustomers() {
           {commentList.map((comment, i) => (
             <article
               key={i}
-              className="xs:min-w-100 flex h-55 min-w-full snap-start flex-col items-start justify-around rounded-2xl border border-black/10 p-4 shadow-lg md:justify-between md:p-7 lg:min-w-1/3"
+              className="xs:min-w-100 flex h-55 min-w-full snap-start gap-2 flex-col items-start justify-around rounded-2xl border border-black/10 p-4 shadow-lg md:justify-between md:p-7 lg:min-w-1/3"
             >
               <img src={comment.starImage} alt="rating start image" />
               <h1 className="text-xl font-bold">{comment.name}</h1>

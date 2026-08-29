@@ -13,7 +13,7 @@ import {
 } from "@/shared/animations";
 
 // Data;
-import { commentList } from "./data/comments";
+import { commentList } from "@/shared/data/comments";
 
 // Icons;
 import { Ellipsis, SlidersVertical } from "lucide-react";
