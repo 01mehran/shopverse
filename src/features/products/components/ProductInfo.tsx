@@ -1,22 +1,17 @@
 // Components;
 import { AddToCart, Container } from "@/shared/components";
 import ProductInfoColors from "./ProductInfoColors";
+import ProductInfoSizes from "./ProductInfoSizes";
+import ProductInfoImage from "./ProductInfoImage";
 
 // Motion Component;
 import { motion } from "motion/react";
-
-// Animations;
-import {
-  dressStyleContainerVariant,
-  dressStyleItemVariant,
-} from "@/shared/animations";
 
 // Static Images
 import ratingStar from "@/assets/images/home/rating-start.png";
 
 // Types;
 import type { Product } from "@/shared/types/types";
-import ProductInfoSizes from "./ProductInfoSizes";
 
 export type props = {
   product: Product;
@@ -30,23 +25,7 @@ export default function ProductInfo({ product }: props) {
       <Container>
         <main className="grid grid-cols-1 space-y-4 md:gap-8 lg:grid-cols-3 lg:space-y-0">
           {/* Product Images */}
-          <section className="col-span-1 mx-auto grid max-w-125 gap-3 lg:mx-0 lg:h-100">
-            {/* Main Image */}
-            <motion.div
-              variants={dressStyleContainerVariant}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="h-100 overflow-hidden rounded-2xl lg:order-2 lg:h-full"
-            >
-              <motion.img
-                variants={dressStyleItemVariant}
-                src={product.image}
-                alt="clothes"
-                className="h-full w-full object-cover"
-              />
-            </motion.div>
-          </section>
+          <ProductInfoImage product={product} />
 
           {/* Product Info */}
           <section className="col-span-2 flex flex-col justify-between gap-2">
@@ -67,11 +46,14 @@ export default function ProductInfo({ product }: props) {
                 {product.name}
               </motion.h1>
 
+              {/* Ratet */}
               <img
                 src={ratingStar}
                 alt="rating star image"
                 className="w-40 object-cover"
               />
+
+              {/* Off */}
               <div className="flex items-center gap-4 text-[32px] font-bold">
                 <span>{product.price}</span>
                 <span className="text-black/30 line-through">$360</span>
@@ -79,19 +61,20 @@ export default function ProductInfo({ product }: props) {
                   -40%
                 </span>
               </div>
+
+              {/* Description */}
               <span className="text-base font-normal text-black/60">
                 {product.description}
               </span>
             </motion.div>
+            {/* Horizontally Line */}
             <hr className="border border-black/5" />
 
             {/* Colors */}
             <ProductInfoColors product={product} />
-            <hr className="border border-black/5" />
 
             {/* Sizes */}
             <ProductInfoSizes product={product} />
-            <hr className="border border-black/5" />
 
             {/* Add To Cart */}
             <motion.div
