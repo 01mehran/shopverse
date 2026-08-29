@@ -13,6 +13,7 @@ export default function Hero() {
         <main className="relative grid h-full grid-cols-1 py-8 md:grid-cols-2">
           {/* Content */}
           <div>
+            {/* Left Content */}
             <div>
               <motion.h1
                 initial={{ y: 60, opacity: 0, rotate: 3 }}
@@ -23,6 +24,7 @@ export default function Hero() {
               >
                 FIND CLOTHES THAT MATCHES YOUR STYLE
               </motion.h1>
+
               <motion.p
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -34,6 +36,7 @@ export default function Hero() {
                 garments, designed <br /> to bring out your individuality and
                 cater to your sense of style.
               </motion.p>
+
               <motion.button
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}

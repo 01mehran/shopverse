@@ -1,6 +1,9 @@
 // Components;
 import Counter from "./Counter";
 
+// Data;
+import { statsList } from "../data/stats";
+
 // Motion Component;
 import { motion } from "motion/react";
 
@@ -13,29 +16,15 @@ export default function Stats() {
       viewport={{ once: true }}
       className="xs:justify-around mx-auto mt-8 flex w-full max-w-100 flex-wrap items-baseline justify-center space-y-2 divide-black/10 md:mt-12 md:flex lg:max-w-full lg:divide-x"
     >
-      <article className="xs:pr-12 border-r border-r-black/10 pr-4 lg:pr-6">
-        <div className="flex items-center gap-px">
-          <Counter to={200} />
-          <span className="stats-numbers">+</span>
-        </div>
-        <span className="stats-text">International Brands</span>
-      </article>
-
-      <article className="pl-4 lg:pr-5">
-        <div className="flex items-center gap-px">
-          <Counter to={2000} />
-          <span className="stats-numbers">+</span>
-        </div>
-        <span className="stats-text">High-Quality Products</span>
-      </article>
-
-      <article className="lg:pl-5">
-        <div className="flex items-center gap-px">
-          <Counter to={30000} />
-          <span className="stats-numbers">+</span>
-        </div>
-        <span className="stats-text">Happy Customers</span>
-      </article>
+      {statsList.map((stat, i) => (
+        <article key={i} className={stat.styles}>
+          <div className="flex items-center gap-px">
+            <Counter to={stat.members} />
+            <span className="stats-numbers">+</span>
+          </div>
+          <span className="stats-text">{stat.title}</span>
+        </article>
+      ))}
     </motion.section>
   );
 }
