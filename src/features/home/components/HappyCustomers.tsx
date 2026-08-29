@@ -3,6 +3,7 @@ import { useRef } from "react";
 
 // Components;
 import { Container } from "@/shared/components";
+import { commentList } from "@/features/products/components/data/comments";
 
 // Icons;
 import { ArrowRight } from "lucide-react";
@@ -13,11 +14,8 @@ import { motion } from "motion/react";
 // Animations;
 import { fadeUpVariant } from "@/shared/animations";
 
-// Static Images;
-import ratingStar from "@images/home/rating-start.png";
-
 export default function HappyCustomers() {
-  const reviewRef = useRef<HTMLDivElement | null>(null);
+  const reviewRef = useRef<HTMLElement | null>(null);
 
   const handleNext = () => {
     reviewRef.current?.scrollBy({
@@ -38,6 +36,7 @@ export default function HappyCustomers() {
     <section className="mt-18">
       <Container>
         <header className="flex items-end justify-between md:items-center">
+          {/* Title */}
           <article>
             <motion.h1
               variants={fadeUpVariant}
@@ -76,17 +75,15 @@ export default function HappyCustomers() {
           ref={reviewRef}
           className="hide-scrollbar bg mt-8 flex snap-x snap-mandatory items-center gap-4 overflow-x-auto px-4"
         >
-          {Array.from({ length: 5 }, (_, i) => (
+          {commentList.map((comment, i) => (
             <article
               key={i}
               className="xs:min-w-100 flex h-55 min-w-full snap-start flex-col items-start justify-around rounded-2xl border border-black/10 p-4 shadow-lg md:justify-between md:p-7 lg:min-w-1/3"
             >
-              <img src={ratingStar} alt="rating start image" />
-              <h1 className="text-xl font-bold">Sarah M.</h1>
+              <img src={comment.starImage} alt="rating start image" />
+              <h1 className="text-xl font-bold">{comment.name}</h1>
               <p className="text-base leading-6 font-normal text-black/60">
-                "I'm blown away by the quality and style of the clothes I
-                received from Shop.co. From casual wear to elegant dresses,
-                every piece I've bought has exceeded my expectations.”
+                {comment.comment}
               </p>
             </article>
           ))}

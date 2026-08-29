@@ -48,6 +48,7 @@ export default function BrowseByDressStyle() {
                 loading="lazy"
                 className="fit h-47 w-full rounded-2xl md:h-52"
               />
+
               <span className="absolute top-4 left-4 text-xl font-bold sm:left-6">
                 {item.name}
               </span>

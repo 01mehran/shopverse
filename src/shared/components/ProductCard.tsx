@@ -17,6 +17,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         }}
       >
         <article className="xs:min-w-54 min-w-45 space-y-1 rounded-xl md:min-w-72">
+          {/* Product Image */}
           <div className="bg-bg-muted mb-2 flex items-center justify-center rounded-xl">
             <img
               src={product.image}
@@ -25,13 +26,19 @@ export default function ProductCard({ product }: ProductCardProps) {
               loading="lazy"
             />
           </div>
+
+          {/* Product Name  */}
           <p className="text-base font-bold md:text-xl">{product.name}</p>
+
+          {/* Product Rate */}
           <img
             src={ratingStart}
             loading="lazy"
             alt="rating-satar"
             className="w-22 sm:w-32"
           />
+
+          {/* Product Price */}
           <p className="text-xl font-bold sm:text-2xl">${product.price}</p>
         </article>
       </Link>
