@@ -43,9 +43,9 @@ export default function BackToTopButton() {
     <AnimatePresence>
       {showBackToTop && (
         <motion.button
-          initial={{ opacity: 0, y: 50, scale: 0 }}
+          initial={{ opacity: 0, y: 100, scale: 0 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 50, scale: 0 }}
+          exit={{ opacity: 0, y: 100, scale: 0 }}
           transition={{ duration: 0.3 }}
           whileHover={{ y: -2 }}
           onClick={handleBackToTop}

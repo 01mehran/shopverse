@@ -36,16 +36,14 @@ export default function BreadCrumb({ items }: BreadCrumbProps) {
               <Link to="/">Home</Link>
             </motion.li>
 
-            {items.map((item, index) => (
-              <div key={index} className="flex items-center gap-2">
+            {items.map((item, i) => (
+              <div key={i} className="flex items-center gap-2">
                 <ChevronRight size={20} />
 
                 <motion.li
                   variants={breadCrumbRouteVarinat}
                   className={
-                    index === items.length - 1
-                      ? "font-medium text-black/80"
-                      : ""
+                    i === items.length - 1 ? "font-medium text-black/80" : ""
                   }
                 >
                   {item.label || "..."}

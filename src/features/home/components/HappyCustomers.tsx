@@ -78,9 +78,9 @@ export default function HappyCustomers() {
           {commentList.map((comment, i) => (
             <article
               key={i}
-              className="xs:min-w-100 flex h-55 min-w-full snap-start gap-2 flex-col items-start justify-around rounded-2xl border border-black/10 p-4 shadow-lg md:justify-between md:p-7 lg:min-w-1/3"
+              className="xs:min-w-100 flex h-55 min-w-full snap-start flex-col items-start justify-around overflow-y-auto rounded-2xl border border-black/10 p-4 shadow-lg md:p-7 lg:min-w-1/3"
             >
-              <img src={comment.starImage} alt="rating start image" />
+              <img src={comment.starImage} alt=" rating start image" />
               <h1 className="text-xl font-bold">{comment.name}</h1>
               <p className="text-base leading-6 font-normal text-black/60">
                 {comment.comment}

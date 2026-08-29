@@ -9,9 +9,11 @@ import { api } from "@/services/api";
 
 // Components;
 import { BreadCrumb, ErrorMessage, Loading } from "@/shared/components";
-import ProductInfo from "@/features/products/components/ProductInfo";
-import Comments from "@/features/products/components/Comments";
-import MightLikeProducts from "@/features/products/components/MightLikeProducts";
+import {
+  Comments,
+  MightLikeProducts,
+  ProductInfo,
+} from "@/features/products/components";
 
 export default function ProductDetails() {
   const { id } = useParams();
