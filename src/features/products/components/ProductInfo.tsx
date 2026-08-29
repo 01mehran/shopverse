@@ -16,7 +16,9 @@ import ratingStar from "@/assets/images/home/rating-start.png";
 
 // Types;
 import type { Product } from "@/shared/types/types";
-type props = {
+import ProductInfoSizes from "./ProductInfoSizes";
+
+export type props = {
   product: Product;
 };
 
@@ -64,6 +66,7 @@ export default function ProductInfo({ product }: props) {
               >
                 {product.name}
               </motion.h1>
+
               <img
                 src={ratingStar}
                 alt="rating star image"
@@ -84,27 +87,10 @@ export default function ProductInfo({ product }: props) {
 
             {/* Colors */}
             <ProductInfoColors product={product} />
+            <hr className="border border-black/5" />
 
             {/* Sizes */}
-            <motion.div
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.45, duration: 0.6 }}
-              viewport={{ once: true }}
-              className="itms-center flex flex-col gap-2 py-1 text-sm font-normal text-black/60 md:text-base"
-            >
-              <p className="text-sm">Choose Size</p>
-              <div className="flex flex-wrap items-center gap-2 text-sm lg:text-base">
-                {product.sizes.map((size) => (
-                  <button
-                    key={size}
-                    className="bg-bg-muted w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm"
-                  >
-                    {size}
-                  </button>
-                ))}
-              </div>
-            </motion.div>
+            <ProductInfoSizes product={product} />
             <hr className="border border-black/5" />
 
             {/* Add To Cart */}

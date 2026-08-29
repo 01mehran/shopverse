@@ -1,11 +1,11 @@
-// Types;
-import type { Product } from "@/shared/types/types";
-import { Check } from "lucide-react";
+// Motion Component;
 import { motion } from "motion/react";
 
-type props = {
-  product: Product;
-};
+// Types;
+import type { props } from "./ProductInfo";
+
+// Icons;
+import { Check } from "lucide-react";
 
 export default function ProductInfoColors({ product }: props) {
   return (
@@ -17,6 +17,7 @@ export default function ProductInfoColors({ product }: props) {
       className="itms-center flex flex-col gap-2 py-1"
     >
       <p className="text-sm font-normal text-black/60">Select Colors</p>
+
       <div className="flex items-center gap-3">
         {product.colors.map((color, i) => (
           <span
@@ -28,7 +29,9 @@ export default function ProductInfoColors({ product }: props) {
           </span>
         ))}
       </div>
-      <hr className="border border-black/5" />
+
+      {/* Horizontally Line */}
+      {/* <hr className="border border-black/5" /> */}
     </motion.section>
   );
 }
