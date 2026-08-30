@@ -7,6 +7,7 @@
 @font-face {
   font-family: "Satoshi";
   src: url("/src/assets/fonts/Satoshi-Regular.woff2") format("woff2");
+  font-display: swap;
   font-weight: 400;
   font-style: normal;
 }
@@ -14,6 +15,7 @@
 @font-face {
   font-family: "Satoshi";
   src: url("/src/assets/fonts/Satoshi-Medium.woff2") format("woff2");
+  font-display: swap;
   font-weight: 500;
   font-style: normal;
 }
@@ -21,6 +23,7 @@
 @font-face {
   font-family: "Satoshi";
   src: url("/src/assets/fonts/Satoshi-Bold.woff2") format("woff2");
+  font-display: swap;
   font-weight: 700;
   font-style: normal;
 }
@@ -29,6 +32,7 @@
 @font-face {
   font-family: "Integral CF";
   src: url("/src/assets/fonts/IntegralCF-Bold.woff2") format("woff2");
+  font-display: swap;
   font-weight: 700;
   font-style: normal;
 }

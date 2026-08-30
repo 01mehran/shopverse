@@ -20,6 +20,7 @@ export default function FooterBottom() {
       <p className="text-base text-black/60">
         Shop.co © 2000-2023, All Rights Reserved
       </p>
+
       <div className="flex items-center gap-3">
         {footerImages.map((images) => (
           <FooterLogosBox

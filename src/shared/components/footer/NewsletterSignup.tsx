@@ -19,15 +19,18 @@ export default function NewsletterSignup() {
             STAY UPTO DATE ABOUT OUR LATEST OFFERS
           </p>
         </div>
+
         <form className="relative flex w-full max-w-77 flex-col items-center gap-2">
           <input
             type="text"
             placeholder="Enter your email address"
             className="rounded-0 w-full rounded-full bg-white px-12 py-2 text-black outline-0 placeholder:text-black/60"
           />
+
           <span className="absolute top-2.5 left-3 text-gray-500">
             <Mail size={20} />
           </span>
+
           <button className="w-full rounded-full bg-white py-2 font-medium text-black">
             Subscribe to Newsletter
           </button>

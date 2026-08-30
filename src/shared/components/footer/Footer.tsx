@@ -21,10 +21,10 @@ export default function Footer() {
 
       <main>
         <Container>
-          <FooterLogo className="lg:hidden" />
+          <FooterLogo variant="mobile" />
 
           <section className="flex items-center justify-between gap-18">
-            <FooterLogo className="hidden lg:flex" />
+            <FooterLogo variant="desktop" />
 
             <motion.div
               variants={productCardContainerVariants}
@@ -35,8 +35,8 @@ export default function Footer() {
             >
               {footerLinks.map((column) => (
                 <FooterColumn
-                  title={column.title}
                   key={column.title}
+                  title={column.title}
                   links={column.links}
                 />
               ))}
