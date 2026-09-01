@@ -11,6 +11,9 @@ type UiStore = {
 
   showBackToTop: boolean;
   setShowBackToTop: (value: boolean) => void;
+
+  colorIndex: number;
+  selectColor: (value: number) => void;
 };
 
 export const useUiStore = create<UiStore>((set) => ({
@@ -18,6 +21,7 @@ export const useUiStore = create<UiStore>((set) => ({
   isSearchOpen: false,
   showBackToTop: false,
   showBackToTopButton: false,
+  colorIndex: 0,
 
   handleOpenSidebar: () => set({ isSidebarOpen: true }),
   handleCloseSidebar: () => set({ isSidebarOpen: false }),
@@ -26,4 +30,6 @@ export const useUiStore = create<UiStore>((set) => ({
   closeSearch: () => set({ isSearchOpen: false }),
 
   setShowBackToTop: (value) => set({ showBackToTop: value }),
+
+  selectColor: (value) => set({ colorIndex: value }),
 }));

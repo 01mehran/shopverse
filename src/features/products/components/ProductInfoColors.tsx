@@ -1,3 +1,7 @@
+// Zustand;
+import { useUiStore } from "@/stores/useUiStore";
+import { useShallow } from "zustand/shallow";
+
 // Motion Component;
 import { motion } from "motion/react";
 
@@ -8,6 +12,13 @@ import type { props } from "./ProductInfo";
 import { Check } from "lucide-react";
 
 export default function ProductInfoColors({ product }: props) {
+  const { colorIndex, selectColor } = useUiStore(
+    useShallow((state) => ({
+      colorIndex: state.colorIndex,
+      selectColor: state.selectColor,
+    })),
+  );
+
   return (
     <>
       <motion.section
@@ -21,13 +32,23 @@ export default function ProductInfoColors({ product }: props) {
 
         <div className="flex items-center gap-3">
           {product.colors.map((color, i) => (
-            <span
+            <article
               key={color}
               style={{ backgroundColor: color }}
+              onClick={() => selectColor(i)}
               className="flex size-7 cursor-pointer items-center justify-center rounded-full text-white"
             >
-              {i === 0 && <Check size={16} />}
-            </span>
+              {i === colorIndex && (
+                <motion.span
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {" "}
+                  <Check size={16} />{" "}
+                </motion.span>
+              )}
+            </article>
           ))}
         </div>
       </motion.section>
