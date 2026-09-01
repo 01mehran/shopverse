@@ -12,9 +12,9 @@ import type { props } from "./ProductInfo";
 import { Check } from "lucide-react";
 
 export default function ProductInfoColors({ product }: props) {
-  const { colorIndex, selectColor } = useUiStore(
+  const { selectedColorIndex, selectColor } = useUiStore(
     useShallow((state) => ({
-      colorIndex: state.colorIndex,
+      selectedColorIndex: state.selectedColorIndex,
       selectColor: state.selectColor,
     })),
   );
@@ -38,7 +38,7 @@ export default function ProductInfoColors({ product }: props) {
               onClick={() => selectColor(i)}
               className="flex size-7 cursor-pointer items-center justify-center rounded-full text-white"
             >
-              {i === colorIndex && (
+              {i === selectedColorIndex && (
                 <motion.span
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
