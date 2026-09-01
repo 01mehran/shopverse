@@ -14,7 +14,9 @@ export default function AddToCart({ variant }: addToCartProps) {
       <button className="cursor-pointer text-black/80">
         <Minus />
       </button>
+
       <span>1</span>
+
       <button className="cursor-pointer text-black/80">
         <Plus />
       </button>

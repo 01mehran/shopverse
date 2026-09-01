@@ -15,6 +15,7 @@ export default function ProductInfoSizes({ product }: props) {
         className="itms-center flex flex-col gap-2 py-1 text-sm font-normal text-black/60 md:text-base"
       >
         <p className="text-sm">Choose Size</p>
+       
         <div className="flex flex-wrap items-center gap-2 text-sm lg:text-base">
           {product.sizes.map((size) => (
             <button

@@ -14,25 +14,34 @@ export default function OrderSummary() {
         viewport={{ once: true }}
         className="flex flex-col justify-between gap-2"
       >
+        {/* Title */}
         <h2 className="text-[20px] font-bold md:text-xl">Order Summary</h2>
+
+        {/* Subtotal */}
         <div className="flex items-center justify-between">
           <span className="text-base font-normal text-black/60 md:text-lg">
             Subtotal
           </span>
           <span className="text-base font-bold md:text-lg">$565</span>
         </div>
+
+        {/* Discount */}
         <div className="flex items-center justify-between">
           <span className="text-base font-normal text-black/60 md:text-lg">
             Discount (-20%)
           </span>
           <span className="text-red text-base font-bold md:text-lg">$-113</span>
         </div>
+        
+        {/* Delivery Fee */}
         <div className="flex items-center justify-between">
           <span className="text-base font-normal text-black/60 md:text-lg">
             Delivery Fee{" "}
           </span>
           <span className="text-base font-bold md:text-lg">$15</span>
         </div>
+
+        {/* Total */}
         <hr className="border border-black/5" />
         <div className="flex items-center justify-between">
           <span className="text-base font-normal text-black/80 md:text-lg">
@@ -40,6 +49,8 @@ export default function OrderSummary() {
           </span>
           <span className="text-base font-bold md:text-xl">$515</span>
         </div>
+
+        {/* Form */}
         <form className="grid grid-cols-9 gap-3">
           <input
             placeholder="Add promo code"
@@ -49,6 +60,7 @@ export default function OrderSummary() {
             Apply
           </button>
         </form>
+
         <button className="mt-2 flex w-full cursor-pointer items-center justify-center rounded-[62px] bg-black py-2 text-center text-white">
           Go to Checkout{" "}
           <span className="ml-3">

@@ -52,6 +52,7 @@ export default function CartItem() {
                 alt="clothes"
                 className="w-24 rounded-lg object-cover md:w-31"
               />
+
               {/* Product Info */}
               <div className="flex w-full flex-col justify-between">
                 <div className="flex flex-col gap-px">
