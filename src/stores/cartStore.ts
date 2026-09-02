@@ -11,6 +11,7 @@ type CartStore = {
 
   increaseItem: (id: number) => void;
   decreaseItem: (id: number) => void;
+  addToCart: (id: number) => void;
 };
 
 export const useCartStore = create<CartStore>((set) => ({
@@ -50,5 +51,18 @@ export const useCartStore = create<CartStore>((set) => ({
           item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
         ),
       };
+    }),
+
+  addToCart: (id) =>
+    set(({ cartItems }) => {
+      const productExist = cartItems.find((item) => item.id === id);
+
+      if (!productExist) {
+        return {
+          cartItems: [...cartItems, { id: id, quantity: 1 }],
+        };
+      }
+
+      return { cartItems };
     }),
 }));

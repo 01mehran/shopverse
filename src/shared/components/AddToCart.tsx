@@ -1,10 +1,12 @@
+// Zustand;
+import { useShallow } from "zustand/shallow";
+
 // Types;
 import { useCartStore } from "@/stores/cartStore";
 import type { addToCartProps } from "../types/types";
 
 // Icons;
 import { Minus, Plus } from "lucide-react";
-import { useShallow } from "zustand/shallow";
 
 export default function AddToCart({ variant, id }: addToCartProps) {
   const productInfo = variant === "product-info";

@@ -1,3 +1,7 @@
+// Zustand;
+import { useCartStore } from "@/stores/cartStore";
+import { useShallow } from "zustand/shallow";
+
 // Components;
 import { AddToCart, Container } from "@/shared/components";
 import ProductInfoColors from "./ProductInfoColors";
@@ -19,6 +23,15 @@ export type props = {
 
 export default function ProductInfo({ product }: props) {
   if (!product) return null;
+
+  const { addToCart, cartItems } = useCartStore(
+    useShallow((state) => ({
+      addToCart: state.addToCart,
+      cartItems: state.cartItems,
+    })),
+  );
+
+  const isInCart = cartItems.some((item) => item.id === +product.id);
 
   return (
     <section>
@@ -86,7 +99,11 @@ export default function ProductInfo({ product }: props) {
             >
               <AddToCart id={+product.id} variant="product-info" />
 
-              <button className="col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white">
+              <button
+                disabled={isInCart}
+                onClick={() => addToCart(+product.id)}
+                className={`${isInCart ? "pointer-events-none bg-black/60" : "bg-black"} ease col-span-6 cursor-pointer rounded-[62px] px-6 py-2 text-white transition-colors duration-300`}
+              >
                 Add to Cart
               </button>
             </motion.div>
