@@ -8,7 +8,9 @@ type cartItem = {
 
 type CartStore = {
   cartItems: cartItem[];
+
   increaseItem: (id: number) => void;
+  decreaseItem: (id: number) => void;
 };
 
 export const useCartStore = create<CartStore>((set) => ({
@@ -27,6 +29,25 @@ export const useCartStore = create<CartStore>((set) => ({
       return {
         cartItems: cartItems.map((item) =>
           item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+        ),
+      };
+    }),
+
+  decreaseItem: (id) =>
+    set(({ cartItems }) => {
+      const item = cartItems.find((item) => item.id === id);
+
+      if (!item) return { cartItems };
+
+      if (item.quantity === 1) {
+        return {
+          cartItems: cartItems.filter((item) => item.id !== id),
+        };
+      }
+
+      return {
+        cartItems: cartItems.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
         ),
       };
     }),
