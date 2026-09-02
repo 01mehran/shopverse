@@ -70,7 +70,7 @@ export default function CartItem() {
                 {/* AddToCart */}
                 <div className="flex w-full justify-between">
                   <p className="text-[24px] font-bold">$145</p>
-                  <AddToCart variant="cart-item" />
+                  <AddToCart id={1} variant="cart-item" />
                 </div>
               </div>
 

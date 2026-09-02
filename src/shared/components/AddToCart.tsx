@@ -1,11 +1,19 @@
 // Types;
+import { useCartStore } from "@/stores/cartStore";
 import type { addToCartProps } from "../types/types";
 
 // Icons;
 import { Minus, Plus } from "lucide-react";
+import { useShallow } from "zustand/shallow";
 
-export default function AddToCart({ variant }: addToCartProps) {
+export default function AddToCart({ variant, id }: addToCartProps) {
   const productInfo = variant === "product-info";
+
+  const { increaseItem } = useCartStore(
+    useShallow((state) => ({
+      increaseItem: state.increaseItem,
+    })),
+  );
 
   return (
     <div
@@ -17,7 +25,10 @@ export default function AddToCart({ variant }: addToCartProps) {
 
       <span>1</span>
 
-      <button className="cursor-pointer text-black/80">
+      <button
+        onClick={() => increaseItem(id)}
+        className="cursor-pointer text-black/80"
+      >
         <Plus />
       </button>
     </div>

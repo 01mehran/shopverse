@@ -84,7 +84,7 @@ export default function ProductInfo({ product }: props) {
               viewport={{ once: true }}
               className="grid grid-cols-9 items-center gap-2 pt-2"
             >
-              <AddToCart variant="product-info" />
+              <AddToCart id={+product.id} variant="product-info" />
 
               <button className="col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white">
                 Add to Cart

@@ -56,4 +56,5 @@ export type BreadCrumbProps = {
 
 export type addToCartProps = {
   variant: "product-info" | "cart-item";
+  id: number;
 };
