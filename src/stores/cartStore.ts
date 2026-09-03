@@ -1,7 +1,7 @@
 import { create } from "zustand";
 
 // Each Item;
-type cartItem = {
+export type cartItem = {
   id: number;
   quantity: number;
 };

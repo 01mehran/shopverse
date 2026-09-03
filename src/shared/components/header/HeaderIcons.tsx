@@ -22,7 +22,12 @@ export default function HeaderIcons() {
   return (
     <section className="flex items-baseline gap-2.5">
       {/* Cart Icon; */}
-      <Link to={`/cart`}>
+      <Link
+        to={`/cart`}
+        onClick={() => {
+          scrollTo({ left: 0, top: 0, behavior: "smooth" });
+        }}
+      >
         <button className="relative cursor-pointer focus-within:border-0 hover:text-black/80">
           <ShoppingCart strokeWidth={2.5} />
 
