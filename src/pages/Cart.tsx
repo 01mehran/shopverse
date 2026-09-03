@@ -2,6 +2,7 @@
 import CartItem from "@/features/cart/components/CartItem";
 import OrderSummary from "@/features/cart/components/OrderSummary";
 import { BreadCrumb, Container } from "@/shared/components";
+import EmptyState from "@/features/cart/components/EmptyState";
 
 // Animations;
 import {
@@ -39,25 +40,27 @@ export default function Cart() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-
           className="mt-4 grid grid-cols-1 items-start gap-4 pb-4 md:grid-cols-12"
         >
-          <div className="col-span-7 w-full">
-            {cartItems.map((item) => (
-              <motion.article
-                key={item.id}
-                variants={productCardVariants}
-                className="border-bg-muted flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-2xl border p-2.5 md:p-5"
-              >
-                {/* Product Cart */}
-                <CartItem {...item} />
-              </motion.article>
-            ))}
-          </div>
+          {cartItems.length > 0 && (
+            <div className="col-span-7 w-full">
+              {cartItems.map((item) => (
+                <motion.div
+                  key={item.id}
+                  variants={productCardVariants}
+                  className="border-bg-muted flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-2xl border p-2.5 md:p-5"
+                >
+                  <CartItem {...item} />
+                </motion.div>
+              ))}
+            </div>
+          )}
 
           {/* Order Summary */}
-          <OrderSummary />
+          {cartItems.length > 0 && <OrderSummary />}
         </motion.div>
+
+        {cartItems.length === 0 && <EmptyState />}
       </Container>
     </section>
   );
