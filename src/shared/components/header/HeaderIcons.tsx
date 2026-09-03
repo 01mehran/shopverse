@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { useUiStore } from "@/stores/useUiStore";
 import { useCartStore } from "@/stores/cartStore";
 
+// Motiom Components;
+import { motion, AnimatePresence } from "motion/react";
+
 // Icons;
 import { CircleUserRound, Search, ShoppingCart } from "lucide-react";
 
@@ -23,10 +26,19 @@ export default function HeaderIcons() {
         <button className="relative cursor-pointer focus-within:border-0 hover:text-black/80">
           <ShoppingCart strokeWidth={2.5} />
 
-          {/* Cart Badge  */}
-          <span className="absolute -top-2 -right-2 flex size-5 items-center justify-center rounded-full bg-black text-[10px] font-medium text-white">
-            {totalQuantity}
-          </span>
+          <AnimatePresence>
+            {totalQuantity && (
+              // Totalquantity Badge
+              <motion.span
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0, opacity: 0 }}
+                className="absolute -top-2 -right-2 flex size-5 items-center justify-center rounded-full bg-black text-[10px] font-medium text-white"
+              >
+                {totalQuantity}
+              </motion.span>
+            )}
+          </AnimatePresence>
         </button>
       </Link>
 
