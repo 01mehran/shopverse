@@ -9,12 +9,14 @@ import { motion } from "motion/react";
 import type { props } from "./ProductInfo";
 
 export default function ProductInfoSizes({ product }: props) {
-  const { selectedSizeIndex, selectSize } = useUiStore(
+  const { selectedSizes, selectSize } = useUiStore(
     useShallow((state) => ({
-      selectedSizeIndex: state.selectedSizeIndex,
+      selectedSizes: state.selectedSizes,
       selectSize: state.selectSize,
     })),
   );
+
+  const selectedSizeIndex = selectedSizes[+product.id] ?? null;
 
   return (
     <>
@@ -31,7 +33,7 @@ export default function ProductInfoSizes({ product }: props) {
           {product.sizes.map((size, i) => (
             <button
               key={size}
-              onClick={() => selectSize(i)}
+              onClick={() => selectSize(+product.id, i)}
               className={` ${i === selectedSizeIndex ? "bg-black text-white" : "bg-bg-muted"} ease w-full max-w-25 cursor-pointer rounded-[62px] px-4 py-2 text-sm transition-all duration-300`}
             >
               {size}
