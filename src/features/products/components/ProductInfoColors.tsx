@@ -12,12 +12,14 @@ import type { props } from "./ProductInfo";
 import { Check } from "lucide-react";
 
 export default function ProductInfoColors({ product }: props) {
-  const { selectedColorIndex, selectColor } = useUiStore(
+  const { selectedColors, selectColor } = useUiStore(
     useShallow((state) => ({
-      selectedColorIndex: state.selectedColorIndex,
+      selectedColors: state.selectedColors,
       selectColor: state.selectColor,
     })),
   );
+
+  const selectedColorIndex = selectedColors[+product.id] ?? 0;
 
   return (
     <>
@@ -35,7 +37,7 @@ export default function ProductInfoColors({ product }: props) {
             <article
               key={color}
               style={{ backgroundColor: color }}
-              onClick={() => selectColor(i)}
+              onClick={() => selectColor(+product.id, i)}
               className="flex size-7 cursor-pointer items-center justify-center rounded-full text-white"
             >
               {i === selectedColorIndex && (
