@@ -24,9 +24,9 @@ export type props = {
 export default function ProductInfo({ product }: props) {
   if (!product) return null;
 
-  const { addToCart, cartItems } = useCartStore(
+  const { addItem, cartItems } = useCartStore(
     useShallow((state) => ({
-      addToCart: state.addToCart,
+      addItem: state.addItem,
       cartItems: state.cartItems,
     })),
   );
@@ -101,7 +101,7 @@ export default function ProductInfo({ product }: props) {
 
               <button
                 disabled={isInCart}
-                onClick={() => addToCart(+product.id)}
+                onClick={() => addItem(+product.id)}
                 className={`${isInCart ? "pointer-events-none bg-black/60" : "bg-black"} ease col-span-6 cursor-pointer rounded-[62px] px-6 py-2 text-white transition-colors duration-300`}
               >
                 Add to Cart

@@ -11,7 +11,7 @@ type CartStore = {
 
   increaseItem: (id: number) => void;
   decreaseItem: (id: number) => void;
-  addToCart: (id: number) => void;
+  addItem: (id: number) => void;
 };
 
 export const useCartStore = create<CartStore>((set) => ({
@@ -53,7 +53,7 @@ export const useCartStore = create<CartStore>((set) => ({
       };
     }),
 
-  addToCart: (id) =>
+  addItem: (id) =>
     set(({ cartItems }) => {
       const productExist = cartItems.find((item) => item.id === id);
 
