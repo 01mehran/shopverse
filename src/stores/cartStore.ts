@@ -12,6 +12,7 @@ type CartStore = {
   increaseItem: (id: number) => void;
   decreaseItem: (id: number) => void;
   addItem: (id: number) => void;
+  removeItem: (id: number) => void;
 };
 
 export const useCartStore = create<CartStore>((set) => ({
@@ -65,4 +66,12 @@ export const useCartStore = create<CartStore>((set) => ({
 
       return { cartItems };
     }),
+
+  removeItem: (id) => {
+    set(({ cartItems }) => {
+      return {
+        cartItems: cartItems.filter((item) => item.id !== id),
+      };
+    });
+  },
 }));

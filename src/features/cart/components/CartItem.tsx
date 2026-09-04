@@ -11,9 +11,11 @@ import { AddToCart, ErrorMessage, Loading } from "@/shared/components";
 import { Trash2 } from "lucide-react";
 
 // Stores;
-import type { cartItem } from "@/stores/cartStore";
+import { useCartStore, type cartItem } from "@/stores/cartStore";
 
 export default function CartItem({ id }: cartItem) {
+  const removeItem = useCartStore((state) => state.removeItem);
+
   const { data, isLoading, error } = useQuery({
     queryKey: ["product", id],
     queryFn: async () => {
@@ -56,7 +58,10 @@ export default function CartItem({ id }: cartItem) {
           </div>
 
           {/* Trash Icon */}
-          <button className="text-red absolute top-0 right-0 cursor-pointer rounded-full bg-white">
+          <button
+            onClick={() => removeItem(id)}
+            className="text-red hover:bg-red/15 ease absolute -top-1 -right-1 cursor-pointer rounded-full bg-white p-1.5 transition-colors duration-200"
+          >
             <Trash2 size={20} strokeWidth={3} />
           </button>
         </article>
