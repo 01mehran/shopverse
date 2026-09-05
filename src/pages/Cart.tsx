@@ -12,19 +12,25 @@ import {
 
 // Zustand;
 import { useCartStore } from "@/stores/cartStore";
+import { useShallow } from "zustand/shallow";
 
 // Motion Components;
 import { motion } from "motion/react";
 
 export default function Cart() {
-  const cartItems = useCartStore((state) => state.cartItems);
+  const { cartItems, clearCart } = useCartStore(
+    useShallow((state) => ({
+      cartItems: state.cartItems,
+      clearCart: state.clearCart,
+    })),
+  );
 
   return (
     <section>
       <BreadCrumb items={[{ label: "Cart" }]} />
 
       <Container>
-        <header className="xs:flex-row xs:mb-0 mb-8 flex flex-col justify-between md:items-center">
+        <header className="xs:flex-row xs:mb-0 mb-8 flex flex-col justify-between sm:items-center">
           {/* Title */}
           <motion.h1
             initial={{ y: 40, opacity: 0 }}
@@ -35,9 +41,20 @@ export default function Cart() {
           >
             your cart
           </motion.h1>
-          <button className="text-md xs:min-w-34 hover:border-red hover:text-red hover:bg-red/5 ease mt-3 cursor-pointer rounded-xl border border-black/50 px-4 py-1 font-medium transition-colors duration-300 sm:px-8">
-            Clear Cart
-          </button>
+
+          {/* Clear Cart Button */}
+          {cartItems.length > 0 && (
+            <motion.button
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              onClick={clearCart}
+              className="text-md xs:min-w-34 hover:border-red hover:text-red hover:bg-red/5 ease xs:self-center mt-3 cursor-pointer rounded-xl border border-black/50 px-4 py-1 font-medium transition-colors duration-300 sm:px-8"
+            >
+              Clear Cart
+            </motion.button>
+          )}
         </header>
 
         <motion.div
