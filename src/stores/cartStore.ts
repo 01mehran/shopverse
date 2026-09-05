@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 // Each Item;
 export type cartItem = {
@@ -15,63 +16,70 @@ type CartStore = {
   removeItem: (id: number) => void;
 };
 
-export const useCartStore = create<CartStore>((set) => ({
-  cartItems: [],
+export const useCartStore = create<CartStore>()(
+  persist(
+    (set) => ({
+      cartItems: [],
 
-  increaseItem: (id) =>
-    set(({ cartItems }) => {
-      const productExist = cartItems.some((item) => item.id === id);
+      increaseItem: (id) =>
+        set(({ cartItems }) => {
+          const productExist = cartItems.some((item) => item.id === id);
 
-      if (!productExist) {
-        return {
-          cartItems: [...cartItems, { id: id, quantity: 1 }],
-        };
-      }
+          if (!productExist) {
+            return {
+              cartItems: [...cartItems, { id: id, quantity: 1 }],
+            };
+          }
 
-      return {
-        cartItems: cartItems.map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
-        ),
-      };
+          return {
+            cartItems: cartItems.map((item) =>
+              item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+            ),
+          };
+        }),
+
+      decreaseItem: (id) =>
+        set(({ cartItems }) => {
+          const item = cartItems.find((item) => item.id === id);
+
+          if (!item) return { cartItems };
+
+          if (item.quantity === 1) {
+            return {
+              cartItems: cartItems.filter((item) => item.id !== id),
+            };
+          }
+
+          return {
+            cartItems: cartItems.map((item) =>
+              item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
+            ),
+          };
+        }),
+
+      addItem: (id) =>
+        set(({ cartItems }) => {
+          const productExist = cartItems.find((item) => item.id === id);
+
+          if (!productExist) {
+            return {
+              cartItems: [...cartItems, { id: id, quantity: 1 }],
+            };
+          }
+
+          return { cartItems };
+        }),
+
+      removeItem: (id) => {
+        set(({ cartItems }) => {
+          return {
+            cartItems: cartItems.filter((item) => item.id !== id),
+          };
+        });
+      },
     }),
-
-  decreaseItem: (id) =>
-    set(({ cartItems }) => {
-      const item = cartItems.find((item) => item.id === id);
-
-      if (!item) return { cartItems };
-
-      if (item.quantity === 1) {
-        return {
-          cartItems: cartItems.filter((item) => item.id !== id),
-        };
-      }
-
-      return {
-        cartItems: cartItems.map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
-        ),
-      };
-    }),
-
-  addItem: (id) =>
-    set(({ cartItems }) => {
-      const productExist = cartItems.find((item) => item.id === id);
-
-      if (!productExist) {
-        return {
-          cartItems: [...cartItems, { id: id, quantity: 1 }],
-        };
-      }
-
-      return { cartItems };
-    }),
-
-  removeItem: (id) => {
-    set(({ cartItems }) => {
-      return {
-        cartItems: cartItems.filter((item) => item.id !== id),
-      };
-    });
-  },
-}));
+    {
+      name: "cart-product",
+    },
+  ),
+);
