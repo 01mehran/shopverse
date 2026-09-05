@@ -24,16 +24,21 @@ export default function Cart() {
       <BreadCrumb items={[{ label: "Cart" }]} />
 
       <Container>
-        {/* Title */}
-        <motion.h1
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="font-IntegralCF text-[32px] font-bold uppercase sm:text-[40px]"
-        >
-          your cart
-        </motion.h1>
+        <header className="xs:flex-row xs:mb-0 mb-8 flex flex-col justify-between md:items-center">
+          {/* Title */}
+          <motion.h1
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="font-IntegralCF text-[32px] font-bold uppercase sm:text-[40px]"
+          >
+            your cart
+          </motion.h1>
+          <button className="text-md xs:min-w-34 hover:border-red hover:text-red hover:bg-red/5 ease mt-3 cursor-pointer rounded-xl border border-black/50 px-4 py-1 font-medium transition-colors duration-300 sm:px-8">
+            Clear Cart
+          </button>
+        </header>
 
         <motion.div
           variants={productCardContainerVariants}
