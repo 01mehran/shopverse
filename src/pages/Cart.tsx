@@ -15,7 +15,7 @@ import { useCartStore } from "@/stores/cartStore";
 import { useShallow } from "zustand/shallow";
 
 // Motion Components;
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function Cart() {
   const { cartItems, clearCart } = useCartStore(
@@ -44,7 +44,6 @@ export default function Cart() {
             </motion.h1>
 
             {/* Clear Cart Button */}
-
             <motion.button
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -67,15 +66,19 @@ export default function Cart() {
         >
           {cartItems.length > 0 && (
             <div className="col-span-7 w-full">
-              {cartItems.map((item) => (
-                <motion.div
-                  key={item.id}
-                  variants={productCardVariants}
-                  className="border-bg-muted flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-2xl border p-2.5 md:p-5"
-                >
-                  <CartItem {...item} />
-                </motion.div>
-              ))}
+              <AnimatePresence>
+                {cartItems.map((item) => (
+                  <motion.div
+                    layout
+                    key={item.id}
+                    variants={productCardVariants}
+                    exit={{ opacity: 0, scale: 0 }}
+                    className="border-bg-muted flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-2xl border p-2.5 md:p-5"
+                  >
+                    <CartItem {...item} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             </div>
           )}
 

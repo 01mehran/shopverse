@@ -25,7 +25,7 @@ export default function CartItem({ id }: cartItem) {
   });
 
   return (
-    <section className="">
+    <section>
       {isLoading && <Loading />}
       {error && <ErrorMessage error={error} />}
 
