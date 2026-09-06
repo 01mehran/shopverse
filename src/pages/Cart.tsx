@@ -65,7 +65,7 @@ export default function Cart() {
           className="mt-4 grid grid-cols-1 items-start gap-4 pb-4 md:grid-cols-12"
         >
           {cartItems.length > 0 && (
-            <div className="col-span-7 w-full">
+            <div className="border-bg-muted divide-bg-muted col-span-7 w-full divide-y-2 rounded-2xl border px-4 sm:px-6">
               <AnimatePresence>
                 {cartItems.map((item) => (
                   <motion.div
@@ -73,7 +73,7 @@ export default function Cart() {
                     key={item.id}
                     variants={productCardVariants}
                     exit={{ opacity: 0, scale: 0 }}
-                    className="border-bg-muted flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-2xl border p-2.5 md:p-5"
+                    className="flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-xl py-3 md:py-5"
                   >
                     <CartItem {...item} />
                   </motion.div>
