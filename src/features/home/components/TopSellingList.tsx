@@ -15,6 +15,10 @@ import {
 // Motion Component;
 import { motion } from "motion/react";
 
+// Zustand;
+import { useUiStore } from "@/stores/useUiStore";
+import { useShallow } from "zustand/shallow";
+
 // Animations;
 import {
   fadeUpVariant,
@@ -24,6 +28,13 @@ import {
 } from "@/shared/animations";
 
 export default function TopSellingList() {
+  const { showAllTopSelling, toggleTopSelling } = useUiStore(
+    useShallow((state) => ({
+      showAllTopSelling: state.showAllTopSelling,
+      toggleTopSelling: state.toggleTopSelling,
+    })),
+  );
+
   const {
     data: topSelling = [],
     isLoading,
@@ -32,6 +43,10 @@ export default function TopSellingList() {
     queryKey: ["products, top-selling"],
     queryFn: () => getProducts("top-selling"),
   });
+
+  const visibleTopSelling = showAllTopSelling
+    ? topSelling
+    : topSelling.slice(0, 4);
 
   return (
     <Container>
@@ -54,13 +69,14 @@ export default function TopSellingList() {
         ) : (
           <main>
             <motion.div
+              key={showAllTopSelling ? "all" : "initial"}
               variants={productCardContainerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
             >
-              {topSelling.slice(0, 4).map((product) => (
+              {visibleTopSelling.map((product) => (
                 <motion.div
                   key={product.id}
                   variants={productCardVariants}
@@ -76,9 +92,10 @@ export default function TopSellingList() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              onClick={toggleTopSelling}
               className="xs:w-50 mx-auto mt-1 block w-full cursor-pointer rounded-full border border-black/10 py-2 text-base"
             >
-              Veiw All
+              {showAllTopSelling ? " Veiw Less" : " Veiw All"}
             </motion.button>
           </main>
         )}

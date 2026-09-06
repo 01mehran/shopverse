@@ -20,6 +20,9 @@ type UiStore = {
 
   showAllNewArrivals: boolean;
   toggleNewArrivals: () => void;
+
+  showAllTopSelling: boolean;
+  toggleTopSelling: () => void;
 };
 
 export const useUiStore = create<UiStore>((set) => ({
@@ -30,6 +33,7 @@ export const useUiStore = create<UiStore>((set) => ({
   selectedColors: {},
   selectedSizes: {},
   showAllNewArrivals: false,
+  showAllTopSelling: false,
 
   handleOpenSidebar: () => set({ isSidebarOpen: true }),
   handleCloseSidebar: () => set({ isSidebarOpen: false }),
@@ -57,4 +61,7 @@ export const useUiStore = create<UiStore>((set) => ({
 
   toggleNewArrivals: () =>
     set((state) => ({ showAllNewArrivals: !state.showAllNewArrivals })),
+
+  toggleTopSelling: () =>
+    set((state) => ({ showAllTopSelling: !state.showAllTopSelling })),
 }));
