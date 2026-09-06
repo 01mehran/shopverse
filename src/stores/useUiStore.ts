@@ -23,6 +23,9 @@ type UiStore = {
 
   showAllTopSelling: boolean;
   toggleTopSelling: () => void;
+
+  showAllReviews: boolean;
+  toggleReviews: () => void;
 };
 
 export const useUiStore = create<UiStore>((set) => ({
@@ -34,6 +37,7 @@ export const useUiStore = create<UiStore>((set) => ({
   selectedSizes: {},
   showAllNewArrivals: false,
   showAllTopSelling: false,
+  showAllReviews: false,
 
   handleOpenSidebar: () => set({ isSidebarOpen: true }),
   handleCloseSidebar: () => set({ isSidebarOpen: false }),
@@ -64,4 +68,7 @@ export const useUiStore = create<UiStore>((set) => ({
 
   toggleTopSelling: () =>
     set((state) => ({ showAllTopSelling: !state.showAllTopSelling })),
+
+  toggleReviews: () =>
+    set((state) => ({ showAllReviews: !state.showAllReviews })),
 }));

@@ -5,6 +5,10 @@ import Tabs from "./Tabs";
 // Motion Component;
 import { motion } from "motion/react";
 
+// Zustand;
+import { useUiStore } from "@/stores/useUiStore";
+import { useShallow } from "zustand/shallow";
+
 // Animations;
 import {
   fadeLeftVariant,
@@ -19,6 +23,15 @@ import { commentList } from "@/shared/data/comments";
 import { Ellipsis, SlidersVertical } from "lucide-react";
 
 export default function Comments() {
+  const { showAllReviews, toggleReviews } = useUiStore(
+    useShallow((state) => ({
+      showAllReviews: state.showAllReviews,
+      toggleReviews: state.toggleReviews,
+    })),
+  );
+
+  const visibleReviews = showAllReviews ? commentList : commentList.slice(0, 4);
+
   return (
     <section>
       <Container>
@@ -56,13 +69,14 @@ export default function Comments() {
           {/* User Comments */}
           <section>
             <motion.div
+              key={showAllReviews ? " all" : "initial"}
               variants={productCardContainerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               className="grid grid-cols-1 gap-4 md:grid-cols-2"
             >
-              {commentList.slice(0, 4)?.map((comment, i) => (
+              {visibleReviews?.map((comment, i) => (
                 <motion.article
                   variants={productCardVariants}
                   key={i}
@@ -93,9 +107,10 @@ export default function Comments() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              onClick={toggleReviews}
               className="mx-auto mt-5 block w-50 cursor-pointer rounded-[62px] border border-black/10 py-2 text-sm font-medium sm:mt-10 sm:text-base"
             >
-              Load More Reviews
+              {showAllReviews ? "Load Less Reviews" : "Load More Reviews"}
             </motion.button>
           </section>
         </main>
