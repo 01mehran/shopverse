@@ -17,6 +17,9 @@ type UiStore = {
 
   selectedSizes: Record<number, number | null>;
   selectSize: (productId: number, sizeIndex: number) => void;
+
+  showAllNewArrivals: boolean;
+  toggleNewArrivals: () => void;
 };
 
 export const useUiStore = create<UiStore>((set) => ({
@@ -26,6 +29,7 @@ export const useUiStore = create<UiStore>((set) => ({
   showBackToTopButton: false,
   selectedColors: {},
   selectedSizes: {},
+  showAllNewArrivals: false,
 
   handleOpenSidebar: () => set({ isSidebarOpen: true }),
   handleCloseSidebar: () => set({ isSidebarOpen: false }),
@@ -50,4 +54,7 @@ export const useUiStore = create<UiStore>((set) => ({
         [productId]: sizeIndex,
       },
     })),
+
+  toggleNewArrivals: () =>
+    set((state) => ({ showAllNewArrivals: !state.showAllNewArrivals })),
 }));

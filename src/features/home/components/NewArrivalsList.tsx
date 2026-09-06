@@ -1,6 +1,10 @@
 // Libraries;
 import { useQuery } from "@tanstack/react-query";
 
+// Zustand;
+import { useUiStore } from "@/stores/useUiStore";
+import { useShallow } from "zustand/shallow";
+
 // Services;
 import { getProducts } from "@/services/products";
 
@@ -24,6 +28,13 @@ import {
 } from "@/shared/animations";
 
 export default function NewArrivalsList() {
+  const { showAllNewArrivals, toggleNewArrivals } = useUiStore(
+    useShallow((state) => ({
+      showAllNewArrivals: state.showAllNewArrivals,
+      toggleNewArrivals: state.toggleNewArrivals,
+    })),
+  );
+
   const {
     data: newArrivals = [],
     isLoading,
@@ -32,6 +43,10 @@ export default function NewArrivalsList() {
     queryKey: ["products", "new-arrivals"],
     queryFn: () => getProducts("new-arrivals"),
   });
+
+  const visibleNewArrivals = showAllNewArrivals
+    ? newArrivals
+    : newArrivals.slice(0, 4);
 
   return (
     <Container>
@@ -53,13 +68,14 @@ export default function NewArrivalsList() {
         ) : (
           <main>
             <motion.div
+              key={showAllNewArrivals ? "all" : "initial"}
               variants={productCardContainerVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               className="hide-scrollbar flex snap-x snap-mandatory items-baseline justify-between gap-3 overflow-x-auto py-4"
             >
-              {newArrivals.slice(0, 4).map((product) => (
+              {visibleNewArrivals.map((product) => (
                 <motion.div
                   key={product.id}
                   variants={productCardVariants}
@@ -75,9 +91,10 @@ export default function NewArrivalsList() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
+              onClick={toggleNewArrivals}
               className="xs:w-50 mx-auto mt-1 block w-full cursor-pointer rounded-full border border-black/10 py-2 text-base"
             >
-              Veiw All
+              {showAllNewArrivals ? "View Less" : " Veiw All"}
             </motion.button>
           </main>
         )}
