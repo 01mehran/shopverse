@@ -28,8 +28,9 @@ export default function AddToCart({ variant, id }: addToCartProps) {
     >
       {/* Decrease Button */}
       <button
+        disabled={quantity === 0}
         onClick={() => decreaseItem(id)}
-        className="cursor-pointer text-black/80"
+        className="ease cursor-pointer text-black/80 transition-colors duration-200 disabled:cursor-not-allowed disabled:text-black/50"
       >
         <Minus />
       </button>
