@@ -1,11 +1,11 @@
 // React Router Dom;
 import { Link } from "react-router-dom";
 
+// Componnets;
+import Star from "./Star";
+
 // Types;
 import type { ProductCardProps } from "../types/types";
-
-// Static Images;
-import ratingStart from "@images/home/rating-start.png";
 
 export default function ProductCard({ product }: ProductCardProps) {
   return (
@@ -30,13 +30,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {/* Product Name  */}
           <p className="text-base font-bold md:text-xl">{product.name}</p>
 
-          {/* Product Rate */}
-          <img
-            src={ratingStart}
-            loading="lazy"
-            alt="rating-satar"
-            className="w-22 sm:w-32"
-          />
+          <Star />
 
           {/* Product Price */}
           <p className="text-xl font-bold sm:text-2xl">${product.price}</p>
