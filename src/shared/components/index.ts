@@ -12,3 +12,4 @@ export { default as Loading } from "./Loading";
 export { default as ErrorMessage } from "./ErrorMessage";
 export { default as ProductCardSkelton } from "./ProductCardSkelton";
 export { default as AddToCart } from "./AddToCart";
+export { default as Star } from "./Star";
