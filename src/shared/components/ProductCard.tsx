@@ -30,7 +30,24 @@ export default function ProductCard({ product }: ProductCardProps) {
           {/* Product Name  */}
           <p className="text-base font-bold md:text-xl">{product.name}</p>
 
-          <Star />
+          <div className="flex items-center gap-3">
+            <span className="flex items-center space-x-px">
+              {[1, 2, 3, 4, 5].map((rate) => {
+                if (product.rating >= rate) {
+                  return <Star key={rate} />;
+                }
+
+                if (product.rating >= rate - 0.5) {
+                  return <Star key={rate} half />;
+                }
+
+                return null;
+              })}
+            </span>
+            <span className="sm:text-md text-sm font-semibold">
+              {product.rating.toFixed(1)}
+            </span>
+          </div>
 
           {/* Product Price */}
           <p className="text-xl font-bold sm:text-2xl">${product.price}</p>

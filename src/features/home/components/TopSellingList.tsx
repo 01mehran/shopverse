@@ -40,7 +40,7 @@ export default function TopSellingList() {
     isLoading,
     error,
   } = useQuery({
-    queryKey: ["products, top-selling"],
+    queryKey: ["products", "top-selling"],
     queryFn: () => getProducts("top-selling"),
   });
 
