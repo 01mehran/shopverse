@@ -3,16 +3,13 @@ import { useCartStore } from "@/stores/cartStore";
 import { useShallow } from "zustand/shallow";
 
 // Components;
-import { AddToCart, Container } from "@/shared/components";
+import { AddToCart, Container, Star } from "@/shared/components";
 import ProductInfoColors from "./ProductInfoColors";
 import ProductInfoSizes from "./ProductInfoSizes";
 import ProductInfoImage from "./ProductInfoImage";
 
 // Motion Component;
 import { motion } from "motion/react";
-
-// Static Images
-import ratingStar from "@/assets/images/home/rating-start.png";
 
 // Types;
 import type { Product } from "@/shared/types/types";
@@ -59,12 +56,27 @@ export default function ProductInfo({ product }: props) {
                 {product.name}
               </motion.h1>
 
-              {/* Ratet */}
-              <img
-                src={ratingStar}
-                alt="rating star image"
-                className="w-40 object-cover"
-              />
+              <div className="flex items-center gap-3">
+                {/* Rating Stars */}
+                <span className="flex items-center space-x-px">
+                  {[1, 2, 3, 4, 5].map((rate) => {
+                    if (product.rating >= rate) {
+                      return <Star key={rate} />;
+                    }
+
+                    if (product.rating >= rate - 0.5) {
+                      return <Star key={rate} half />;
+                    }
+
+                    return null;
+                  })}
+                </span>
+
+                {/* Rate */}
+                <span className="sm:text-md text-sm font-semibold">
+                  {product.rating.toFixed(1)}
+                </span>
+              </div>
 
               {/* Off */}
               <div className="flex items-center gap-4 text-[32px] font-bold">

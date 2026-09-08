@@ -31,6 +31,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <p className="text-base font-bold md:text-xl">{product.name}</p>
 
           <div className="flex items-center gap-3">
+            {/* Rating Stars */}
             <span className="flex items-center space-x-px">
               {[1, 2, 3, 4, 5].map((rate) => {
                 if (product.rating >= rate) {
@@ -44,6 +45,8 @@ export default function ProductCard({ product }: ProductCardProps) {
                 return null;
               })}
             </span>
+
+            {/* Rate */}
             <span className="sm:text-md text-sm font-semibold">
               {product.rating.toFixed(1)}
             </span>
