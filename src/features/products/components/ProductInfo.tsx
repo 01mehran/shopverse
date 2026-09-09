@@ -13,6 +13,7 @@ import { motion } from "motion/react";
 
 // Types;
 import type { Product } from "@/shared/types/types";
+import { useUiStore } from "@/stores/useUiStore";
 
 export type props = {
   product: Product;
@@ -27,6 +28,16 @@ export default function ProductInfo({ product }: props) {
       cartItems: state.cartItems,
     })),
   );
+
+  const { selectedColors, selectedSizes } = useUiStore(
+    useShallow((state) => ({
+      selectedColors: state.selectedColors,
+      selectedSizes: state.selectedSizes,
+    })),
+  );
+
+  const selectedColorIndex = selectedColors[+product.id] ?? 0;
+  const selectedSizeIndex = selectedSizes[+product.id] ?? 0;
 
   const isInCart = cartItems.some((item) => item.id === +product.id);
 
@@ -113,7 +124,9 @@ export default function ProductInfo({ product }: props) {
 
               <button
                 disabled={isInCart}
-                onClick={() => addItem(+product.id)}
+                onClick={() =>
+                  addItem(+product.id, selectedColorIndex, selectedSizeIndex)
+                }
                 className={`${isInCart ? "pointer-events-none bg-black/60" : "bg-black"} ease col-span-6 cursor-pointer rounded-[62px] px-6 py-2 text-white transition-colors duration-300`}
               >
                 Add to Cart

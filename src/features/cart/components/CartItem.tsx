@@ -13,7 +13,7 @@ import { Trash2 } from "lucide-react";
 // Stores;
 import { useCartStore, type cartItem } from "@/stores/cartStore";
 
-export default function CartItem({ id }: cartItem) {
+export default function CartItem({ id, colorIndex, sizeIndex }: cartItem) {
   const removeItem = useCartStore((state) => state.removeItem);
 
   const { data, isLoading, error } = useQuery({
@@ -43,10 +43,17 @@ export default function CartItem({ id }: cartItem) {
             <div className="flex flex-col gap-px">
               <p className="text-base font-bold sm:text-xl">{data?.name}</p>
               <p className="text-sm font-normal">
-                Size: <span className="text-black/60">Large</span>
+                Size:{" "}
+                <span className="text-black/60">
+                  {data?.sizes?.[sizeIndex!]}
+                </span>
               </p>
               <p className="text-sm font-normal">
-                Color: <span className="text-black/60">White</span>
+                Color:{" "}
+                <span className="text-black/60">
+                  {" "}
+                  {data?.colors?.[colorIndex!]}
+                </span>
               </p>
             </div>
 

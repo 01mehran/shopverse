@@ -5,6 +5,8 @@ import { persist } from "zustand/middleware";
 export type cartItem = {
   id: number;
   quantity: number;
+  colorIndex?: number;
+  sizeIndex?: number;
 };
 
 type CartStore = {
@@ -12,7 +14,7 @@ type CartStore = {
 
   increaseItem: (id: number) => void;
   decreaseItem: (id: number) => void;
-  addItem: (id: number) => void;
+  addItem: (id: number, colorIndex: number, sizeIndex: number) => void;
   removeItem: (id: number) => void;
   clearCart: () => void;
 };
@@ -58,13 +60,21 @@ export const useCartStore = create<CartStore>()(
           };
         }),
 
-      addItem: (id) =>
+      addItem: (id, colorIndex, sizeIndex) =>
         set(({ cartItems }) => {
-          const productExist = cartItems.find((item) => item.id === id);
+          const productExist = cartItems.find(
+            (item) =>
+              item.id === id &&
+              item.colorIndex === colorIndex &&
+              item.sizeIndex === sizeIndex,
+          );
 
           if (!productExist) {
             return {
-              cartItems: [...cartItems, { id: id, quantity: 1 }],
+              cartItems: [
+                ...cartItems,
+                { id: id, quantity: 1, colorIndex, sizeIndex },
+              ],
             };
           }
 

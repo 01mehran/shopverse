@@ -7,7 +7,7 @@
       "rating": 4.5,
       "image": "/images/pic1.png",
       "description": "A stylish and comfortable t-shirt designed with subtle tape details for a modern everyday look.",
-      "colors": ["#000000", "#7ccf00", "#B1F8F2"],
+      "colors": ["black", "green", "lightblue"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "new-arrivals"
     },
@@ -19,7 +19,7 @@
       "rating": 4.0,
       "image": "/images/pic2.png",
       "description": "A classic pair of skinny fit jeans with a clean silhouette that works perfectly with everyday outfits.",
-      "colors": ["#1C2A3A", "#00b8db"],
+      "colors": ["darkgray", "blue"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "top-selling"
     },
@@ -31,7 +31,7 @@
       "rating": 5.0,
       "image": "/images/pic3.png",
       "description": "A timeless checked shirt made for effortless casual styling and comfortable everyday wear.",
-      "colors": ["#B22222", "#1C1C1C", "#f54a00"],
+      "colors": ["red", "black", "orange"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "new-arrivals"
     },
@@ -43,7 +43,7 @@
       "rating": 5.0,
       "image": "/images/pic4.png",
       "description": "A lightweight Sleeve striped shirt that adds a clean and refined touch to your casual wardrobe.",
-      "colors": ["#7ccf00", "#87CEEB"],
+      "colors": ["green", "lightblue"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "top-selling"
     },
@@ -55,7 +55,7 @@
       "rating": 4.0,
       "image": "/images/pic5.png",
       "description": "A lightweight vertical striped shirt that adds a clean and refined touch to your casual wardrobe.",
-      "colors": ["#000000", "#e12afb"],
+      "colors": ["black", "purple"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "new-arrivals"
     },
@@ -67,7 +67,7 @@
       "rating": 4.5,
       "image": "/images/pic6.png",
       "description": "A relaxed graphic t-shirt featuring a bold design that brings personality to any casual outfit.",
-      "colors": ["#f54a00", "#1C1C1C", "#e12afb"],
+      "colors": ["red", "black", "[purple]"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "top-selling"
     },
@@ -79,7 +79,7 @@
       "rating": 3.5,
       "image": "/images/pic7.png",
       "description": "Relaxed-fit Bermuda shorts designed for warm days with a comfortable silhouette and versatile style.",
-      "colors": ["#4169E1", "#708090"],
+      "colors": ["darkblue", "gray"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "new-arrivals"
     },
@@ -91,7 +91,7 @@
       "rating": 5.0,
       "image": "/images/pic8.png",
       "description": "Modern skinny jeans with a faded finish that gives your everyday outfits a stylish worn-in look.",
-      "colors": ["#87CEEB", "#000000", "#1E3A5F"],
+      "colors": ["lightblue", "black", "nevy"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "top-selling"
     },
@@ -103,7 +103,7 @@
       "rating": 4.5,
       "image": "/images/pic12.png",
       "description": "A smart casual polo shirt featuring contrasting trims and a comfortable regular fit.",
-      "colors": ["#000000", "#4B0082", "#87CEEB"],
+      "colors": ["black", "purple", "lightblue"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "you-might-like"
     },
@@ -115,7 +115,7 @@
       "rating": 3.5,
       "image": "/images/pic13.png",
       "description": "A contemporary graphic t-shirt with a subtle gradient design and relaxed everyday fit.",
-      "colors": ["#4B0082", "#1C1C1C"],
+      "colors": ["purple", "black"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "you-might-like"
     },
@@ -127,7 +127,7 @@
       "rating": 4.5,
       "image": "/images/pic14.png",
       "description": "A refined polo featuring classic tipping details for a timeless and polished appearance.",
-      "colors": ["#4169E1", "#1C1C1C"],
+      "colors": ["lightblue", "black"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "you-might-like"
     },
@@ -139,7 +139,7 @@
       "rating": 4.5,
       "image": "/images/pic15.png",
       "description": "A Black Striped T-shirt crafted for everyday comfort with a clean and versatile appearance.",
-      "colors": ["#8E8358", "#ADD8E6", "#155dfc"],
+      "colors": ["khaki", "lightblue", "blue"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "you-might-like"
     },
@@ -151,7 +151,7 @@
       "rating": 4.5,
       "image": "/images/pic10.png",
       "description": "A stylish and comfortable t-shirt designed with subtle tape details for a modern everyday look.",
-      "colors": ["#1C1C1C", "#2f0d68", "#a3004c"],
+      "colors": ["black", "purple", "red"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "new-arrivals"
     }

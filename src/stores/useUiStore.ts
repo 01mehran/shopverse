@@ -15,7 +15,7 @@ type UiStore = {
   selectedColors: Record<number, number>;
   selectColor: (productId: number, colorIndex: number) => void;
 
-  selectedSizes: Record<number, number | null>;
+  selectedSizes: Record<number, number>;
   selectSize: (productId: number, sizeIndex: number) => void;
 
   showAllNewArrivals: boolean;
