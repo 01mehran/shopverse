@@ -67,7 +67,7 @@
       "rating": 4.5,
       "image": "/images/pic6.png",
       "description": "A relaxed graphic t-shirt featuring a bold design that brings personality to any casual outfit.",
-      "colors": ["red", "black", "[purple]"],
+      "colors": ["red", "black", "purple"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "top-selling"
     },
@@ -91,7 +91,7 @@
       "rating": 5.0,
       "image": "/images/pic8.png",
       "description": "Modern skinny jeans with a faded finish that gives your everyday outfits a stylish worn-in look.",
-      "colors": ["lightblue", "black", "nevy"],
+      "colors": ["lightblue", "black", "navy"],
       "sizes": ["Small", "Medium", "Large", "X-Large"],
       "section": "top-selling"
     },
