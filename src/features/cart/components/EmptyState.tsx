@@ -14,10 +14,10 @@ export default function EmptyState() {
       className="flex flex-col items-center justify-center py-18 text-center text-sm text-black/50"
     >
       <article className="flex flex-col -space-y-1">
-        <p className="font-IntegralCF text-sm md:text-lg">
+        <p className="font-IntegralCF text-lg md:text-xl">
           Your cart is empty.
         </p>
-        <p className="font-IntegralCF text-sm md:text-lg">
+        <p className="font-IntegralCF text-lg md:text-xl">
           Add some products to your cart
         </p>
       </article>
