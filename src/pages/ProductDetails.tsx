@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 // Libraries;
 import { useQuery } from "@tanstack/react-query";
 
-// Services;
-import { api } from "@/services/api";
+// Supabse;
+import { supabse } from "@/lib/supabse-client";
 
 // Components;
 import { BreadCrumb, ErrorMessage, Loading } from "@/shared/components";
@@ -17,11 +17,21 @@ import {
 
 export default function ProductDetails() {
   const { id } = useParams();
+  const productId = Number(id);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["product", id],
     queryFn: async () => {
-      const { data } = await api.get(`products/${id}`);
+      const { data, error } = await supabse
+        .from("products")
+        .select("*")
+        .eq("id", productId)
+        .single();
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
       return data;
     },
   });
