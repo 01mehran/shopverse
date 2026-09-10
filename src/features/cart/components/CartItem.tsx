@@ -1,8 +1,8 @@
 // Libraries;
 import { useQuery } from "@tanstack/react-query";
 
-// Services;
-import { api } from "@/services/api";
+// Supabse;
+import { supabse } from "@/lib/supabse-client";
 
 // Components;
 import { AddToCart, ErrorMessage, Loading } from "@/shared/components";
@@ -19,8 +19,17 @@ export default function CartItem({ id, colorIndex, sizeIndex }: cartItem) {
   const { data, isLoading, error } = useQuery({
     queryKey: ["product", id],
     queryFn: async () => {
-      const response = await api.get(`/products/${id}`);
-      return response.data;
+      const { data, error } = await supabse
+        .from("products")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      return data;
     },
   });
 
