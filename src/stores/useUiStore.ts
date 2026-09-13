@@ -26,6 +26,9 @@ type UiStore = {
 
   showAllReviews: boolean;
   toggleReviews: () => void;
+
+  selectedQuantities: Record<number, number>;
+  setQuantity: (productId: number, quantity: number) => void;
 };
 
 export const useUiStore = create<UiStore>((set) => ({
@@ -38,6 +41,7 @@ export const useUiStore = create<UiStore>((set) => ({
   showAllNewArrivals: false,
   showAllTopSelling: false,
   showAllReviews: false,
+  selectedQuantities: {},
 
   handleOpenSidebar: () => set({ isSidebarOpen: true }),
   handleCloseSidebar: () => set({ isSidebarOpen: false }),
@@ -71,4 +75,12 @@ export const useUiStore = create<UiStore>((set) => ({
 
   toggleReviews: () =>
     set((state) => ({ showAllReviews: !state.showAllReviews })),
+
+  setQuantity: (productId, quantity) =>
+    set((state) => ({
+      selectedQuantities: {
+        ...state.selectedQuantities,
+        [productId]: quantity,
+      },
+    })),
 }));

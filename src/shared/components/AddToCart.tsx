@@ -9,18 +9,30 @@ import { AnimatePresence, motion } from "motion/react";
 
 // Icons;
 import { Minus, Plus } from "lucide-react";
+import { useUiStore } from "@/stores/useUiStore";
+import { useShallow } from "zustand/shallow";
 
-export default function AddToCart({ variant }: addToCartProps) {
+export default function AddToCart({ variant, productId }: addToCartProps) {
   const [direction, setDirection] = useState<1 | -1>(1);
-
   const productInfo = variant === "product-info";
+
+  const { selectedQuantities, setQuantity } = useUiStore(
+    useShallow((state) => ({
+      selectedQuantities: state.selectedQuantities,
+      setQuantity: state.setQuantity,
+    })),
+  );
+
+  const quantity = selectedQuantities[productId!] ?? 0;
 
   const handeIncrease = () => {
     setDirection(1);
+    setQuantity(productId!, quantity + 1);
   };
 
   const handeDecrease = () => {
     setDirection(-1);
+    setQuantity(productId!, Math.max(0, quantity - 1));
   };
 
   return (
@@ -29,6 +41,7 @@ export default function AddToCart({ variant }: addToCartProps) {
     >
       {/* Decrease Button */}
       <button
+        disabled={quantity === 0}
         onClick={handeDecrease}
         className="ease cursor-pointer text-black/80 transition-colors duration-200 disabled:cursor-not-allowed disabled:text-black/50"
       >
@@ -39,7 +52,7 @@ export default function AddToCart({ variant }: addToCartProps) {
       <div className="relative h-5 w-5 overflow-hidden">
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.span
-            key={0}
+            key={quantity}
             initial={{
               y: direction * 20,
               opacity: 0,
@@ -58,7 +71,7 @@ export default function AddToCart({ variant }: addToCartProps) {
             }}
             className="absolute inset-0 flex items-center justify-center font-medium"
           >
-            0
+            {quantity}
           </motion.span>
         </AnimatePresence>
       </div>

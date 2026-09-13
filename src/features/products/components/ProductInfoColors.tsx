@@ -34,7 +34,7 @@ export default function ProductInfoColors({ product }: props) {
 
         <div className="flex items-center gap-3">
           {product.colors.map((color, i) => (
-            <article
+            <button
               key={color}
               style={{ backgroundColor: color }}
               onClick={() => selectColor(+product.id, i)}
@@ -50,7 +50,7 @@ export default function ProductInfoColors({ product }: props) {
                   <Check size={16} />{" "}
                 </motion.span>
               )}
-            </article>
+            </button>
           ))}
         </div>
       </motion.section>
