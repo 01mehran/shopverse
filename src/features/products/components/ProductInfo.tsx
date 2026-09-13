@@ -1,7 +1,3 @@
-// Zustand;
-import { useCartStore } from "@/stores/cartStore";
-import { useShallow } from "zustand/shallow";
-
 // Components;
 import { AddToCart, Container, Star } from "@/shared/components";
 import ProductInfoColors from "./ProductInfoColors";
@@ -13,7 +9,6 @@ import { motion } from "motion/react";
 
 // Types;
 import type { Product } from "@/shared/types/types";
-import { useUiStore } from "@/stores/useUiStore";
 
 export type props = {
   product: Product;
@@ -21,25 +16,6 @@ export type props = {
 
 export default function ProductInfo({ product }: props) {
   if (!product) return null;
-
-  const { addItem, cartItems } = useCartStore(
-    useShallow((state) => ({
-      addItem: state.addItem,
-      cartItems: state.cartItems,
-    })),
-  );
-
-  const { selectedColors, selectedSizes } = useUiStore(
-    useShallow((state) => ({
-      selectedColors: state.selectedColors,
-      selectedSizes: state.selectedSizes,
-    })),
-  );
-
-  const selectedColorIndex = selectedColors[+product.id] ?? 0;
-  const selectedSizeIndex = selectedSizes[+product.id] ?? 0;
-
-  const isInCart = cartItems.some((item) => item.id === +product.id);
 
   return (
     <section>
@@ -120,14 +96,10 @@ export default function ProductInfo({ product }: props) {
               viewport={{ once: true }}
               className="grid grid-cols-9 items-center gap-2 pt-2"
             >
-              <AddToCart id={+product.id} variant="product-info" />
+              <AddToCart variant="product-info" />
 
               <button
-                disabled={isInCart}
-                onClick={() =>
-                  addItem(+product.id, selectedColorIndex, selectedSizeIndex)
-                }
-                className={`${isInCart ? "pointer-events-none bg-black/60" : "bg-black"} ease col-span-6 cursor-pointer rounded-[62px] px-6 py-2 text-white transition-colors duration-300`}
+                className={`ease col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white transition-colors duration-300`}
               >
                 Add to Cart
               </button>

@@ -1,11 +1,7 @@
 // React Hooks;
 import { useState } from "react";
 
-// Zustand;
-import { useShallow } from "zustand/shallow";
-
 // Types;
-import { useCartStore } from "@/stores/cartStore";
 import type { addToCartProps } from "../types/types";
 
 // Motion Components;
@@ -14,30 +10,17 @@ import { AnimatePresence, motion } from "motion/react";
 // Icons;
 import { Minus, Plus } from "lucide-react";
 
-export default function AddToCart({ variant, id }: addToCartProps) {
+export default function AddToCart({ variant }: addToCartProps) {
   const [direction, setDirection] = useState<1 | -1>(1);
 
   const productInfo = variant === "product-info";
 
-  const { increaseItem, decreaseItem } = useCartStore(
-    useShallow((state) => ({
-      increaseItem: state.increaseItem,
-      decreaseItem: state.decreaseItem,
-    })),
-  );
-
-  const quantity = useCartStore(
-    ({ cartItems }) => cartItems.find((item) => item.id === id)?.quantity ?? 0,
-  );
-
-  const handleIncrease = () => {
+  const handeIncrease = () => {
     setDirection(1);
-    increaseItem(id);
   };
 
-  const handleDecrease = () => {
+  const handeDecrease = () => {
     setDirection(-1);
-    decreaseItem(id);
   };
 
   return (
@@ -46,8 +29,7 @@ export default function AddToCart({ variant, id }: addToCartProps) {
     >
       {/* Decrease Button */}
       <button
-        disabled={quantity === 0}
-        onClick={handleDecrease}
+        onClick={handeDecrease}
         className="ease cursor-pointer text-black/80 transition-colors duration-200 disabled:cursor-not-allowed disabled:text-black/50"
       >
         <Minus />
@@ -57,7 +39,7 @@ export default function AddToCart({ variant, id }: addToCartProps) {
       <div className="relative h-5 w-5 overflow-hidden">
         <AnimatePresence mode="popLayout" initial={false}>
           <motion.span
-            key={quantity}
+            key={0}
             initial={{
               y: direction * 20,
               opacity: 0,
@@ -76,13 +58,13 @@ export default function AddToCart({ variant, id }: addToCartProps) {
             }}
             className="absolute inset-0 flex items-center justify-center font-medium"
           >
-            {quantity}
+            0
           </motion.span>
         </AnimatePresence>
       </div>
 
-      {/* Increase Button */}
-      <button onClick={handleIncrease} className="cursor-pointer text-black/80">
+      {/*  Button Increase*/}
+      <button onClick={handeIncrease} className="cursor-pointer text-black/80">
         <Plus />
       </button>
     </div>
