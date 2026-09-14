@@ -4,18 +4,47 @@ import ProductInfoColors from "./ProductInfoColors";
 import ProductInfoSizes from "./ProductInfoSizes";
 import ProductInfoImage from "./ProductInfoImage";
 
+// Zustand;
+import { useShallow } from "zustand/shallow";
+import { useUiStore } from "@/stores/useUiStore";
+import { useCartStore } from "@/stores/cartStore";
+
 // Motion Component;
 import { motion } from "motion/react";
 
 // Types;
 import type { Product } from "@/shared/types/types";
-
 export type props = {
   product: Product;
 };
 
 export default function ProductInfo({ product }: props) {
   if (!product) return null;
+
+  const { selectedColors, selectedSizes, selectedQuantities } = useUiStore(
+    useShallow((state) => ({
+      selectedColors: state.selectedColors,
+      selectedSizes: state.selectedSizes,
+      selectedQuantities: state.selectedQuantities,
+    })),
+  );
+
+  const { addProduct } = useCartStore(
+    useShallow((state) => ({ addProduct: state.addProduct })),
+  );
+
+  const selectedColorIndex = selectedColors[product.id] ?? 0;
+  const selectedSizeIndex = selectedSizes[product.id] ?? 0;
+  const selectedProductQuantity = selectedQuantities[product.id] ?? 0;
+
+  const handleAddToCart = () => {
+    addProduct({
+      id: product.id,
+      colorIndex: selectedColorIndex,
+      sizeIndex: selectedSizeIndex,
+      quantity: selectedProductQuantity,
+    });
+  };
 
   return (
     <section>
@@ -99,7 +128,9 @@ export default function ProductInfo({ product }: props) {
               <AddToCart variant="product-info" productId={product.id} />
 
               <button
-                className={`ease col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white transition-colors duration-300`}
+                disabled={selectedProductQuantity === 0}
+                onClick={handleAddToCart}
+                className={`ease col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white transition-colors duration-300 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-black/60`}
               >
                 Add to Cart
               </button>
