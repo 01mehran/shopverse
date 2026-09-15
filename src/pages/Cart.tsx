@@ -4,6 +4,9 @@ import OrderSummary from "@/features/cart/components/OrderSummary";
 import { BreadCrumb, Container } from "@/shared/components";
 import EmptyState from "@/features/cart/components/EmptyState";
 
+// Zustand;
+import { useCartStore } from "@/stores/cartStore";
+
 // Animations;
 import {
   productCardContainerVariants,
@@ -14,6 +17,8 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 
 export default function Cart() {
+  const cartitems = useCartStore((state) => state.cartItems);
+
   return (
     <section>
       <BreadCrumb items={[{ label: "Cart" }]} />
@@ -43,7 +48,7 @@ export default function Cart() {
           </motion.button>
         </header>
 
-        <motion.div
+        <motion.main
           variants={productCardContainerVariants}
           initial="hidden"
           whileInView="visible"
@@ -52,20 +57,23 @@ export default function Cart() {
         >
           <div className="border-bg-muted divide-bg-muted col-span-7 w-full divide-y-2 rounded-2xl border px-4 sm:px-6">
             <AnimatePresence>
-              <motion.div
-                layout
-                variants={productCardVariants}
-                exit={{ opacity: 0, scale: 0 }}
-                className="flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-xl py-3 md:py-5"
-              >
-                <CartItem />
-              </motion.div>
+              {cartitems?.map((cartItem) => (
+                <motion.div
+                  key={`${cartItem.id}-${cartItem.colorIndex}-${cartItem.sizeIndex}`}
+                  layout
+                  variants={productCardVariants}
+                  exit={{ opacity: 0, scale: 0 }}
+                  className="flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-xl py-3 md:py-5"
+                >
+                  <CartItem cartItem={cartItem} />
+                </motion.div>
+              ))}
             </AnimatePresence>
           </div>
 
           {/* Order Summary */}
           <OrderSummary />
-        </motion.div>
+        </motion.main>
 
         <EmptyState />
       </Container>
