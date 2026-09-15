@@ -3,10 +3,13 @@ import CartItem from "@/features/cart/components/CartItem";
 import OrderSummary from "@/features/cart/components/OrderSummary";
 import { BreadCrumb, Container } from "@/shared/components";
 import EmptyState from "@/features/cart/components/EmptyState";
+import ClearCartModal from "@/features/cart/components/ClearCartModal";
+
+// React Hooks;
+import { useState } from "react";
 
 // Zustand;
 import { useCartStore } from "@/stores/cartStore";
-import { useShallow } from "zustand/shallow";
 
 // Animations;
 import {
@@ -18,12 +21,9 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 
 export default function Cart() {
-  const { cartItems, clearCart } = useCartStore(
-    useShallow((state) => ({
-      cartItems: state.cartItems,
-      clearCart: state.clearCart,
-    })),
-  );
+  const [showClearConfirm, setShowClearConfirm] = useState<boolean>(false);
+
+  const cartItems = useCartStore((state) => state.cartItems);
 
   return (
     <section>
@@ -44,17 +44,23 @@ export default function Cart() {
                 your cart
               </motion.h1>
 
-              {/* Clear Cart Button */}
-              <motion.button
-                initial={{ y: 40, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-                onClick={clearCart}
-                className="text-md xs:min-w-34 hover:border-red hover:text-red hover:bg-red/5 ease xs:self-center mt-3 cursor-pointer rounded-xl border border-black/50 px-4 py-1 font-medium transition-colors duration-300 sm:px-8"
-              >
-                Clear Cart
-              </motion.button>
+              <div className="relative">
+                {/* Clear Cart Button */}
+                <motion.button
+                  initial={{ y: 40, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  onClick={() => setShowClearConfirm(true)}
+                  className="text-md xs:min-w-44 hover:border-red hover:text-red hover:bg-red/5 ease xs:self-center mt-3 w-full cursor-pointer rounded-xl border border-black/50 px-4 py-1 font-medium transition-colors duration-300 sm:px-8"
+                >
+                  Clear Cart
+                </motion.button>
+
+                {showClearConfirm && (
+                  <ClearCartModal setShowClearConfirm={setShowClearConfirm} />
+                )}
+              </div>
             </header>
 
             <motion.main
