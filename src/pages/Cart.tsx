@@ -6,6 +6,7 @@ import EmptyState from "@/features/cart/components/EmptyState";
 
 // Zustand;
 import { useCartStore } from "@/stores/cartStore";
+import { useShallow } from "zustand/shallow";
 
 // Animations;
 import {
@@ -17,7 +18,12 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 
 export default function Cart() {
-  const cartItems = useCartStore((state) => state.cartItems);
+  const { cartItems, clearCart } = useCartStore(
+    useShallow((state) => ({
+      cartItems: state.cartItems,
+      clearCart: state.clearCart,
+    })),
+  );
 
   return (
     <section>
@@ -44,6 +50,7 @@ export default function Cart() {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
+                onClick={clearCart}
                 className="text-md xs:min-w-34 hover:border-red hover:text-red hover:bg-red/5 ease xs:self-center mt-3 cursor-pointer rounded-xl border border-black/50 px-4 py-1 font-medium transition-colors duration-300 sm:px-8"
               >
                 Clear Cart
