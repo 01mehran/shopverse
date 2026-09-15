@@ -7,12 +7,19 @@ import type { addToCartProps } from "../types/types";
 // Motion Components;
 import { AnimatePresence, motion } from "motion/react";
 
-// Icons;
-import { Minus, Plus } from "lucide-react";
+// Zustand;
 import { useUiStore } from "@/stores/useUiStore";
 import { useShallow } from "zustand/shallow";
+import { useCartStore } from "@/stores/cartStore";
 
-export default function AddToCart({ variant, productId }: addToCartProps) {
+// Icons;
+import { Minus, Plus } from "lucide-react";
+
+export default function AddToCart({
+  variant,
+  productId,
+  cartItem,
+}: addToCartProps) {
   const [direction, setDirection] = useState<1 | -1>(1);
   const productInfo = variant === "product-info";
 
@@ -23,16 +30,45 @@ export default function AddToCart({ variant, productId }: addToCartProps) {
     })),
   );
 
-  const quantity = selectedQuantities[productId!] ?? 0;
+  const updateCartItemQuantity = useCartStore(
+    (state) => state.updateCartItemQuantity,
+  );
+
+  const quantity =
+    variant === "cart-item" && cartItem
+      ? cartItem.quantity
+      : (selectedQuantities[productId!] ?? 0);
 
   const handeIncrease = () => {
     setDirection(1);
-    setQuantity(productId!, quantity + 1);
+
+    if (variant === "product-info") {
+      setQuantity(productId!, quantity + 1);
+      return;
+    }
+
+    if (variant === "cart-item" && cartItem) {
+      updateCartItemQuantity({
+        ...cartItem,
+        quantity: cartItem.quantity + 1,
+      });
+    }
   };
 
   const handeDecrease = () => {
     setDirection(-1);
-    setQuantity(productId!, Math.max(0, quantity - 1));
+
+    if (variant === "product-info") {
+      setQuantity(productId!, Math.max(0, quantity - 1));
+      return;
+    }
+
+    if (variant === "cart-item" && cartItem) {
+      updateCartItemQuantity({
+        ...cartItem,
+        quantity: Math.max(0, quantity - 1),
+      });
+    }
   };
 
   return (

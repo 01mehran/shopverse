@@ -1,8 +1,13 @@
-// Components;
+// Supabse;
 import { supabse } from "@/lib/supabse-client";
-import { AddToCart, ErrorMessage, Loading } from "@/shared/components";
-import type { CartItem } from "@/stores/cartStore";
+
+// Tanstack Query;
 import { useQuery } from "@tanstack/react-query";
+
+import type { CartItem } from "@/stores/cartStore";
+
+// Components;
+import { AddToCart, ErrorMessage, Loading } from "@/shared/components";
 
 // icons;
 import { Trash2 } from "lucide-react";
@@ -61,7 +66,7 @@ export default function CartItem({ cartItem }: CartItemProps) {
           {/* AddToCart */}
           <div className="flex w-full justify-between">
             <p className="text-[24px] font-bold">{data?.price}</p>
-            <AddToCart variant="cart-item" />
+            <AddToCart variant="cart-item" cartItem={cartItem}/>
           </div>
         </div>
 

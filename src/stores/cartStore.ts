@@ -12,6 +12,7 @@ type CartStore = {
   cartItems: CartItem[];
 
   addProduct: (newProduct: CartItem) => void;
+  updateCartItemQuantity: (cartItem: CartItem) => void;
 };
 
 export const useCartStore = create<CartStore>()(
@@ -47,7 +48,19 @@ export const useCartStore = create<CartStore>()(
             cartItems: [...state.cartItems, newProduct],
           };
         }),
+
+      updateCartItemQuantity: (cartItem) =>
+        set((state) => ({
+          cartItems: state.cartItems.map((item) =>
+            item.id === cartItem.id &&
+            item.colorIndex === cartItem.colorIndex &&
+            item.sizeIndex === cartItem.sizeIndex
+              ? cartItem
+              : item,
+          ),
+        })),
     }),
+
     { name: "cart-storage" },
   ),
 );

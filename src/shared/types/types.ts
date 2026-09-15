@@ -1,3 +1,4 @@
+import type { CartItem } from "@/stores/cartStore";
 import type React from "react";
 
 export type ReactNode = {
@@ -56,5 +57,6 @@ export type BreadCrumbProps = {
 
 export type addToCartProps = {
   variant: "product-info" | "cart-item";
-  productId?: number; 
+  productId?: number;
+  cartItem?: CartItem;
 };
