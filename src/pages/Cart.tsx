@@ -17,7 +17,7 @@ import {
 import { AnimatePresence, motion } from "motion/react";
 
 export default function Cart() {
-  const cartitems = useCartStore((state) => state.cartItems);
+  const cartItems = useCartStore((state) => state.cartItems);
 
   return (
     <section>
@@ -55,27 +55,29 @@ export default function Cart() {
           viewport={{ once: true }}
           className="mt-4 grid grid-cols-1 items-start gap-4 pb-4 md:grid-cols-12"
         >
-          <div className="border-bg-muted divide-bg-muted col-span-7 w-full divide-y-2 rounded-2xl border px-4 sm:px-6">
-            <AnimatePresence>
-              {cartitems?.map((cartItem) => (
-                <motion.div
-                  key={`${cartItem.id}-${cartItem.colorIndex}-${cartItem.sizeIndex}`}
-                  layout
-                  variants={productCardVariants}
-                  exit={{ opacity: 0, scale: 0 }}
-                  className="flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-xl py-3 md:py-5"
-                >
-                  <CartItem cartItem={cartItem} />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
+          {cartItems.length > 0 && (
+            <div className="border-bg-muted divide-bg-muted col-span-7 w-full divide-y-2 rounded-2xl border px-4 sm:px-6">
+              <AnimatePresence>
+                {cartItems?.map((cartItem) => (
+                  <motion.div
+                    key={`${cartItem.id}-${cartItem.colorIndex}-${cartItem.sizeIndex}`}
+                    layout
+                    variants={productCardVariants}
+                    exit={{ opacity: 0, scale: 0 }}
+                    className="flex flex-col justify-between gap-8 divide-y divide-black/10 rounded-xl py-3 md:py-5"
+                  >
+                    <CartItem cartItem={cartItem} />
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+          )}
 
           {/* Order Summary */}
-          <OrderSummary />
+          {cartItems.length > 0 && <OrderSummary />}
         </motion.main>
 
-        <EmptyState />
+        {cartItems.length === 0 && <EmptyState />}
       </Container>
     </section>
   );
