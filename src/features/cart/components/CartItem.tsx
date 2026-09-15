@@ -5,7 +5,7 @@ import { supabse } from "@/lib/supabse-client";
 import { useQuery } from "@tanstack/react-query";
 
 // Types;
-import type { CartItem } from "@/stores/cartStore";
+import { useCartStore, type CartItem } from "@/stores/cartStore";
 
 // Components;
 import { AddToCart, ErrorMessage, Loading } from "@/shared/components";
@@ -18,6 +18,8 @@ type CartItemProps = {
 };
 
 export default function CartItem({ cartItem }: CartItemProps) {
+  const removeFromCart = useCartStore((state) => state.removeFromCart);
+
   const { data, error, isLoading } = useQuery({
     queryKey: ["cart-item", cartItem.id],
 
@@ -73,7 +75,10 @@ export default function CartItem({ cartItem }: CartItemProps) {
           </div>
 
           {/* Trash Icon */}
-          <button className="text-red hover:bg-red/15 ease absolute -top-1 -right-1 cursor-pointer rounded-full bg-white p-1.5 transition-colors duration-200">
+          <button
+            onClick={() => removeFromCart(cartItem)}
+            className="text-red hover:bg-red/15 ease absolute -top-1 -right-1 cursor-pointer rounded-full bg-white p-1.5 transition-colors duration-200"
+          >
             <Trash2 size={20} strokeWidth={3} />
           </button>
         </article>

@@ -13,6 +13,7 @@ type CartStore = {
 
   addProduct: (newProduct: CartItem) => void;
   updateCartItemQuantity: (cartItem: CartItem) => void;
+  removeFromCart: (cartItem: CartItem) => void;
 };
 
 export const useCartStore = create<CartStore>()(
@@ -51,12 +52,24 @@ export const useCartStore = create<CartStore>()(
 
       updateCartItemQuantity: (cartItem) =>
         set((state) => ({
-          cartItems: state.cartItems.map((item) =>
-            item.id === cartItem.id &&
-            item.colorIndex === cartItem.colorIndex &&
-            item.sizeIndex === cartItem.sizeIndex
+          cartItems: state.cartItems.map((product) =>
+            product.id === cartItem.id &&
+            product.colorIndex === cartItem.colorIndex &&
+            product.sizeIndex === cartItem.sizeIndex
               ? cartItem
-              : item,
+              : product,
+          ),
+        })),
+
+      removeFromCart: (cartItem) =>
+        set((state) => ({
+          cartItems: state.cartItems.filter(
+            (product) =>
+              !(
+                product.id === cartItem.id &&
+                product.colorIndex === cartItem.colorIndex &&
+                product.sizeIndex === cartItem.sizeIndex
+              ),
           ),
         })),
     }),
