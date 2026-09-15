@@ -30,8 +30,11 @@ export default function AddToCart({
     })),
   );
 
-  const updateCartItemQuantity = useCartStore(
-    (state) => state.updateCartItemQuantity,
+  const { updateCartItemQuantity, removeFromCart } = useCartStore(
+    useShallow((state) => ({
+      updateCartItemQuantity: state.updateCartItemQuantity,
+      removeFromCart: state.removeFromCart,
+    })),
   );
 
   const quantity =
@@ -64,6 +67,11 @@ export default function AddToCart({
     }
 
     if (variant === "cart-item" && cartItem) {
+      if (cartItem.quantity === 1) {
+        removeFromCart(cartItem);
+        return;
+      }
+
       updateCartItemQuantity({
         ...cartItem,
         quantity: Math.max(0, quantity - 1),
