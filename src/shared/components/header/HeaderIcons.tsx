@@ -9,9 +9,15 @@ import { motion, AnimatePresence } from "motion/react";
 
 // Icons;
 import { CircleUserRound, Search, ShoppingCart } from "lucide-react";
+import { useCartStore } from "@/stores/cartStore";
 
 export default function HeaderIcons() {
   const openSearch = useUiStore((state) => state.openSearch);
+  const cartItems = useCartStore((state) => state.cartItems);
+
+  const totalQuantity = cartItems.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
 
   return (
     <section className="flex items-baseline gap-2.5">
@@ -27,14 +33,16 @@ export default function HeaderIcons() {
 
           <AnimatePresence>
             {/* Totalquantity Badge */}
-            <motion.span
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 0 }}
-              className="absolute -top-2 -right-2 flex size-5 items-center justify-center rounded-full bg-black text-[10px] font-medium text-white"
-            >
-              0
-            </motion.span>
+            {totalQuantity && (
+              <motion.span
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0, opacity: 0 }}
+                className="absolute -top-2 -right-2 flex size-5 items-center justify-center rounded-full bg-black text-[10px] font-medium text-white"
+              >
+                {totalQuantity}
+              </motion.span>
+            )}
           </AnimatePresence>
         </button>
       </Link>
