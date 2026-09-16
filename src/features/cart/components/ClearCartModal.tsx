@@ -20,7 +20,7 @@ export default function ClearCartModal({
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.8, opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="xs:-left-46 xs:w-90 absolute top-14 left-0 z-20 w-full rounded-2xl bg-black/95 p-4 text-white/80"
+      className="xs:-left-46 xs:w-90 absolute top-14 left-0 z-20 w-full rounded-2xl bg-black/95 p-4 text-white/80 before:absolute before:-top-1 before:right-5 before:h-2 before:w-2 before:rotate-45 before:bg-black/95"
     >
       <p className="text-center text-base">
         Are you sure you want to clear your cart?
