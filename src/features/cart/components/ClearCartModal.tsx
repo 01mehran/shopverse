@@ -1,5 +1,10 @@
+// Zustand;
 import { useCartStore } from "@/stores/cartStore";
 
+// Motion Components;
+import { motion } from "motion/react";
+
+// Types;
 type ClearCartModalProps = {
   setShowClearConfirm: React.Dispatch<React.SetStateAction<boolean>>;
 };
@@ -10,7 +15,13 @@ export default function ClearCartModal({
   const clearCart = useCartStore((state) => state.clearCart);
 
   return (
-    <section className="xs:-left-46 xs:w-90 absolute top-14 left-0 z-20 w-full rounded-2xl bg-black/95 p-4 text-white/80">
+    <motion.section
+      initial={{ scale: 0.8, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.8, opacity: 0 }}
+      transition={{ duration: 0.3 }}
+      className="xs:-left-46 xs:w-90 absolute top-14 left-0 z-20 w-full rounded-2xl bg-black/95 p-4 text-white/80"
+    >
       <p className="text-center text-base">
         Are you sure you want to clear your cart?
       </p>
@@ -33,6 +44,6 @@ export default function ClearCartModal({
           Confirm
         </button>
       </div>
-    </section>
+    </motion.section>
   );
 }

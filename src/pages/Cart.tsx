@@ -47,19 +47,23 @@ export default function Cart() {
               <div className="relative">
                 {/* Clear Cart Button */}
                 <motion.button
+                  disabled={showClearConfirm}
                   initial={{ y: 40, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6 }}
                   viewport={{ once: true }}
                   onClick={() => setShowClearConfirm(true)}
-                  className="text-md xs:min-w-44 hover:border-red hover:text-red hover:bg-red/5 ease xs:self-center mt-3 w-full cursor-pointer rounded-xl border border-black/50 px-4 py-1 font-medium transition-colors duration-300 sm:px-8"
+                  className="text-md xs:min-w-44 hover:border-red hover:text-red hover:bg-red/5 ease xs:self-center mt-3 w-full cursor-pointer rounded-xl border border-black/50 px-4 py-1 font-medium transition-colors duration-300 disabled:pointer-events-none disabled:cursor-not-allowed sm:px-8"
                 >
                   Clear Cart
                 </motion.button>
 
-                {showClearConfirm && (
-                  <ClearCartModal setShowClearConfirm={setShowClearConfirm} />
-                )}
+                {/* Clear Cart Modal */}
+                <AnimatePresence>
+                  {showClearConfirm && (
+                    <ClearCartModal setShowClearConfirm={setShowClearConfirm} />
+                  )}
+                </AnimatePresence>
               </div>
             </header>
 
