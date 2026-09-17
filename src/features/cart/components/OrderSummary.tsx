@@ -1,3 +1,15 @@
+// Supabse;
+import { supabse } from "@/lib/supabse-client";
+
+// Components;
+import { Loading } from "@/shared/components";
+
+// Zustand;
+import { useCartStore } from "@/stores/cartStore";
+
+// Tanstack Query;
+import { useQuery } from "@tanstack/react-query";
+
 // Icons;
 import { ArrowRight } from "lucide-react";
 
@@ -5,6 +17,32 @@ import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function OrderSummary() {
+  const cartItems = useCartStore((state) => state.cartItems);
+  const ids = cartItems.map((item) => item.id);
+
+  const { data: products, isLoading } = useQuery({
+    queryKey: ["cart-products", ids],
+    queryFn: async () => {
+      const { data, error } = await supabse
+        .from("products")
+        .select("*")
+        .in("id", ids);
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      return data;
+    },
+    enabled: cartItems.length > 0,
+  });
+
+  const subtotal = cartItems.reduce((total, cartItem) => {
+    const product = products?.find((product) => product.id === cartItem.id);
+
+    return total + (product?.price ?? 0) * cartItem.quantity;
+  }, 0);
+
   return (
     <article className="border-bg-muted col-span-5 rounded-2xl border p-2.5 md:p-5">
       <motion.div
@@ -22,17 +60,19 @@ export default function OrderSummary() {
           <span className="text-base font-normal text-black/60 md:text-lg">
             Subtotal
           </span>
-          <span className="text-base font-bold md:text-lg">$565</span>
+          <span className="text-base font-bold md:text-lg">
+            {isLoading ? <Loading size={18} /> : `$${subtotal}`}
+          </span>
         </div>
 
         {/* Discount */}
         <div className="flex items-center justify-between">
           <span className="text-base font-normal text-black/60 md:text-lg">
-            Discount (-20%)
+            Discount (0%)
           </span>
-          <span className="text-red text-base font-bold md:text-lg">$-113</span>
+          <span className="text-red text-base font-bold md:text-lg">$0</span>
         </div>
-        
+
         {/* Delivery Fee */}
         <div className="flex items-center justify-between">
           <span className="text-base font-normal text-black/60 md:text-lg">
