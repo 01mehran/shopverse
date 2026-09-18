@@ -1,3 +1,9 @@
+// React Hooks;
+import { useState, type SubmitEventHandler } from "react";
+
+// Supabse;
+import { supabse } from "@/lib/supabse-client";
+
 // Motion Component;
 import { motion } from "motion/react";
 
@@ -5,6 +11,23 @@ import { motion } from "motion/react";
 import { Mail } from "lucide-react";
 
 export default function NewsletterSignup() {
+  const [email, setEmail] = useState<string>("");
+
+  const handleSubscribe: SubmitEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+
+    const { error } = await supabse
+      .from("newsletter_subscribers")
+      .insert({ email });
+
+    if (error) {
+      console.log(error.message);
+      return;
+    }
+
+    setEmail("");
+  };
+
   return (
     <section>
       <motion.section
@@ -20,18 +43,26 @@ export default function NewsletterSignup() {
           </p>
         </div>
 
-        <form className="relative flex w-full max-w-77 flex-col items-center gap-2">
+        <form
+          onSubmit={handleSubscribe}
+          className="relative flex w-full max-w-77 flex-col items-center gap-2"
+        >
           <input
-            type="text"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email address"
-            className="rounded-0 w-full rounded-full bg-white px-12 py-2 text-black outline-0 placeholder:text-black/60"
+            className="rounded-0 w-full rounded-full bg-white px-10 py-2 text-black outline-0 placeholder:text-black/60"
           />
 
           <span className="absolute top-2.5 left-3 text-gray-500">
             <Mail size={20} />
           </span>
 
-          <button className="w-full rounded-full bg-white py-2 font-medium text-black">
+          <button
+            type="submit"
+            className="w-full rounded-full bg-white py-2 font-medium text-black"
+          >
             Subscribe to Newsletter
           </button>
         </form>
