@@ -14,6 +14,7 @@ import { motion } from "motion/react";
 
 // Types;
 import type { Product } from "@/shared/types/types";
+import { ArrowRight, ShoppingCart } from "lucide-react";
 export type props = {
   product: Product;
 };
@@ -130,9 +131,15 @@ export default function ProductInfo({ product }: props) {
               <button
                 disabled={selectedProductQuantity === 0}
                 onClick={handleAddToCart}
-                className={`ease col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white transition-colors duration-300 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-black/60`}
+                className={`ease group relative col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white transition-colors duration-300 hover:bg-black/80 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-black/60`}
               >
                 Add to Cart
+                <span className="absolute top-1/2 right-44 hidden -translate-y-1/2 md:group-hover:block">
+                  <ArrowRight strokeWidth={2} width={16} />
+                </span>
+                <span className="absolute top-1/2 right-36 hidden -translate-y-1/2 md:group-hover:block">
+                  <ShoppingCart strokeWidth={2} width={16} />
+                </span>
               </button>
             </motion.div>
           </section>

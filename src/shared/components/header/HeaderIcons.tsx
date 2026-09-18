@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 
 // Stores;
 import { useUiStore } from "@/stores/useUiStore";
+import { useCartStore } from "@/stores/cartStore";
 
 // Motiom Components;
 import { motion, AnimatePresence } from "motion/react";
 
 // Icons;
 import { CircleUserRound, Search, ShoppingCart } from "lucide-react";
-import { useCartStore } from "@/stores/cartStore";
 
 export default function HeaderIcons() {
   const openSearch = useUiStore((state) => state.openSearch);
