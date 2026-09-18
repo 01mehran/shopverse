@@ -9,6 +9,9 @@ import { useShallow } from "zustand/shallow";
 import { useUiStore } from "@/stores/useUiStore";
 import { useCartStore } from "@/stores/cartStore";
 
+// React Hooks;
+import { useState } from "react";
+
 // Motion Component;
 import { motion } from "motion/react";
 
@@ -21,6 +24,8 @@ export type props = {
 
 export default function ProductInfo({ product }: props) {
   if (!product) return null;
+
+  const [isAdded, setIsAdded] = useState<boolean>(false);
 
   const { selectedColors, selectedSizes, selectedQuantities } = useUiStore(
     useShallow((state) => ({
@@ -45,6 +50,12 @@ export default function ProductInfo({ product }: props) {
       sizeIndex: selectedSizeIndex,
       quantity: selectedProductQuantity,
     });
+
+    setIsAdded(true);
+
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
   };
 
   return (
@@ -131,9 +142,9 @@ export default function ProductInfo({ product }: props) {
               <button
                 disabled={selectedProductQuantity === 0}
                 onClick={handleAddToCart}
-                className={`ease group relative col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white transition-colors duration-300 hover:bg-black/80 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-black/60`}
+                className={`ease relative ${isAdded ? "bg-green-700" : "group hover:bg-black/80"} col-span-6 cursor-pointer rounded-[62px] bg-black px-6 py-2 text-white transition-colors duration-300 disabled:pointer-events-none disabled:cursor-not-allowed disabled:bg-black/60`}
               >
-                Add to Cart
+                {isAdded ? "Added to Cart  ✓" : "Add to Cart"}
                 <span className="absolute top-1/2 right-44 hidden -translate-y-1/2 md:group-hover:block">
                   <ArrowRight strokeWidth={2} width={16} />
                 </span>
