@@ -8,7 +8,8 @@ import { useQuery } from "@tanstack/react-query";
 import { useCartStore, type CartItem } from "@/stores/cartStore";
 
 // Components;
-import { AddToCart, ErrorMessage, Loading } from "@/shared/components";
+import { AddToCart, ErrorMessage } from "@/shared/components";
+import CartItemSkelton from "./CartItemSkelton";
 
 // icons;
 import { Trash2 } from "lucide-react";
@@ -43,7 +44,7 @@ export default function CartItem({ cartItem }: CartItemProps) {
 
   return (
     <section>
-      {isLoading && <Loading />}
+      {isLoading && <CartItemSkelton />}
       {error && <ErrorMessage error={error} />}
 
       {!isLoading && !error && (
