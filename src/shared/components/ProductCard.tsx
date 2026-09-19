@@ -12,9 +12,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     <section>
       <Link
         to={`/product-details/${product.id}`}
-        onClick={() => {
-          scrollTo({ top: 0, behavior: "smooth" });
-        }}
+        onClick={() => scrollTo({ top: 0, behavior: "smooth" })}
       >
         <article className="xs:min-w-54 min-w-45 space-y-1 rounded-xl md:min-w-72">
           {/* Product Image */}

@@ -13,6 +13,7 @@ import { useUiStore } from "@/stores/useUiStore";
 
 // Icons;
 import { Kanban } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const handleOpenSidebar = useUiStore((state) => state.handleOpenSidebar);
@@ -40,10 +41,15 @@ export default function Header() {
               <Kanban strokeWidth={2.5} size={24} />
             </button>
 
-            {/* Title */}
-            <h1 className="font-IntegralCF text-[25px] font-bold md:text-[32px]">
-              SHOP.CO
-            </h1>
+            {/* Title */}ل
+            <Link
+              to="/"
+              onClick={() => scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+            >
+              <h1 className="font-IntegralCF text-[25px] font-bold md:text-[32px]">
+                SHOP.CO
+              </h1>
+            </Link>
           </div>
 
           <HeaderNavigation variant="desktop" />
