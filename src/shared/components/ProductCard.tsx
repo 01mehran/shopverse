@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 
 // Componnets;
-import Star from "./Star";
+import RatingStars from "./RatingStars";
 
 // Types;
 import type { ProductCardProps } from "../types/types";
@@ -32,19 +32,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
           <div className="flex items-center gap-3">
             {/* Rating Stars */}
-            <span className="flex items-center space-x-px">
-              {[1, 2, 3, 4, 5].map((rate) => {
-                if (product.rating >= rate) {
-                  return <Star key={rate} />;
-                }
-
-                if (product.rating >= rate - 0.5) {
-                  return <Star key={rate} half />;
-                }
-
-                return null;
-              })}
-            </span>
+            <RatingStars rating={product?.rating} />
 
             {/* Rate */}
             <span className="sm:text-md text-sm font-semibold">

@@ -1,5 +1,5 @@
 // Components;
-import { AddToCart, Container, Star } from "@/shared/components";
+import { AddToCart, Container, RatingStars } from "@/shared/components";
 import ProductInfoColors from "./ProductInfoColors";
 import ProductInfoSizes from "./ProductInfoSizes";
 import ProductInfoImage from "./ProductInfoImage";
@@ -17,10 +17,12 @@ import { motion } from "motion/react";
 
 // Types;
 import type { Product } from "@/shared/types/types";
-import { ArrowRight, ShoppingCart } from "lucide-react";
 export type props = {
   product: Product;
 };
+
+// Icons;
+import { ArrowRight, ShoppingCart } from "lucide-react";
 
 export default function ProductInfo({ product }: props) {
   if (!product) return null;
@@ -86,19 +88,7 @@ export default function ProductInfo({ product }: props) {
 
               <div className="flex items-center gap-3">
                 {/* Rating Stars */}
-                <span className="flex items-center space-x-px">
-                  {[1, 2, 3, 4, 5].map((rate) => {
-                    if (product.rating >= rate) {
-                      return <Star key={rate} />;
-                    }
-
-                    if (product.rating >= rate - 0.5) {
-                      return <Star key={rate} half />;
-                    }
-
-                    return null;
-                  })}
-                </span>
+                <RatingStars rating={product?.rating} />
 
                 {/* Rate */}
                 <span className="sm:text-md text-sm font-semibold">
