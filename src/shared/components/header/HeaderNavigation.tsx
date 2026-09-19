@@ -7,9 +7,6 @@ import { useUiStore } from "@/stores/useUiStore";
 // Types;
 import type { VariantProps } from "@/shared/types/types";
 
-// Icons;
-import { ChevronDown } from "lucide-react";
-
 export default function HeaderNavigation({
   variant = "desktop",
 }: VariantProps) {
@@ -17,7 +14,7 @@ export default function HeaderNavigation({
   const handleCloseSidebar = useUiStore((state) => state.handleCloseSidebar);
 
   const links = [
-    { title: "Shop", href: "/#hero" },
+    { title: "Home", href: "/#hero" },
     { title: "On Sale", href: "/#top-selling" },
     { title: "New Arrivals", href: "/#new-arrivals" },
     { title: "Brands", href: "/#brands" },
@@ -42,12 +39,6 @@ export default function HeaderNavigation({
           >
             <Link to={link.href} className="flex items-center gap-px">
               {link.title}
-
-              {link.title === "Shop" && (
-                <span>
-                  <ChevronDown size={18} />
-                </span>
-              )}
             </Link>
           </li>
         ))}
