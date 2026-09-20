@@ -95,3 +95,12 @@ npm run dev
 ```
 
 > The application will be available at the local development URL provided by Vite.
+
+## Author
+
+**Mehran**
+
+Frontend Developer focused on building user-friendly web applications.
+
+- GitHub: [01mehran](https://github.com/01mehran)
+- LinkedIn: [mehrandev7](https://www.linkedin.com/in/mehrandev7)
