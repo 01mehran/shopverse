@@ -1,8 +1,15 @@
 # ShopVerse 👖👕
 
-ShopVerse is a modern e-commerce web application for browsing and purchasing fashion products.
-
+ShopVerse is a e-commerce web application for browsing and purchasing fashion products.
 The project is built with React and TypeScript, with a focus on reusable components, clean state management, and a smooth shopping experience.
+
+## Preview
+
+![home preview](/public/project-screenshots/home-preview.png)
+![home product details](/public/project-screenshots/details-preview.png)
+![home cart preview](/public/project-screenshots/cart-preview.png)
+
+#### [View ShopVerse Live Demo](https://shopverse-bice-six.vercel.app/)
 
 ## Features
 
