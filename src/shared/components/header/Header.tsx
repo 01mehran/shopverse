@@ -41,7 +41,7 @@ export default function Header() {
               <Kanban strokeWidth={2.5} size={24} />
             </button>
 
-            {/* Title */}ل
+            {/* Title */}
             <Link
               to="/"
               onClick={() => scrollTo({ top: 0, left: 0, behavior: "smooth" })}
