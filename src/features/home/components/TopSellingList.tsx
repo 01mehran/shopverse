@@ -24,7 +24,6 @@ import {
   fadeUpVariant,
   productCardContainerVariants,
   productCardVariants,
-  fadeLeftVariant,
 } from "@/shared/animations";
 
 export default function TopSellingList() {
@@ -88,7 +87,7 @@ export default function TopSellingList() {
             </motion.div>
 
             <motion.button
-              variants={fadeLeftVariant}
+              variants={fadeUpVariant}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}

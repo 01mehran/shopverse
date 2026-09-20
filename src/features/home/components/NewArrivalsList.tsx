@@ -24,7 +24,6 @@ import {
   fadeUpVariant,
   productCardContainerVariants,
   productCardVariants,
-  fadeLeftVariant,
 } from "@/shared/animations";
 
 export default function NewArrivalsList() {
@@ -87,7 +86,7 @@ export default function NewArrivalsList() {
             </motion.div>
 
             <motion.button
-              variants={fadeLeftVariant}
+              variants={fadeUpVariant}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
