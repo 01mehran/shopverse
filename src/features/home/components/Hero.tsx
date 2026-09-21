@@ -37,15 +37,17 @@ export default function Hero() {
                 cater to your sense of style.
               </motion.p>
 
-              <motion.button
-                initial={{ y: 40, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-                viewport={{ once: true }}
-                className="mt-8 w-full cursor-pointer rounded-full bg-black py-3.5 text-base font-medium text-white hover:bg-black/90 focus:ring-2 focus:ring-white lg:w-52"
-              >
-                Shop now
-              </motion.button>
+              <a href="/#top-selling">
+                <motion.button
+                  initial={{ y: 40, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.3, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="mt-8 w-full cursor-pointer rounded-full bg-black py-3.5 text-base font-medium text-white hover:bg-black/90 focus:ring-2 focus:ring-white lg:w-52"
+                >
+                  Shop now
+                </motion.button>
+              </a>
             </div>
 
             {/* Stats */}
