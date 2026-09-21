@@ -2,10 +2,10 @@
 import { motion } from "motion/react";
 
 //Static Images;
-import laptapHeroImage from "@images/home/laptap-hero-imagee.png";
-import mobileHeroImage from "@images/home/mobile-hero-image.png";
-import smallStar from "@images/home/small-star.png";
-import bigStar from "@images/home/big-star.png";
+import laptapHeroImage from "@images/home/laptap-hero-imagee.webp";
+import mobileHeroImage from "@images/home/mobile-hero-image.webp";
+import smallStar from "@images/home/small-star.webp";
+import bigStar from "@images/home/big-star.webp";
 
 export default function HeroImages() {
   return (
@@ -29,7 +29,7 @@ export default function HeroImages() {
         src={mobileHeroImage}
         alt="Fashion models wearing modern clothes"
         className="h-full w-full object-contain md:hidden"
-        loading="lazy"
+        fetchPriority="high"
       />
 
       {/* Small Star */}

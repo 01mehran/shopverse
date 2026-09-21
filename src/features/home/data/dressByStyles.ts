@@ -1,8 +1,8 @@
 // Static Images;
-import dressStyle1 from "@images/home/dress-style-1.png";
-import dressStyle2 from "@images/home/dress-style-2.png";
-import dressStyle3 from "@images/home/dress-style-3.png";
-import dressStyle4 from "@images/home/dress-style-4.png";
+import dressStyle1 from "@images/home/dress-style-1.webp";
+import dressStyle2 from "@images/home/dress-style-2.webp";
+import dressStyle3 from "@images/home/dress-style-3.webp";
+import dressStyle4 from "@images/home/dress-style-4.webp";
 
 export const BrowseByDressStyles = [
   {
