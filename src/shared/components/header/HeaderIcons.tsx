@@ -28,22 +28,26 @@ export default function HeaderIcons() {
           scrollTo({ left: 0, top: 0, behavior: "smooth" });
         }}
       >
-        <button className="relative cursor-pointer focus-within:border-0 hover:text-black/80">
+        <button className="relative cursor-pointer hover:text-black/80">
           <ShoppingCart strokeWidth={2.5} />
 
-          <AnimatePresence>
-            {/* Totalquantity Badge */}
-            {totalQuantity && (
-              <motion.span
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0, opacity: 0 }}
-                className="absolute -top-2 -right-2 flex size-5 items-center justify-center rounded-full bg-black text-[10px] font-medium text-white"
-              >
-                {totalQuantity}
-              </motion.span>
-            )}
-          </AnimatePresence>
+          {/* Cart Badge */}
+          {totalQuantity > 0 && (
+            <span className="absolute -top-2 -right-2 flex size-5 items-center justify-center overflow-hidden rounded-full bg-black text-[10px] font-medium text-white">
+              <AnimatePresence mode="popLayout">
+                <motion.span
+                  key={totalQuantity}
+                  initial={{ y: -10, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  exit={{ y: 10, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute"
+                >
+                  {totalQuantity}
+                </motion.span>
+              </AnimatePresence>
+            </span>
+          )}
         </button>
       </Link>
 
