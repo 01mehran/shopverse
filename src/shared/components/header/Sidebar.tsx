@@ -15,6 +15,8 @@ import { useUiStore } from "@/stores/useUiStore";
 
 // Zustand;
 import { useShallow } from "zustand/shallow";
+import { footerSocialLogos } from "../footer/data/footerSocialLogos";
+import FooterLogosBox from "../footer/FooterlogosBox";
 
 export default function Sidebar() {
   const { isSidebarOpen, handleCloseSidebar } = useUiStore(
@@ -71,7 +73,7 @@ export default function Sidebar() {
               duration: 0.35,
               ease: "easeOut",
             }}
-            className="bg-bg-muted/85 fixed top-0 left-0 z-50 h-screen w-[80vw] max-w-100 rounded-r-2xl xl:hidden"
+            className="bg-bg-muted/85 fixed top-0 left-0 z-50 flex h-screen w-[80vw] max-w-100 flex-col justify-between rounded-r-2xl px-8 pt-16 pb-8 xl:hidden"
           >
             <button
               onClick={handleCloseSidebar}
@@ -81,6 +83,19 @@ export default function Sidebar() {
             </button>
 
             <HeaderNavigation variant="mobile" />
+
+            <div className="flex items-center gap-4">
+              {footerSocialLogos.map((logos) => (
+                <FooterLogosBox
+                  alt={logos.alt}
+                  imageUrl={logos.imageUrl}
+                  href={logos.href}
+                  key={logos.alt}
+                  className="xs:w-8 flex aspect-square w-10 items-center justify-center border border-black/15"
+                  borderRadius="50%"
+                />
+              ))}
+            </div>
           </motion.aside>
         </>
       )}

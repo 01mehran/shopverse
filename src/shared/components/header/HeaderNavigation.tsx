@@ -21,11 +21,11 @@ export default function HeaderNavigation({
   ];
 
   return (
-    <nav className={isMobile ? "mt-16" : "hidden xl:block"}>
+    <nav className={isMobile ? "mt-0" : "hidden xl:block"}>
       <ul
         className={
           isMobile
-            ? "flex flex-col items-start gap-5 px-10"
+            ? "flex flex-col items-start gap-5"
             : "flex items-center gap-4"
         }
       >
