@@ -36,7 +36,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={handleOpenSidebar}
-              className={`blcok mt-1 -rotate-90 cursor-pointer border-0 outline-0 xl:hidden`}
+              className={`blcok -translate-y-px -rotate-90 cursor-pointer border-0 outline-0 xl:hidden`}
             >
               <Kanban strokeWidth={2.5} size={24} />
             </button>
@@ -46,7 +46,7 @@ export default function Header() {
               to="/"
               onClick={() => scrollTo({ top: 0, left: 0, behavior: "smooth" })}
             >
-              <h1 className="font-IntegralCF text-[25px] font-bold md:text-[32px]">
+              <h1 className="font-IntegralCF -translate-y-1 text-[25px] font-bold md:text-[30px]">
                 SHOP.CO
               </h1>
             </Link>
