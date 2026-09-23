@@ -16,7 +16,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       >
         <article className="xs:min-w-54 min-w-45 space-y-1 rounded-xl md:min-w-72">
           {/* Product Image */}
-          <div className="bg-bg-muted mb-2 flex items-center justify-center rounded-xl">
+          <div className="bg-bg-muted mb-2 flex items-center justify-center rounded-xl transition-all duration-300 hover:rotate-2">
             <img
               src={product.image}
               alt={product.name}
